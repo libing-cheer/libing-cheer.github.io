@@ -1,0 +1,1477 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="ES6之 let 和 const 命令, 24K博客">
+    <meta name="description" content="ES6 之 let 和 const 命令
+1、let 命令
+1.1、基本用法ES6 新增了let命令，用来声明变量。它的用法类似于var，但是所声明的变量，只在let命令所在的代码块内有效。
+{
+  let a = 10;
+  var b ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>ES6之 let 和 const 命令 | 24K博客</title>
+    <link rel="icon" type="image/png" href="/medias/海星.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/海星.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">24K博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/海星.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">24K博客</div>
+        <div class="logo-desc">
+            
+            安安静静的做一个分享技术，分享生活的咸鱼
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/libing-cheer/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/libing-cheer/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/34.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        ES6之 let 和 const 命令
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 220px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ES6/" target="_blank">
+                                <span class="chip bg-color">ES6</span>
+                            </a>
+                        
+                            <a href="/tags/let/" target="_blank">
+                                <span class="chip bg-color">let</span>
+                            </a>
+                        
+                            <a href="/tags/const/" target="_blank">
+                                <span class="chip bg-color">const</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                前端
+                            </a>
+                        
+                            <a href="/categories/前端/ES6/" class="post-category" target="_blank">
+                                ES6
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-08-30
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        5.2k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        19 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="ES6-之-let-和-const-命令"><a href="#ES6-之-let-和-const-命令" class="headerlink" title="ES6 之 let 和 const 命令"></a>ES6 之 let 和 const 命令</h2><hr>
+<h3 id="1、let-命令"><a href="#1、let-命令" class="headerlink" title="1、let 命令"></a>1、let 命令</h3><hr>
+<h4 id="1-1、基本用法"><a href="#1-1、基本用法" class="headerlink" title="1.1、基本用法"></a>1.1、基本用法</h4><p>ES6 新增了<code>let</code>命令，用来声明变量。它的用法类似于<code>var</code>，但是所声明的变量，只在<code>let</code>命令所在的代码块内有效。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
+<span class="token punctuation">}</span>
+
+a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught ReferenceError: a is not defined</span>
+b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+</code></pre>
+<p>上面代码在代码块之中，分别用<code>let</code>和<code>var</code>声明了两个变量。然后在代码块之外调用这两个变量，结果<code>let</code>声明的变量报错，<code>var</code>声明的变量返回了正确的值。这表明，<code>let</code>声明的变量只在它所在的代码块内生效。</p>
+<p>用<code>for</code>循环的计数器，就很适合使用<code></code>let`命令。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: i is not defined</span>
+</code></pre>
+<p>上面 👆 代码中，计数器<code>i</code>只在<code>for</code>循环体内有效，在循环体外引用就会报错。</p>
+<p>下面 👇 的代码如果使用<code>var</code>，最后输出的是<code>10</code>。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+a<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 10</span>
+</code></pre>
+<p>上面 👆 代码中，变量<code>i</code>是<code>var</code>声明的，在全局范围内都有效，所以全局只有一个变量<code>i</code>。每一次循环，变量<code>i</code>的值都会发生改变，而循环内被赋给数组<code>a</code>的函数内部的<code>console.log(i)</code>，里面的<code>i</code>指向的就是全局的<code>i</code>。也就是说，所有数组<code>a</code>的里面成员的<code>i</code>，指向的都是同一个<code>i</code>，导致运行时输出的是最后一轮的<code>i</code>的值，也就是<code>10</code>。</p>
+<p>如果使用<code>let</code>，声明的变量仅在块级作用域内有效，最后输出的是<code>6</code>。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+a<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 6</span>
+</code></pre>
+<p>上面 👆 代码中，变量<code>i</code>是<code>let</code>声明的，当前的<code>i</code>只在本轮循环内有效，所以每一次循环的<code>i</code>其实都是一个新的变量所以左后输出的是<code>6</code>。你可能会问，如果每一轮循环的变量<code>i</code>都是重新声明的，那它怎么知道上一轮循环的值，从而计算出本轮循环的值？这是因为<code>Javascript</code>引擎内部会记住上一轮循环的值，初始化本轮的变量<code>i</code>时，就在上一轮循环的基础上进行计算。</p>
+<p>另外，<code>for</code>循环还有一个特别之处，就是设置循环变量的那部分是一个父作用域，而循环体内部是一个单独的子作用域。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// abc</span>
+<span class="token comment" spellcheck="true">// abc</span>
+<span class="token comment" spellcheck="true">// abc</span>
+</code></pre>
+<p>上面 👆 代码正确运行，输出了<code>3</code>次<code>abc</code>。这表明函数内部的变量<code>i</code>与循环变量<code>i</code>不在同一个作用域，有各自单独的作用域。</p>
+<hr>
+<h4 id="1-2、不存在变量提升"><a href="#1-2、不存在变量提升" class="headerlink" title="1.2、不存在变量提升"></a>1.2、不存在变量提升</h4><p>使用<code>var</code>命令会发生<code>变量提升</code>现象，即变量可以在声明之前使用，值为<code>undefined</code>。这种现象多多少少是有些奇葩的，按照一般的逻辑，变量应该在语句声明之后才可以使用。</p>
+<p>为了纠正这种现象，<code>let</code>命令改变的了语法行为，它所声明的变量一定要在声明后使用，否则报错。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 使用 var 的情况</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
+<span class="token keyword">var</span> foo <span class="token operator">=</span> <span class="token string">'foo'</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 使用 let 的情况</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bar<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: bar is not defined</span>
+<span class="token keyword">let</span> bar <span class="token operator">=</span> <span class="token string">'bar'</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面 👆 代码中，变量<code>foo</code>用<code>var</code>声明，会发生变量提升，即脚本开始运行时，变量<code>foo</code>已经存在了，但是没有值，所以会输出<code>undefined</code>。变量<code>bar</code>用<code>let</code>声明，不会发生变量提升。这表明在声明它之前变量<code>bar</code>是不存在的，这时如果用到它，就会抛出一个错误。</p>
+<hr>
+<h4 id="1-3、暂时性死区"><a href="#1-3、暂时性死区" class="headerlink" title="1.3、暂时性死区"></a>1.3、暂时性死区</h4><p>只要块级作用域内存在<code>let</code>命令，它所声明的变量就绑定（binding）这个区域，不再受外部的影响。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> temp <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  temp <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: Cannot access 'tmp' before initialization</span>
+  <span class="token keyword">let</span> temp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面代码中，存在全局变量<code>temp</code>，但是块级作用域内<code>let</code>又声明了一个变量<code>temp</code>，导致后者绑定这个块级作用域，所以在<code>let</code>声明变量前，对<code>temp</code>赋值会报错。</p>
+<p><code>ES6</code>明确规定，如果区块中存在<code>let</code>和<code>const</code>命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。总之，在代码块内，使用<code>let</code>命令声明变量之前，改变量都是不可用的。这在语法上，成为”暂时性死区”（temporal dead zone，简称 TDZ）。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// TDZ 开始</span>
+  temp <span class="token operator">=</span> <span class="token string">'abc'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError</span>
+
+  <span class="token keyword">let</span> temp<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TDZ 结束</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
+
+  temp <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 123</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面 👆 代码中，在<code>let</code>命令声明变量<code>temp</code>之前，都属于变量<code>temp</code>的”死区”。<br>“暂时性死区”意味着<code>typeof</code>不再是一个百分之百安全的操作。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">typeof</span> x<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError</span>
+<span class="token keyword">let</span> x<span class="token punctuation">;</span>
+</code></pre>
+<p>声明代码中，变量<code>x</code>使用<code>let</code>命令声明，所以在声明之前，都属于<code>x</code>的死区，只要用到改变量就会报错。因此<code>typeof</code>就会抛出一个<code>ReferenceError</code>。</p>
+<p>作为比较，如果一个变量根本没有被声明，使用<code>typeof</code>反而不会报错。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">typeof</span> undeclared_variable<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
+</code></pre>
+<p>上面 👆 代码中，<code>undeclared_variable</code>是一个不存在的变量名，结果返回”<code>undefined</code>“。所以，在没有<code>let</code>之前，<code>typeof</code>运算符是百分之百安全的，永远不会报错。现在这一点不成立了。这样的设计是为了让大家养成良好的编程习惯，变量一定要在声明之后使用，否则就报错。</p>
+<p>有些”死区”比较隐蔽，不太容易发现。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">bar</span><span class="token punctuation">(</span>x <span class="token operator">=</span> y<span class="token punctuation">,</span> y <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">bar</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: Cannot access 'y' before initialization</span>
+</code></pre>
+<p>另外，下面 👇 的代码也会报错，与<code>var</code>的行为不同。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 不报错</span>
+<span class="token keyword">var</span> x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 报错 ReferenceError：x is not defined</span>
+<span class="token keyword">let</span> x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+</code></pre>
+<p>上面 👆 代码报错，是因为存在暂时性死区。使用<code>let</code>声明变量时，只要变量还没有在声明完成前使用，就会报错。上面这行就属于这个情况，在变量<code>x</code>的声明语句还没有执行完成之前，就去取<code>x</code>的值，导致报错”<code>x 未定义</code>“。</p>
+<p>在<code>ES6</code>中，规定暂时性死区和<code>let</code>、<code>const</code>语句不出现变量提升，主要是为了减少运行时错误，防止变量在声明前就使用这个变量，从而导致意料之外的行为。这样的错误在<code>ES5</code>是很常见的，现在有了这种规定，避免此类错误就很容易了。</p>
+<p>总之，暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用改变量。</p>
+<hr>
+<h4 id="1-4、不允许重复声明"><a href="#1-4、不允许重复声明" class="headerlink" title="1.4、不允许重复声明"></a>1.4、不允许重复声明</h4><p>命令<code>let</code>不允许在相同作用域内，重复声明同一个变量。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 报错</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// SyntaxError: Identifier 'a' has already been declared</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 报错</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// SyntaxError: Identifier 'a' has already been declared</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>因此，不能再函数内部重新声明参数。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 报错</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> arg<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// SyntaxError：Identifier 'arg' has already been declared</span>
+
+<span class="token comment" spellcheck="true">// 不报错</span>
+<span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span>arg<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> arg<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h3 id="2、块级作用域"><a href="#2、块级作用域" class="headerlink" title="2、块级作用域"></a>2、块级作用域</h3><hr>
+<h4 id="2-1、为什么需要块级作用域"><a href="#2-1、为什么需要块级作用域" class="headerlink" title="2.1、为什么需要块级作用域"></a>2.1、为什么需要块级作用域</h4><p>在<code>ES5</code>中，只有全局作用域和函数作用域，没有块级作用域，这会带来很多不合理的场景。<br>第一种场景，内层变量可能会覆盖外部变量。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> temp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> temp <span class="token operator">=</span> <span class="token string">'hello world'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
+</code></pre>
+<p>上面 👆 代码的原意是，<code>if</code>代码块的外部使用的是外层<code>temp</code>变量，内部使用的是内层的<code>temp</code>变量。但是，函数<code>f()</code>执行后，输出结果为<code>undefined</code>，原因在于变量提升，导致内层的<code>temp</code>变量覆盖了外层的<code>temp</code>变量。</p>
+<p>第二种场景，用来计数的循环变量泄露为全局变量。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> s <span class="token operator">=</span> <span class="token string">'hello'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// h e l l o</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
+</code></pre>
+<p>上面 👆 代码中，变量<code>i</code>只用来控制循环，但是循环结束后，它并没有消失，泄漏成了全局变量。</p>
+<hr>
+<h4 id="2-2、ES6-的块级作用域"><a href="#2-2、ES6-的块级作用域" class="headerlink" title="2.2、ES6 的块级作用域"></a>2.2、ES6 的块级作用域</h4><p>命令<code>let</code>实际上为 JavaScript 新增了块级作用域。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f1</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> n <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> n <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 5</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面 👆 的的函数有两个代码块，都声明了变量<code>n</code>，运行后输出<code>5</code>。这表示外层代码块不受内层代码块的影响。如果两次都使用<code>var</code>定义变量<code>n</code>，最后输出的值才是<code>10</code>。</p>
+<p>在<code>ES6</code>中，允许块级作用域的任意嵌套。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
+      <span class="token punctuation">{</span>
+        <span class="token punctuation">{</span>
+          <span class="token keyword">let</span> insane <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>insane<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: insane is not defined</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面 👆 的代码使用了一个五层的块级作用域，每一层都是一个单独的作用域。第四层作用域无法读取第五层作用域的内部变量。</p>
+<p>内层作用域可以定义外层作用域的同名变量。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token punctuation">{</span>
+    <span class="token punctuation">{</span>
+      <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> insane <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">{</span>
+          <span class="token keyword">let</span> insane <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>块级作用域的出现，实际上使得广泛使用的匿名立即执行函数表达式（<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/%E7%AB%8B%E5%8D%B3%E6%89%A7%E8%A1%8C%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F" target="_blank" rel="noopener">匿名 IIFE</a>）不再必要了。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// IIFE 写法</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'Barry'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+name<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: name2 is not defined</span>
+
+<span class="token comment" spellcheck="true">// 块级作用域写法</span>
+<span class="token punctuation">{</span>
+  <span class="token keyword">let</span> name <span class="token operator">=</span> <span class="token string">'Barry'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+name<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// ReferenceError: name2 is not defined</span>
+</code></pre>
+<hr>
+<h4 id="2-3、块级作用域与函数声明"><a href="#2-3、块级作用域与函数声明" class="headerlink" title="2.3、块级作用域与函数声明"></a>2.3、块级作用域与函数声明</h4><p>函数能不能在函数作用域之中声明？这是一个相当令人混淆的问题。<br>在<code>ES5</code>中规定，函数只能在顶层作用域好函数作用域中声明，不能在块级作用域中声明。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 情况一</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 情况二</span>
+<span class="token keyword">try</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面 👆 两种情况声明，根据<code>ES5</code>的规定都是非法的。</p>
+<p>但是，浏览器没有遵守这个规定，为了兼容以前的旧代码，还是支持在块级作用域中声明函数，因此上面两种情况实际都能运行，不会报错。</p>
+<p>在<code>ES6</code>中引入块级作用域，明确允许在块级作用域中声明函数。<code>ES6</code>规定，块级作用域之中，函数声明语句的行为类似于<code>let</code>，在块级作用域之外不可引用。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am outside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 重复声明一次函数 f()</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am inside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面 👆 代码在<code>ES5</code>中运行，会得到”I am inside”，因为在<code>if</code>内声明函数<code>f</code>会被提升到函数头部，实际运行的代码如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// ES5 环境</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am outside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am inside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 重复声明一次函数 f()</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>但在<code>ES6</code>中就完全不一样了，理论上会得到”I am outside”。因为块级作用域内声明的函数类似于<code>let</code>，对作用域之外没有影响。但是，如果你真的在<code>ES6</code>浏览器中运行一下上面 👆 的代码，是会报错的这是为什么呢？</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 浏览器的 ES6 环境</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am outside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 重复声明一次函数 f()</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am inside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Uncaught TypeError: f is not a function</span>
+</code></pre>
+<p>上面 👆 的代码在浏览器中，都会报错。</p>
+<p>原来，如果改变了块级作用域内声明的函数的处理规则，显然会对老代码产生很大的影响。为了减轻因此产生的不兼容问题，<code>ES6</code>在<a href="http://www.ecma-international.org/ecma-262/6.0/index.html#sec-block-level-function-declarations-web-legacy-compatibility-semantics" target="_blank" rel="noopener">附录 B</a>里面规定，浏览器的实现可以不遵守上面的规定，有自己的<a href="https://stackoverflow.com/questions/31419897/what-are-the-precise-semantics-of-block-level-functions-in-es6" target="_blank" rel="noopener">行为方式</a>。</p>
+<ul>
+<li>允许在块级作用域内声明函数。</li>
+<li>函数声明类似于<code>var</code>，即会提升到全局作用域或函数作用域的头部。</li>
+<li>同时，函数声明还会提升到所在的块级作用域的头部。</li>
+</ul>
+<p>注意 ⚠️：上面三条规则只对<code>ES6</code>的浏览器实现有效，其他环境的实现不遵守，还是将块级作用域的函数声明当作<code>let</code>处理。</p>
+<p>根据这三条规则，浏览器的<code>ES6</code>环境中，块级作用域内声明的函数，行为类似于<code>var</code>声明的变量。上面的例子实际允许的代码如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 浏览器的 ES6 环境</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am outside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> f <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'I am inside'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// Uncaught TypeError: f is not a function</span>
+</code></pre>
+<p>考虑到环境导致的行为差异太大，应该避免在块级作用域内声明函数。如果确实需要，也应该写成函数表达式，而不是函数声明语句。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 块级作用域内部的函数声明语句，建议不要使用。</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token string">'secret'</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 块级作用域内部，优先使用函数表达式。</span>
+<span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token string">'secret'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> f <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> a<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>另外，还有一个需要注意的地方。<code>ES6</code>的块级作用域必须有大括号，如果没有大括号，<code>JavaScript</code>引擎就认为不存在块级作用域。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 第一种写法 报错</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught SyntaxError: Lexical declaration cannot appear in a single-statement context</span>
+
+<span class="token comment" spellcheck="true">// 第二种写法 不报错</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+</code></pre>
+<p>上面 👆 代码中，第一种写法没有大括号，所以不存在块级作用域，而<code>let</code>只能出现在当前作用域的顶层，所以报错。第二种写法有大括号，所以块级作用域成立。</p>
+<p>函数声明也是如此，严格模式下，函数只能声明在当前作用域的顶层。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 不报错</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 报错</span>
+<span class="token string">'use strict'</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// Uncaught SyntaxError: In strict mode code, functions can only be declared at top level or inside a block</span>
+</code></pre>
+<hr>
+<h3 id="3、const-命令"><a href="#3、const-命令" class="headerlink" title="3、const 命令"></a>3、const 命令</h3><hr>
+<h4 id="3-1、基本用法"><a href="#3-1、基本用法" class="headerlink" title="3.1、基本用法"></a>3.1、基本用法</h4><p>命令<code>const</code>声明一个只读的常量。一旦声明，常量的值就不能改变。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> PI <span class="token operator">=</span> <span class="token number">3.1415</span><span class="token punctuation">;</span>
+PI<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 3.1415</span>
+
+PI <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught TypeError: Assignment to constant variable</span>
+</code></pre>
+<p>上面 👆 的代码表明，改变常量的值会报错。</p>
+<p>命令<code>const</code>声明的变量不得改变值，这意味着，<code>const</code>一旦声明变量，就必须立即初始化，不能留到以后赋值。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> foo<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// SyntaxError: Missing initializer in const declaration</span>
+</code></pre>
+<p>上面 👆 代码表示，对于<code>const</code>来说，只声明不赋值，就会报错。</p>
+<p>命令<code>const</code>的作用域与<code>let</code>相同：只在声明所在的块级作用域内有效。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> MAX <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+MAX<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught ReferenceError: MAX is not defined</span>
+</code></pre>
+<p>命令<code>const</code>声明的常量也是不提升，同样存在暂时性死区，只能在声明的位置后面使用。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>MAX<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> MAX <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// Uncaught ReferenceError: Cannot access 'MAX' before initialization</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>上面 👆 代码在常量<code>MAX</code>声明之前就调用，结果报错。</p>
+<p>命令<code>const</code>声明的变量，也与<code>let</code>一样不可重复声明。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> message <span class="token operator">=</span> <span class="token string">'Hello World'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> age <span class="token operator">=</span> <span class="token number">26</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 以下两行都会报错</span>
+<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token string">'Goodbye'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> age <span class="token operator">=</span> <span class="token number">30</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// SyntaxError: Identifier 'message' has already been declared</span>
+<span class="token comment" spellcheck="true">// SyntaxError: Identifier 'age' has already been declared</span>
+</code></pre>
+<hr>
+<h4 id="3-2、本质"><a href="#3-2、本质" class="headerlink" title="3.2、本质"></a>3.2、本质</h4><p>命令<code>const</code>实际上保证的，并不是变量的只不得改动，而是变量指向的那个内存地址所保存的数据不得改动。对于简单的数据类型（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，保存的只是一个指向实际数据的指针，<code>const</code>只能保证这个指针是固定的（即总是指向一个固定的地址），至于它指向的数据机构是不是可变的，就完全不能控制了。因此，将一个对象声明为常量必须非常小心。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> foo <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 为 foo 添加一个属性，可以成功</span>
+foo<span class="token punctuation">.</span>prop <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 将 foo 指向另一个对象，就会报错</span>
+foo <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Uncaught TypeError: Assignment to constant variable</span>
+</code></pre>
+<p>上面 👆 代码中，常量<code>foo</code>储存的是一个地址，这个地址指向一个对象。不可变的只是这个地址，即不能把<code>foo</code>指向另一个地址，但对象本身是可变的，所以依然可以为其添加新属性。</p>
+<p>下面 👇 是另一个例子 🌰。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">'Hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 可执行</span>
+a<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 可执行</span>
+a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'Dave'</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 报错 TypeError</span>
+</code></pre>
+<p>如果真的想将对象冻结，应该使用<code>Object.freeze</code>方法。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">const</span> foo <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 常规模式时，下面一行不起作用</span>
+<span class="token comment" spellcheck="true">// 严格模式时，改行会报错</span>
+foo<span class="token punctuation">.</span>prop <span class="token operator">=</span> <span class="token number">123</span><span class="token punctuation">;</span>
+</code></pre>
+<p>上面 👆 代码中，常量<code>foo</code>指向一个冻结的对象，所以添加新属性不起作用，严格模式时还会报错<code>TypeError</code>。</p>
+<p>除了将对象本身冻结，对象的属性也应该冻结。下面 👇 是一个将对象彻底冻结的函数。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> constantize <span class="token operator">=</span> obj <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">foreach</span><span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> i<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">constanize</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h4 id="3-3、声明变量的六种方法"><a href="#3-3、声明变量的六种方法" class="headerlink" title="3.3、声明变量的六种方法"></a>3.3、声明变量的六种方法</h4><p>在<code>ES5</code>中只有两种声明变量的方法：<code>var</code>命令和<code>function</code>命令。在<code>ES6</code>中，除了添加<code>let</code>命令和<code>const</code>命令外，还有<code>import</code>命令和<code>class</code>命令。所以<code>ES6</code>中一共有 6 中声明变量的方法。</p>
+<hr>
+<h3 id="4、顶层对象的属性"><a href="#4、顶层对象的属性" class="headerlink" title="4、顶层对象的属性"></a>4、顶层对象的属性</h3><p>顶层对象，在浏览器环境指的是<code>window</code>对象，在<code>Node</code>指的是<code>global</code>对象。<code>ES5</code>之中，顶层对象的属性与全局变量是等价的。</p>
+<pre class=" language-javascript"><code class="language-javascript">window<span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+a <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span>a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 2</span>
+</code></pre>
+<p>上面 👆 代码中，顶层对象的属性赋值与全局变量的赋值，是同一件事。</p>
+<p>顶层对象的属性与全局属性挂钩，被认为是<code>JavaScript</code>语言最大的设计败笔之一。这样的设计带来了几个很大的问题，首先是没法在未编译时就报出变量未声明的错误，只有运行时才能知道（因为全局变量可能时顶层对象的属性创造的，而属性的创造是动态的）；其次，程序员很容易不知不觉的就创建了全局变量（比如打字出错）；最后，顶层对象的属性是到处可以读写的，这非常不利于模块化编程。另一方面，<code>window</code>对象有实体含义，指的是浏览器的窗口对象，顶层对象是一个有实体含义的对象，也是不合适的。</p>
+<p>命令<code>ES6</code>为了改变这一点，一方面规定，为了保持兼容性，<code>var</code>命令和<code>function</code>命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，<code>let</code>命令、<code>const</code>命令、<code>class</code>命令声明的全局变量，不属于顶层对象的属性。也就是说，从<code>ES6</code>开始，全局变量将逐渐与顶层对象脱钩。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 如果在 Node 的 REPL 环境，可以写成 global.a</span>
+<span class="token comment" spellcheck="true">// 或者写成通用方法，写成 this.a</span>
+
+window<span class="token punctuation">.</span>a<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 1</span>
+
+<span class="token keyword">let</span> b <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span>b<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// undefined</span>
+</code></pre>
+<p>上面 👆 代码中，全部变量<code>a</code>由<code>var</code>命令声明，所以它是顶层对象的属性。全局变量<code>b</code>由<code>let</code>命令声明，所以它不是顶层对象的属性，所以返回<code>undefined</code>。</p>
+<hr>
+<h3 id="5、globalThis-对象"><a href="#5、globalThis-对象" class="headerlink" title="5、globalThis 对象"></a>5、globalThis 对象</h3><hr>
+<p>我们知道，<code>JavaScript</code>语言存在一个顶层对象，它提供全局环境（即全局作用域），所有代码都是在这个环境中运行。但是，顶层对象在各种实现里面是不统一的。</p>
+<ul>
+<li>浏览器里面，顶层对象是<code>window</code>，但<code>Node</code>与<code>Web Worker</code>没有<code>window</code>。</li>
+<li>浏览器和<code>Web Worker</code>里面，<code>self</code>也指向顶层对象，但是<code>Node</code>没有<code>self</code>。</li>
+<li>在<code>Node</code>里面，顶层对象是<code>global</code>，但其他环境都不支持。</li>
+</ul>
+<p>同一段代码为了为了能够在各种环境都能取到顶层对象，一般都是使用<code>this</code>变量，但是有局限性。</p>
+<ul>
+<li>全局环境中，<code>this</code>会返回顶层对象。但是<code>Node</code>模块和<code>ES6</code>模块中，<code>this</code>返回的是当前模块。</li>
+<li>函数里面的<code>this</code>，如果函数不是作为对象的方法运行，而是单纯作为函数运行，<code>this</code>会指向顶层对象。但是，严格模式下，这时<code>this</code>会返回<code>undefined</code>。</li>
+<li>不管是严格模式，还是普通模式，<code>new Function(&#39;return this&#39;)()</code>总是会返回全局对象。但是，如果浏览器用了<code>CSP</code>（<code>Content Security Policy</code>，内容安全策略），那么，<code>eval</code>、<code>new Function</code>这些方法都可能无法使用。</li>
+</ul>
+<p>综上所述，很难找到一周可以在所有情况下，都取到顶层对象。下面 👇 是两种勉强可以使用的方法。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 方法一</span>
+<span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span>
+  <span class="token operator">?</span> window
+  <span class="token punctuation">:</span> <span class="token keyword">typeof</span> process <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token keyword">typeof</span> require <span class="token operator">===</span> <span class="token string">'function'</span> <span class="token operator">&amp;&amp;</span>
+    <span class="token keyword">typeof</span> global <span class="token operator">===</span> <span class="token string">'object'</span>
+  <span class="token operator">?</span> global
+  <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 方法二</span>
+<span class="token keyword">var</span> getGlobal <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> self <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> self<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> window <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> window<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> global <span class="token operator">!==</span> <span class="token string">'undefined'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> global<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token string">'unable locate global object'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>现有一个<a href="https://github.com/tc39/proposal-global" target="_blank" rel="noopener">提案</a>，在语言标准的层面，引入<code>globalThis</code>作为顶层对象。也就是说，任何环境下，<code>globalThis</code>都是存在的，都可以从它拿到顶层对象，指向全局环境下的<code>this</code>。</p>
+<p>垫片库<code>global-this</code>模拟了这个提案，可以在所有环境拿到<code>globalThis</code>。</p>
+<hr>
+<p>本文参考来源 <a href="http://es6.ruanyifeng.com/#docs/let" target="_blank" rel="noopener">阮一峰博客 let&amp;&amp;const</a>。</p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">24K博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/08/30/es6-zhi-let-he-const/" class="b-link-green">ES6之 let 和 const 命令</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80NDA5NC8yMDYyOQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/09/05/es6-zhi-async-han-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ES6之 async 函数">
+                        
+                        <span class="card-title">ES6之 async 函数</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、含义
+在ES2017标准中引入了async函数，使得一步操作变得更加方便。那么async函数是什么？一句话，它就是Generator函数的语法糖。有一个Generator函数如下，依次读取两个文件。
+const fs = require
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-05
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/前端/ES6/" class="post-category" target="_blank">
+                                    ES6
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ES6/" target="_blank">
+                        <span class="chip bg-color">ES6</span>
+                    </a>
+                    
+                    <a href="/tags/async/" target="_blank">
+                        <span class="chip bg-color">async</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/07/11/vue-guo-ji-hua-vue-i18n-de-shi-yong/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Vue国际化   vue-i18n">
+                        
+                        <span class="card-title">Vue国际化   vue-i18n</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            一、示例demo 代码示例
+代码下载后运行以下命令，即可跑起来看到效果。
+npm run serve
+
+二、目录结构
+📁src @根
+📁assets 静态资源目录
+📁common 字体库
+📄cn.js 中文字体库
+📄en.js 英
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
+                                    Vue
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/国际化/" target="_blank">
+                        <span class="chip bg-color">国际化</span>
+                    </a>
+                    
+                    <a href="/tags/Vue/" target="_blank">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/vue-i18n/" target="_blank">
+                        <span class="chip bg-color">vue-i18n</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 24K博客<br />'
+            + '作者: libing<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">24K</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">24.5k</span>
+            
+
+            <!--  -->
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:libing_cheer@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

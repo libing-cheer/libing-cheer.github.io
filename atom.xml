@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>24K博客</title>
+  
+  <subtitle>热爱生命，热爱生活</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-10-28T09:10:02.458Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>libing</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeScript 之函数</title>
+    <link href="http://yoursite.com/2019/10/22/typescript-han-shu/"/>
+    <id>http://yoursite.com/2019/10/22/typescript-han-shu/</id>
+    <published>2019-10-22T07:08:00.000Z</published>
+    <updated>2019-10-28T09:10:02.458Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;函数是 &lt;code&gt;JavaScript&lt;/code&gt; 应用程序的基础，它帮助你实现抽象层、模拟类、信息隐藏和模块。在
+        
+      
+    
+    </summary>
+    
+      <category term="TypeScript" scheme="http://yoursite.com/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
+    
+      <category term="函数" scheme="http://yoursite.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript 之类</title>
+    <link href="http://yoursite.com/2019/10/09/typescript-lei/"/>
+    <id>http://yoursite.com/2019/10/09/typescript-lei/</id>
+    <published>2019-10-09T07:08:00.000Z</published>
+    <updated>2019-10-13T09:21:44.757Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;传统的 &lt;code&gt;JavaScript&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="TypeScript" scheme="http://yoursite.com/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
+    
+      <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript 之基础类型</title>
+    <link href="http://yoursite.com/2019/09/30/typescript-ji-chu-lei-xing/"/>
+    <id>http://yoursite.com/2019/09/30/typescript-ji-chu-lei-xing/</id>
+    <published>2019-09-30T07:45:00.000Z</published>
+    <updated>2019-10-09T09:03:18.075Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="TypeScript" scheme="http://yoursite.com/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
+    
+      <category term="基础类型" scheme="http://yoursite.com/tags/%E5%9F%BA%E7%A1%80%E7%B1%BB%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo快速搭建个人网站</title>
+    <link href="http://yoursite.com/2019/09/27/xmind-tu-zhi-ying-yong-hexo-da-jian-ge-ren-wang-zhan/"/>
+    <id>http://yoursite.com/2019/09/27/xmind-tu-zhi-ying-yong-hexo-da-jian-ge-ren-wang-zhan/</id>
+    <published>2019-09-27T08:29:55.000Z</published>
+    <updated>2019-10-08T09:09:41.128Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架，使用 Markdown（或其他渲染引擎）解析文章。&lt;br&gt;在几秒内，即可利用靓丽的主题生成静态网页。&lt;br&gt;应用 XMind 制作的应用 Hexo
+        
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+    
+      <category term="XMind" scheme="http://yoursite.com/categories/Hexo/XMind/"/>
+    
+      <category term="搭建网站" scheme="http://yoursite.com/categories/Hexo/XMind/%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99/"/>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+      <category term="XMind" scheme="http://yoursite.com/tags/XMind/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Table表格合并</title>
+    <link href="http://yoursite.com/2019/09/26/table-biao-ge-he-bing/"/>
+    <id>http://yoursite.com/2019/09/26/table-biao-ge-he-bing/</id>
+    <published>2019-09-26T07:35:00.000Z</published>
+    <updated>2019-10-09T03:19:42.975Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;vue+elementUI 中的 Table 表格的合并功能，可配置，使用方便。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1、合并前后效果图&quot;&gt;&lt;a href=&quot;#1、合并前后效果图&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="表格合并" scheme="http://yoursite.com/categories/%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/Javascript/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="表格合并" scheme="http://yoursite.com/tags/%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Javascript前端分页</title>
+    <link href="http://yoursite.com/2019/09/16/qian-duan-fen-ye/"/>
+    <id>http://yoursite.com/2019/09/16/qian-duan-fen-ye/</id>
+    <published>2019-09-16T10:45:00.000Z</published>
+    <updated>2019-09-30T01:49:08.286Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、适合情形&quot;&gt;&lt;a href=&quot;#1、适合情形&quot; class=&quot;headerlink&quot; title=&quot;1、适合情形&quot;&gt;&lt;/a&gt;1、适合情形&lt;/h3&gt;&lt;p&gt;前端分页一般用于数据量较小的情况，一次请求把数据全部从后端请求回来。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="前端分页" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5/Javascript/"/>
+    
+    
+      <category term="前端分页" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6之 async 函数</title>
+    <link href="http://yoursite.com/2019/09/05/es6-zhi-async-han-shu/"/>
+    <id>http://yoursite.com/2019/09/05/es6-zhi-async-han-shu/</id>
+    <published>2019-09-05T10:48:00.000Z</published>
+    <updated>2019-09-30T01:48:54.539Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、含义&quot;&gt;&lt;a href=&quot;#1、含义&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="ES6" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/ES6/"/>
+    
+    
+      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
+    
+      <category term="async" scheme="http://yoursite.com/tags/async/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6之 let 和 const 命令</title>
+    <link href="http://yoursite.com/2019/08/30/es6-zhi-let-he-const/"/>
+    <id>http://yoursite.com/2019/08/30/es6-zhi-let-he-const/</id>
+    <published>2019-08-30T04:00:55.000Z</published>
+    <updated>2019-09-30T01:49:00.518Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;ES6-之-let-和-const-命令&quot;&gt;&lt;a href=&quot;#ES6-之-let-和-const-命令&quot; class=&quot;headerlink&quot; title=&quot;ES6 之 let 和 const 命令&quot;&gt;&lt;/a&gt;ES6 之 let 和 const
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="ES6" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/ES6/"/>
+    
+    
+      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
+    
+      <category term="let" scheme="http://yoursite.com/tags/let/"/>
+    
+      <category term="const" scheme="http://yoursite.com/tags/const/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue国际化   vue-i18n</title>
+    <link href="http://yoursite.com/2019/07/11/vue-guo-ji-hua-vue-i18n-de-shi-yong/"/>
+    <id>http://yoursite.com/2019/07/11/vue-guo-ji-hua-vue-i18n-de-shi-yong/</id>
+    <published>2019-07-11T05:00:56.000Z</published>
+    <updated>2019-09-30T01:30:42.853Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、示例&quot;&gt;&lt;a href=&quot;#一、示例&quot; class=&quot;headerlink&quot; title=&quot;一、示例&quot;&gt;&lt;/a&gt;一、示例&lt;/h3&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+    
+      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="vue-i18n" scheme="http://yoursite.com/tags/vue-i18n/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ElementUI中table表格自定义表头Tooltip文字提示</title>
+    <link href="http://yoursite.com/2019/07/03/elementui-zhong-table-biao-ge-zi-ding-yi-biao-tou-tooltip-wen-zi-ti-shi/"/>
+    <id>http://yoursite.com/2019/07/03/elementui-zhong-table-biao-ge-zi-ding-yi-biao-tou-tooltip-wen-zi-ti-shi/</id>
+    <published>2019-07-03T14:00:55.000Z</published>
+    <updated>2019-09-30T01:36:33.637Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;table-header-tips&quot;&gt;&lt;a href=&quot;#table-header-tips&quot; class=&quot;headerlink&quot; title=&quot;table-header-tips&quot;&gt;&lt;/a&gt;table-header-tips&lt;/h2&gt;&lt;p&gt;应用
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Element" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Element/"/>
+    
+    
+      <category term="ElementUI" scheme="http://yoursite.com/tags/ElementUI/"/>
+    
+      <category term="自定义表头" scheme="http://yoursite.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%A4%B4/"/>
+    
+      <category term="Tooltip文字提示" scheme="http://yoursite.com/tags/Tooltip%E6%96%87%E5%AD%97%E6%8F%90%E7%A4%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue视频播放器</title>
+    <link href="http://yoursite.com/2019/06/12/vue-shi-pin-bo-fang-qi/"/>
+    <id>http://yoursite.com/2019/06/12/vue-shi-pin-bo-fang-qi/</id>
+    <published>2019-06-12T14:00:55.000Z</published>
+    <updated>2019-09-30T01:37:38.637Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Vue-Video-Player&quot;&gt;&lt;a href=&quot;#Vue-Video-Player&quot; class=&quot;headerlink&quot; title=&quot;Vue-Video-Player&quot;&gt;&lt;/a&gt;Vue-Video-Player&lt;/h3&gt;&lt;p&gt;适用于
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="Vue视频播放器" scheme="http://yoursite.com/tags/Vue%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue导出Excel表格</title>
+    <link href="http://yoursite.com/2019/05/29/vue-dao-chu-excel-biao-ge/"/>
+    <id>http://yoursite.com/2019/05/29/vue-dao-chu-excel-biao-ge/</id>
+    <published>2019-05-29T13:18:00.000Z</published>
+    <updated>2019-10-09T03:20:11.021Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;示例&quot;&gt;&lt;a href=&quot;#示例&quot; class=&quot;headerlink&quot; title=&quot;示例&quot;&gt;&lt;/a&gt;示例&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/libing-cheer/excel-export&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+      <category term="导出表格" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/%E5%AF%BC%E5%87%BA%E8%A1%A8%E6%A0%BC/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="导出Excel表格" scheme="http://yoursite.com/tags/%E5%AF%BC%E5%87%BAExcel%E8%A1%A8%E6%A0%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue拖拽排序</title>
+    <link href="http://yoursite.com/2019/05/28/vue-tuo-zhuai-pai-xu/"/>
+    <id>http://yoursite.com/2019/05/28/vue-tuo-zhuai-pai-xu/</id>
+    <published>2019-05-28T11:29:55.000Z</published>
+    <updated>2019-10-09T03:18:10.622Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;Awe-dnd&quot;&gt;&lt;a href=&quot;#Awe-dnd&quot; class=&quot;headerlink&quot; title=&quot;Awe-dnd&quot;&gt;&lt;/a&gt;Awe-dnd&lt;/h3&gt;&lt;p&gt;&lt;code&gt;Awe-dnd&lt;/code&gt;：一个轻量的 &lt;code&gt;Vue&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+      <category term="拖拽排序" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="拖拽排序" scheme="http://yoursite.com/tags/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>npm command not found</title>
+    <link href="http://yoursite.com/2019/05/19/mac-xia-node-an-zhuang-cheng-gong-dan-ti-shi-npm-command-not-found/"/>
+    <id>http://yoursite.com/2019/05/19/mac-xia-node-an-zhuang-cheng-gong-dan-ti-shi-npm-command-not-found/</id>
+    <published>2019-05-19T06:29:55.000Z</published>
+    <updated>2019-09-30T01:43:29.280Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;出现的问题&quot;&gt;&lt;a href=&quot;#出现的问题&quot; class=&quot;headerlink&quot; title=&quot;出现的问题&quot;&gt;&lt;/a&gt;出现的问题&lt;/h3&gt;&lt;p&gt;从官网下载了 &lt;code&gt;node&lt;/code&gt; 的 &lt;code&gt;.pkg&lt;/code&gt; 文件安装
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+      <category term="node" scheme="http://yoursite.com/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue文件预览</title>
+    <link href="http://yoursite.com/2019/05/10/vue-wen-jian-yu-lan/"/>
+    <id>http://yoursite.com/2019/05/10/vue-wen-jian-yu-lan/</id>
+    <published>2019-05-10T08:29:55.000Z</published>
+    <updated>2019-07-11T07:47:33.004Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;pdf文件预览&quot;&gt;&lt;a href=&quot;#pdf文件预览&quot; class=&quot;headerlink&quot; title=&quot;pdf文件预览&quot;&gt;&lt;/a&gt;pdf文件预览&lt;/h3&gt;&lt;h4 id=&quot;1、embed-标签&quot;&gt;&lt;a href=&quot;#1、embed-标签&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+      <category term="文件预览" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/%E6%96%87%E4%BB%B6%E9%A2%84%E8%A7%88/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="Vue文件预览" scheme="http://yoursite.com/tags/Vue%E6%96%87%E4%BB%B6%E9%A2%84%E8%A7%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vue图片预览</title>
+    <link href="http://yoursite.com/2019/05/04/vue-tu-pian-yu-lan/"/>
+    <id>http://yoursite.com/2019/05/04/vue-tu-pian-yu-lan/</id>
+    <published>2019-05-04T08:29:55.000Z</published>
+    <updated>2019-10-09T03:17:42.282Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;v-viewer&quot;&gt;&lt;a href=&quot;#v-viewer&quot; class=&quot;headerlink&quot; title=&quot;v-viewer&quot;&gt;&lt;/a&gt;v-viewer&lt;/h2&gt;&lt;p&gt;用于图片浏览的 &lt;code&gt;Vue&lt;/code&gt; 组件，支持旋转、缩放、翻转等操作，基于
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
+    
+      <category term="图片预览" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="Vue图片预览" scheme="http://yoursite.com/tags/Vue%E5%9B%BE%E7%89%87%E9%A2%84%E8%A7%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2019/05/04/hello-world/"/>
+    <id>http://yoursite.com/2019/05/04/hello-world/</id>
+    <published>2019-05-04T08:28:55.000Z</published>
+    <updated>2019-09-30T01:49:27.530Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>
