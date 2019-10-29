@@ -413,14 +413,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        3k
+                        3.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        12 分
+                        14 分
                     </div>
                     
                 
@@ -617,36 +617,36 @@ funnction <span class="token function">add</span><span class="token punctuation"
 <hr>
 <h3 id="this-参数"><a href="#this-参数" class="headerlink" title="this 参数"></a><code>this</code> 参数</h3><p>不幸的是，<code>this.suits[pickedSuit]</code> 的类型依旧为 <code>any</code>。这是因为 <code>this</code> 来自对象字面量里的函数表达式。修改的方法是，提供一个显式的 <code>this</code> 参数。 <code>this</code> 参数是个假的参数，它出现在参数列表的最前面：</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token comment" spellcheck="true">// make sure `this` is unusable in this standalone function</span>
+  <span class="token comment" spellcheck="true">// make sure `this` is unusable in this standalone function</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>让我们往例子里添加一些接口，<code>Card</code> 和 <code>Deck</code>，让类型重用能够变得清晰简单些：</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Card</span> <span class="token punctuation">{</span>
-    suit<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span>
-    card<span class="token punctuation">:</span> <span class="token keyword">number</span>
+  suit<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  card<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">interface</span> <span class="token class-name">Deck</span> <span class="token punctuation">{</span>
-    suits<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    cards<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    <span class="token function">createCardPicker</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> Deck<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Card<span class="token punctuation">;</span>
+  suits<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  cards<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token function">createCardPicker</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> Deck<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> Card<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">let</span> deck<span class="token punctuation">:</span> Deck <span class="token operator">=</span> <span class="token punctuation">{</span>
-    suits<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'hearts'</span><span class="token punctuation">,</span> <span class="token string">'spades'</span><span class="token punctuation">,</span> <span class="token string">'clubs'</span><span class="token punctuation">,</span> <span class="token string">'diamonds'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-    cards<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token punctuation">(</span><span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-    <span class="token comment" spellcheck="true">// 注意:该函数现在显式地指定它的被调用方必须是Deck类型</span>
-    createCardPicker<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> Deck<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> pickerCard <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">let</span> pickerSuit <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>pickerCard <span class="token operator">/</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token punctuation">{</span>
-                suit<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>suits<span class="token punctuation">[</span>pickerSuit<span class="token punctuation">]</span><span class="token punctuation">,</span>
-                card<span class="token punctuation">:</span> pickerCard <span class="token operator">%</span> <span class="token number">13</span>
-            <span class="token punctuation">}</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+  suits<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'hearts'</span><span class="token punctuation">,</span> <span class="token string">'spades'</span><span class="token punctuation">,</span> <span class="token string">'clubs'</span><span class="token punctuation">,</span> <span class="token string">'diamonds'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  cards<span class="token punctuation">:</span> <span class="token keyword">Array</span><span class="token punctuation">(</span><span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 注意:该函数现在显式地指定它的被调用方必须是Deck类型</span>
+  createCardPicker<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> Deck<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">let</span> pickerCard <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">52</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">let</span> pickerSuit <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>pickerCard <span class="token operator">/</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+        suit<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>suits<span class="token punctuation">[</span>pickerSuit<span class="token punctuation">]</span><span class="token punctuation">,</span>
+        card<span class="token punctuation">:</span> pickerCard <span class="token operator">%</span> <span class="token number">13</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token keyword">let</span> cardPicker <span class="token operator">=</span> deck<span class="token punctuation">.</span><span class="token function">createCardPicker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">let</span> pickerCard <span class="token operator">=</span> <span class="token function">cardPicker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -657,41 +657,111 @@ funnction <span class="token function">add</span><span class="token punctuation"
 <hr>
 <h3 id="this-参数在回调函数里"><a href="#this-参数在回调函数里" class="headerlink" title="this 参数在回调函数里"></a><em><code>this</code></em> 参数在回调函数里</h3><p>你也可以看到过在回调函数里的 <code>this</code> 报错：当你将一个函数传递到某个库函数里稍后会被调用时。因为当回调函数被调用的时候，它们会被当成一个普通函数调用， <code>this</code> 将为 <code>undefined</code> 。稍作改动，你就可以通过 <code>this</code> 参数来避免错误。首先，库函数的作者要指定 <code>this</code> 的类型：</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">UIElement</span> <span class="token punctuation">{</span>
-    <span class="token function">addClickListener</span><span class="token punctuation">(</span>onclick<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+  <span class="token function">addClickListener</span><span class="token punctuation">(</span>onclick<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">void</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p><code>this: void</code> 表示 <code>addClickListener</code> 期望 <code>onclick</code> 是不需要此<code>this</code> 类型的函数。其次，用 <code>this</code> 注释您的调用代码。</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
-    info<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// oops, used this here. using this callback would crash at runtime</span>
-    <span class="token function">onClickBad</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> Handler<span class="token punctuation">,</span> e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span>info <span class="token operator">=</span> e<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+  info<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// oops, used this here. using this callback would crash at runtime</span>
+  <span class="token function">onClickBad</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> Handler<span class="token punctuation">,</span> e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>info <span class="token operator">=</span> e<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">let</span> h <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 uiElement<span class="token punctuation">.</span><span class="token function">addClickListener</span><span class="token punctuation">(</span>h<span class="token punctuation">.</span>onClickBad<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// error!</span>
 </code></pre>
-<p>指定了 <code>this</code> 类型后，你显式声明 <code>onClickBad</code> 必须在  <code>Handler</code> 的实例上调用。然后 <code>TypeScript</code> 会检测 <code>addClickListener</code> 要求函数带有 <code>this: void</code> 。改变 <code>this</code> 类型来修复这个错误：</p>
-<p>指定了this类型后，你显式声明onClickBad必须在Handler的实例上调用。 然后TypeScript会检测到 addClickListener要求函数带有this: void。 改变 this类型来修复这个错误：</p>
+<p>指定了 <code>this</code> 类型后，你显式声明 <code>onClickBad</code> 必须在 <code>Handler</code> 的实例上调用。然后 <code>TypeScript</code> 会检测 <code>addClickListener</code> 要求函数带有 <code>this: void</code> 。改变 <code>this</code> 类型来修复这个错误：</p>
+<p>指定了 this 类型后，你显式声明 onClickBad 必须在 Handler 的实例上调用。 然后 TypeScript 会检测到 addClickListener 要求函数带有 this: void。 改变 this 类型来修复这个错误：</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
-    info<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
-    <span class="token comment" spellcheck="true">// oops, used this here. using this callback would crash at runtime</span>
-    <span class="token function">onClickGood</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
+  info<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// oops, used this here. using this callback would crash at runtime</span>
+  <span class="token function">onClickGood</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">:</span> <span class="token keyword">void</span><span class="token punctuation">,</span> e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'clicked'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">let</span> h <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Handler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 uiElement<span class="token punctuation">.</span><span class="token function">addClickListener</span><span class="token punctuation">(</span>h<span class="token punctuation">.</span>onClickGood<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>因为 <code>onClickGood</code> 指定了 <code>this</code> 类型为 <code>void</code>，因此传递 <code>addClickListener</code> 是合法的。 当然了，这也意味着不能使用 <code>this.info</code>。 如果你两者都想要，你不得不使用箭头函数了：</p>
 <pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">class</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
-    info<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
-    onClickGood <span class="token operator">=</span> <span class="token punctuation">(</span>e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token keyword">this</span><span class="token punctuation">.</span>info <span class="token operator">=</span> e<span class="token punctuation">.</span>message <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  info<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  onClickGood <span class="token operator">=</span> <span class="token punctuation">(</span>e<span class="token punctuation">:</span> Event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>info <span class="token operator">=</span> e<span class="token punctuation">.</span>message<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>这是可行的因为箭头函数不会捕获 <code>this</code> ，所以你总是可以把它们传给期望 <code>this: void</code> 的函数。 缺点是每个 <code>Handler</code> 对象都会创建一个箭头函数。 另一方面，方法只会被创建一次，添加到 <code>Handler</code> 的原型链上。 它们在不同 <code>Handler</code> 对象间是共享的。</p>
 <hr>
-<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3>
+<h3 id="重载"><a href="#重载" class="headerlink" title="重载"></a>重载</h3><p><code>JavaScript</code> 本身是个动态语言，<code>JavaScript</code> 里函数根据传入不同的参数而返回不同类型的数据是很常见的。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> suits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hearts'</span><span class="token punctuation">,</span> <span class="token string">'spades'</span><span class="token punctuation">,</span> <span class="token string">'clubs'</span><span class="token punctuation">,</span> <span class="token string">'diamonds'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">pickCard</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Check to see if we're working with an object/array</span>
+  <span class="token comment" spellcheck="true">// if so, they gave us the deck and we'll pick the card</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">==</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> pickedCard <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> pickedCard<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// Otherwise just let them pick the card</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">==</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> pickedSuit <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>x <span class="token operator">/</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      suit<span class="token punctuation">:</span> suits<span class="token punctuation">[</span>pickedSuit<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      card<span class="token punctuation">:</span> x <span class="token operator">%</span> <span class="token number">13</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> myDeck <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> suit<span class="token punctuation">:</span> <span class="token string">'diamonds'</span><span class="token punctuation">,</span> card<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> suit<span class="token punctuation">:</span> <span class="token string">'spades'</span><span class="token punctuation">,</span> card<span class="token punctuation">:</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> suit<span class="token punctuation">:</span> <span class="token string">'hearts'</span><span class="token punctuation">,</span> card<span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> pickedCard1 <span class="token operator">=</span> myDeck<span class="token punctuation">[</span><span class="token function">pickedCard</span><span class="token punctuation">(</span>myDeck<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'card'</span> <span class="token operator">+</span> pickedCard1<span class="token punctuation">.</span>card <span class="token operator">+</span> <span class="token string">'of'</span> <span class="token operator">+</span> pickedCard1<span class="token punctuation">.</span>suit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> pickedCard2 <span class="token operator">=</span> <span class="token function">pickedCard</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'card'</span> <span class="token operator">+</span> pickedCard2<span class="token punctuation">.</span>card <span class="token operator">+</span> <span class="token string">'of'</span> <span class="token operator">+</span> pickedCard2<span class="token punctuation">.</span>suit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><code>pickCard</code> 方法根据传入参数的不同会返回两种不同的类型。如果传入的是代表纸牌的对象，函数作用是从中抓一张牌。如果用户想抓牌，我们告诉他抓到了什么牌。但是这怎么在类型系统里表示呢。</p>
+<p>方法是为同一个函数提供多个函数类型定义来进行函数重载，编译器会根据这个列表去处理函数的调用。<br>下面我们来重载 <code>pickCard</code> 函数。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> suits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'hearts'</span><span class="token punctuation">,</span> <span class="token string">'spades'</span><span class="token punctuation">,</span> <span class="token string">'clubs'</span><span class="token punctuation">,</span> <span class="token string">'diamonds'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">pickCard</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token punctuation">{</span>suit<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span> card<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">pickCard</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  suit<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  card<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">pickCard</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">any</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// Check to see if we're working with an object/array</span>
+  <span class="token comment" spellcheck="true">// if so, they gave us the deck and we'll pick up the card</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">=</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> pickedCard<span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> x<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> pickerCard<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token comment" spellcheck="true">// Otherwise just let them pick up the card</span>
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> x <span class="token operator">==</span> <span class="token string">'number'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> pickefSuit <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>x <span class="token operator">/</span> <span class="token number">13</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      suit<span class="token punctuation">:</span> suits<span class="token punctuation">[</span><span class="token string">'pickerSuit'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      card<span class="token punctuation">:</span> x <span class="token operator">%</span> <span class="token number">13</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> myDeck <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span> suit<span class="token punctuation">:</span> <span class="token string">'diamonds'</span><span class="token punctuation">,</span> card<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> suit<span class="token punctuation">:</span> <span class="token string">'spades'</span><span class="token punctuation">,</span> card<span class="token punctuation">:</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span> suit<span class="token punctuation">:</span> <span class="token string">'hearts'</span><span class="token punctuation">,</span> card<span class="token punctuation">:</span> <span class="token number">4</span> <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> pickedCard1 <span class="token operator">=</span> myDeck<span class="token punctuation">[</span><span class="token function">pickCard</span><span class="token punctuation">(</span>myDeck<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> pickedCard2 <span class="token operator">=</span> <span class="token function">pickCard</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">'card'</span> <span class="token operator">+</span> pickedCard2<span class="token punctuation">.</span>card <span class="token operator">+</span> <span class="token string">'of'</span> <span class="token operator">+</span> pickedCard2<span class="token punctuation">.</span>suit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>这样改变后，重载的 <code>pickCard</code> 函数在调用的时候会进行正确的类型检测。</p>
+<p>为了让编译器能够选择正确的检查类型，它与 <code>JavaScript</code> 里的处理流程相似。它查找重载列表，尝试使用第一个重载定义。如果匹配的话就使用这个。因此，在定义重载的时候，一定要把最精确的定义放在最前面。</p>
+<p>注意，<code>function pickCard(x): any</code> 并不是重载列表的一部分，因此这里只要两个重载：一个接收对象，另一个接收数字，以其它参数调用 <code>pickCard</code> 会产生错误。</p>
+
             </div>
             <hr/>
 
@@ -1137,7 +1207,7 @@ uiElement<span class="token punctuation">.</span><span class="token function">ad
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">24.5k</span>
+                <span class="white-color">25k</span>
             
 
             <!--  -->
