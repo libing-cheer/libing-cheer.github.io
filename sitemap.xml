@@ -2,23 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/11/01/typescript-zhi-fan-xing/</loc>
+    <loc>http://yoursite.com/2019/10/02/typescript-jie-kou/</loc>
     
-    <lastmod>2019-11-07T09:40:21.759Z</lastmod>
+    <lastmod>2019-11-08T07:54:26.762Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/10/22/typescript-han-shu/</loc>
+    <loc>http://yoursite.com/2019/11/01/typescript-zhi-fan-xing/</loc>
     
-    <lastmod>2019-10-29T07:41:15.136Z</lastmod>
+    <lastmod>2019-11-08T02:34:16.400Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/10/09/typescript-lei/</loc>
     
-    <lastmod>2019-10-13T09:21:44.757Z</lastmod>
+    <lastmod>2019-11-08T02:33:42.544Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/22/typescript-han-shu/</loc>
+    
+    <lastmod>2019-11-08T02:33:07.415Z</lastmod>
     
   </url>
   

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-07T09:40:21.759Z</updated>
+  <updated>2019-11-08T02:34:16.400Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/11/01/typescript-zhi-fan-xing/"/>
     <id>http://yoursite.com/2019/11/01/typescript-zhi-fan-xing/</id>
     <published>2019-11-01T10:00:00.000Z</published>
-    <updated>2019-11-07T09:40:21.759Z</updated>
+    <updated>2019-11-08T02:34:16.400Z</updated>
     
     <summary type="html">
     
@@ -49,7 +49,7 @@
     <link href="http://yoursite.com/2019/10/22/typescript-han-shu/"/>
     <id>http://yoursite.com/2019/10/22/typescript-han-shu/</id>
     <published>2019-10-22T07:08:00.000Z</published>
-    <updated>2019-10-29T07:41:15.136Z</updated>
+    <updated>2019-11-08T02:33:07.415Z</updated>
     
     <summary type="html">
     
@@ -77,7 +77,7 @@
     <link href="http://yoursite.com/2019/10/09/typescript-lei/"/>
     <id>http://yoursite.com/2019/10/09/typescript-lei/</id>
     <published>2019-10-09T07:08:00.000Z</published>
-    <updated>2019-10-13T09:21:44.757Z</updated>
+    <updated>2019-11-08T02:33:42.544Z</updated>
     
     <summary type="html">
     
@@ -97,6 +97,34 @@
       <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
     
       <category term="类" scheme="http://yoursite.com/tags/%E7%B1%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TypeScript 之接口</title>
+    <link href="http://yoursite.com/2019/10/02/typescript-jie-kou/"/>
+    <id>http://yoursite.com/2019/10/02/typescript-jie-kou/</id>
+    <published>2019-10-02T02:08:00.000Z</published>
+    <updated>2019-11-08T07:54:26.762Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h3&gt;&lt;p&gt;&lt;code&gt;TypeScript&lt;/code&gt; 的核心原则之一是对值所具有的结构进行类型检查。它有时被称做
+        
+      
+    
+    </summary>
+    
+      <category term="TypeScript" scheme="http://yoursite.com/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
+    
+      <category term="接口" scheme="http://yoursite.com/tags/%E6%8E%A5%E5%8F%A3/"/>
     
   </entry>
   

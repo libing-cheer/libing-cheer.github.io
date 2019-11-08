@@ -4,8 +4,10 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 24K博客">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="TypeScript 之接口, 24K博客">
+    <meta name="description" content="介绍TypeScript 的核心原则之一是对值所具有的结构进行类型检查。它有时被称做 鸭式辨型法 或 结构性子类型化。在 TypeScript 里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。
+
+接口初探下面通过一个简单的">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +15,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | 24K博客</title>
+    <title>TypeScript 之接口 | 24K博客</title>
     <link rel="icon" type="image/png" href="/medias/海星.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/43.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/46.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        TypeScript 之接口
                     </div>
                 </div>
             </div>
@@ -378,8 +380,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/" target="_blank">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/TypeScript/" target="_blank">
+                                <span class="chip bg-color">TypeScript</span>
+                            </a>
+                        
+                            <a href="/tags/接口/" target="_blank">
+                                <span class="chip bg-color">接口</span>
                             </a>
                         
                     </div>
@@ -387,27 +393,36 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/TypeScript/" class="post-category" target="_blank">
+                                TypeScript
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-04
+                    2019-10-02
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        73
+                        1.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        4 分
                     </div>
                     
                 
@@ -423,19 +438,109 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class=" language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span>
+                <h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p><code>TypeScript</code> 的核心原则之一是对值所具有的结构进行类型检查。它有时被称做 <code>鸭式辨型法</code> 或 <code>结构性子类型化</code>。在 <code>TypeScript</code> 里，接口的作用就是为这些类型命名和为你的代码或第三方代码定义契约。</p>
+<hr>
+<h3 id="接口初探"><a href="#接口初探" class="headerlink" title="接口初探"></a>接口初探</h3><p>下面通过一个简单的示例来观察接口是如何让工作的：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">printLabel</span><span class="token punctuation">(</span>labelledObj<span class="token punctuation">:</span> <span class="token punctuation">{</span> label<span class="token punctuation">:</span> <span class="token keyword">string</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>labelledObj<span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> myObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  size<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  label<span class="token punctuation">:</span> <span class="token string">'Size 10 Object'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">printLabel</span><span class="token punctuation">(</span>myObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class=" language-bash"><code class="language-bash">$ hexo server
+<p>类型检查器会查看 <code>printLabel</code> 的调用。 <code>printLabel</code> 有一个参数，并要求这个对象参数有一个名为 <code>label</code> 类型为 <code>string</code> 的属性。 需要注意的是，我们传入的对象参数实际上会包含很多属性，但是编译器只会检查那些必需的属性是否存在，并且其类型是否匹配。 然而，有些时候<code>TypeScript</code> 却并不会这么宽松，我们下面会稍做讲解。</p>
+<p>下面我们重写上面的例子，这次使用接口来描述：必须包含一个 <code>label</code> 属性且类型为 <code>string</code>：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">LabelledValue</span> <span class="token punctuation">{</span>
+  label<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">printLabel</span><span class="token punctuation">(</span>labelledObj<span class="token punctuation">:</span> LabelledValue<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>labelledObj<span class="token punctuation">.</span>label<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> myObj <span class="token operator">=</span> <span class="token punctuation">{</span>
+  size<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  label<span class="token punctuation">:</span> <span class="token string">'Size 10 Object'</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token function">printLabel</span><span class="token punctuation">(</span>myObj<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class=" language-bash"><code class="language-bash">$ hexo generate
+<p><code>LabelledValue</code> 接口就好比一个名字，用来描述上面例子里的要求。它代表了有一个 <code>label</code> 属性且类型为 <code>string</code> 的对象。需要注意的是，我们在这里并不能像在其他语言里一样，说传给 <code>printLabel</code> 的对象实现了这个接口。我们只会去关注值的外形，只要传入的对象满足上面提到的必要条件，那么它就是被允许的。</p>
+<p>还有一点值得提的是，类型检查器不会去检查属性的顺序，只要相应的属性存在并且类型也是对的就可以。</p>
+<hr>
+<h3 id="可选属性"><a href="#可选属性" class="headerlink" title="可选属性"></a>可选属性</h3><p>接口里的属性不全都是必须的。有些是只在某些条件下存在，或者根本不存在。可选属性在应用 <code>option bags</code> 模式时很常用，即给函数传入的参数对象中只有部分属性赋值了。</p>
+<p>下面是应用了 <code>option bags</code> 的例子：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">SquareConfig</span> <span class="token punctuation">{</span>
+  color<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  width<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">createSquare</span><span class="token punctuation">(</span>config<span class="token punctuation">:</span> SquareConfig<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span> area<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> newSquare <span class="token operator">=</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span> area<span class="token punctuation">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newSquare<span class="token punctuation">.</span>color <span class="token operator">=</span> config<span class="token punctuation">.</span>color<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>width<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newSquare<span class="token punctuation">.</span>area <span class="token operator">=</span> config<span class="token punctuation">.</span>width <span class="token operator">*</span> config<span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> newSquare<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> mySquare <span class="token operator">=</span> <span class="token function">createSquare</span><span class="token punctuation">(</span><span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token string">'black'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class=" language-bash"><code class="language-bash">$ hexo deploy
+<p>带有可选属性的接口与普通的接口定义差不多，只是在可选属性名字定义的后面加一个 <code>?</code> 符号。</p>
+<p>可选属性的好处之一是可以对可能存在的属性进行 <code>预定义</code>，好处之二是可以捕获引用了不存在的属性时的错误。 比如，我们故意将 <code>createSquare</code>里的 <code>color</code> 属性名拼错，就会得到一个错误提示：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">SquareConfig</span> <span class="token punctuation">{</span>
+  color<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span>
+  width<span class="token operator">?</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">createSquare</span><span class="token punctuation">(</span>config<span class="token punctuation">:</span> SquareConfig<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">;</span> area<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token punctuation">}</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> newSquare <span class="token operator">=</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token string">'white'</span><span class="token punctuation">,</span> area<span class="token punctuation">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>clor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Error: Property 'clor' does not exist on type 'SquareConfig'</span>
+    newSquare<span class="token punctuation">.</span>color <span class="token operator">=</span> config<span class="token punctuation">.</span>clor<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>config<span class="token punctuation">.</span>width<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newSquare<span class="token punctuation">.</span>area <span class="token operator">=</span> config<span class="token punctuation">.</span>width <span class="token operator">*</span> config<span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> newSquare<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> mySquare <span class="token operator">=</span> <span class="token function">createSquare</span><span class="token punctuation">(</span><span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token string">'black'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<hr>
+<h3 id="只读属性"><a href="#只读属性" class="headerlink" title="只读属性"></a>只读属性</h3><p>一些对象属性只能在对象刚刚创建的时候来修改其值。你可以在属性名前用 <code>readonly</code> 来指定只读属性：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">interface</span> <span class="token class-name">Point</span> <span class="token punctuation">{</span>
+  readonly x<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+  readonly y<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>你可以通过赋值一个对象字面量来构造一个 <code>Point</code>。赋值后，<code>x</code> 和 <code>y</code> 再也不能被改变了。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> p1<span class="token punctuation">:</span> Point <span class="token operator">=</span> <span class="token punctuation">{</span> x<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">,</span> y<span class="token punctuation">:</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+p1<span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// error!</span>
+</code></pre>
+<p><code>TypeScript</code> 具有 <code>ReadonlyArray&lt;T&gt;</code> 类型，它与 <code>Array&lt;T&gt;</code> 相似，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> a<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> ro<span class="token punctuation">:</span> ReadonlyArray<span class="token operator">&lt;</span><span class="token keyword">number</span><span class="token operator">></span> <span class="token operator">=</span> a<span class="token punctuation">;</span>
+ro<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">12</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// error!</span>
+ro<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// error!</span>
+ro<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// error!</span>
+a <span class="token operator">=</span> ro<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// error!</span>
+</code></pre>
+<p>上面代码的最后一行，可以看到就算把整个 <code>ReadonlyArray</code> 赋值到一个普通数组也是不可以的。但是你可以用类型断言重写：</p>
+<pre class=" language-typescript"><code class="language-typescript">a <span class="token operator">=</span> ro as <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p><strong><em><code>readonly</code></em></strong> <strong><em>vs</em></strong> <strong><em><code>const</code></em></strong></p>
+<p>最简单判断该用 <code>readonly</code> 还是 <code>const</code> 的方法是看要把它做为变量使用还是做为一个属性。 做为变量使用的话用 <code>const</code>，若做为属性则使用<code>readonly</code>。</p>
+<hr>
+<h3 id="额外的属性检查"><a href="#额外的属性检查" class="headerlink" title="额外的属性检查"></a>额外的属性检查</h3><p>我们在第一个例子里使用了接口，<code>TypeScript</code> 让我们传入 <code>{ size: number; label: string;}</code> 到仅期望得到 <code>{ label&quot; string; }</code> 的函数里。我们已经学过了可选属性，并且知道它们在 <code>option bags</code> 模式里很有用。</p>
+<p>然而，天真地将这两者结合的话就会像在 <code>JavaScript</code> 里那样搬起石头砸自己的脚。</p>
 
             </div>
             <hr/>
@@ -583,7 +688,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">24K博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/04/hello-world/" class="b-link-green">Hello World</a>
+                    <a href="/2019/10/02/typescript-jie-kou/" class="b-link-green">TypeScript 之接口</a>
                 </p>
             </div>
         </div>
@@ -630,42 +735,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/05/04/vue-tu-pian-yu-lan/">
+                <a href="/2019/10/09/typescript-lei/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Vue图片预览">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="TypeScript 之类">
                         
-                        <span class="card-title">Vue图片预览</span>
+                        <span class="card-title">TypeScript 之类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            v-viewer用于图片浏览的 Vue 组件，支持旋转、缩放、翻转等操作，基于 viewer.js。
-演示示例安装npm install v-viewer
-
-手动引入样式文件import 'viewerjs/dist/viewer.css'
+                            介绍传统的 JavaScript 程序使用函数和基于原型的继承来创建可重用的组件，但对于熟悉使用面向对象方式的程序员来讲就有些棘手，因为他们用的是基于类的继承并且对象是由类构建出来的。 从 ECMAScript 2015，也就是 ECMAS
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-09
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/图片预览/" class="post-category" target="_blank">
-                                    图片预览
+                            <a href="/categories/TypeScript/" class="post-category" target="_blank">
+                                    TypeScript
                                 </a>
                             
                             
@@ -675,12 +769,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/TypeScript/" target="_blank">
+                        <span class="chip bg-color">TypeScript</span>
                     </a>
                     
-                    <a href="/tags/Vue图片预览/" target="_blank">
-                        <span class="chip bg-color">Vue图片预览</span>
+                    <a href="/tags/类/" target="_blank">
+                        <span class="chip bg-color">类</span>
                     </a>
                     
                 </div>
@@ -691,42 +785,51 @@
         
         <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/04/hello-world/">
+                <a href="/2019/09/30/typescript-ji-chu-lei-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/43.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="TypeScript 之基础类型">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">TypeScript 之基础类型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            介绍为了让程序更有价值，我们需要能够处理最简单的数据单元：数字、字符串、结构体、布尔值等。TypeScript支持与JavaScript几乎相同的数据类型，此外还提供了实用的枚举类型方便我们使用。
+
+布尔值最基本的数据类型就是简单的 tru
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-30
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            libing
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/TypeScript/" class="post-category" target="_blank">
+                                    TypeScript
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/TypeScript/" target="_blank">
+                        <span class="chip bg-color">TypeScript</span>
+                    </a>
+                    
+                    <a href="/tags/基础类型/" target="_blank">
+                        <span class="chip bg-color">基础类型</span>
                     </a>
                     
                 </div>

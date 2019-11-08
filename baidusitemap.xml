@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://yoursite.com/2019/11/01/typescript-zhi-fan-xing/</loc>
-    <lastmod>2019-11-07</lastmod>
+    <loc>http://yoursite.com/2019/10/02/typescript-jie-kou/</loc>
+    <lastmod>2019-11-08</lastmod>
   </url>  <url>
-    <loc>http://yoursite.com/2019/10/22/typescript-han-shu/</loc>
-    <lastmod>2019-10-29</lastmod>
+    <loc>http://yoursite.com/2019/11/01/typescript-zhi-fan-xing/</loc>
+    <lastmod>2019-11-08</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/10/09/typescript-lei/</loc>
-    <lastmod>2019-10-13</lastmod>
+    <lastmod>2019-11-08</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2019/10/22/typescript-han-shu/</loc>
+    <lastmod>2019-11-08</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/09/30/typescript-ji-chu-lei-xing/</loc>
     <lastmod>2019-10-09</lastmod>
