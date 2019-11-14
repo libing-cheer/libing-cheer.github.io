@@ -4,9 +4,15 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="npm command not found, 24K博客">
-    <meta name="description" content="出现的问题从官网下载了 node 的 .pkg 文件安装 node，安装好后，在 mac 终端下输入 npm -v 和 node -v 均提示 command not found。
-解决办法1、第一步：创建 .bash_profile 文件">
+    <meta name="keywords" content="TypeScript 之枚举, 24K博客">
+    <meta name="description" content="枚举
+使用枚举我们可以定义一些带名字的常量
+使用枚举可以清晰地表达意图或者创建一组有区别的用例。
+TypeScript 支持基于数字的和基于字符串的枚举。
+
+
+数字枚举首先让我能看看数字枚举，如果你使用过其他编程语言应该会很熟悉。
+enum">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +20,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>npm command not found | 24K博客</title>
+    <title>TypeScript 之枚举 | 24K博客</title>
     <link rel="icon" type="image/png" href="/medias/海星.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -262,13 +268,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/36.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        npm command not found
+                        TypeScript 之枚举
                     </div>
                 </div>
             </div>
@@ -379,12 +385,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/npm/" target="_blank">
-                                <span class="chip bg-color">npm</span>
+                            <a href="/tags/TypeScript/" target="_blank">
+                                <span class="chip bg-color">TypeScript</span>
                             </a>
                         
-                            <a href="/tags/node/" target="_blank">
-                                <span class="chip bg-color">node</span>
+                            <a href="/tags/枚举/" target="_blank">
+                                <span class="chip bg-color">枚举</span>
                             </a>
                         
                     </div>
@@ -395,8 +401,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                前端
+                            <a href="/categories/TypeScript/" class="post-category" target="_blank">
+                                TypeScript
                             </a>
                         
                     </div>
@@ -407,21 +413,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-19
+                    2019-11-12
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        182
+                        2.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        7 分
                     </div>
                     
                 
@@ -437,24 +443,229 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="出现的问题"><a href="#出现的问题" class="headerlink" title="出现的问题"></a>出现的问题</h3><p>从官网下载了 <code>node</code> 的 <code>.pkg</code> 文件安装 <code>node</code>，安装好后，在 <code>mac</code> 终端下输入 <code>npm -v</code> 和 <code>node -v</code> 均提示 <code>command not found</code>。</p>
-<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>1、第一步：创建 <code>.bash_profile</code> 文件，～表示在～目录下，.表示隐藏文件，打开终端，输入命令如下：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">touch</span> ~/.bash_profile
+                <h2 id="枚举"><a href="#枚举" class="headerlink" title="枚举"></a>枚举</h2><ul>
+<li>使用枚举我们可以定义一些带名字的常量</li>
+<li>使用枚举可以清晰地表达意图或者创建一组有区别的用例。</li>
+<li><code>TypeScript</code> 支持基于数字的和基于字符串的枚举。</li>
+</ul>
+<hr>
+<h3 id="数字枚举"><a href="#数字枚举" class="headerlink" title="数字枚举"></a>数字枚举</h3><p>首先让我能看看数字枚举，如果你使用过其他编程语言应该会很熟悉。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Direction <span class="token punctuation">{</span>
+  Up <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  Down<span class="token punctuation">,</span>
+  Left<span class="token punctuation">,</span>
+  Right
+<span class="token punctuation">}</span>
 </code></pre>
-<p>2、第二步：打开 <code>.bash_profile</code> 文件，输入命令如下：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">open</span> -e .bash_profile
+<p>如上，我们定义了一个数字枚举，<code>Up</code> 使用初始化为 <code>1</code>。其余成员会从 <code>1</code> 开始自动增长。换句话说， <code>Direction.Up</code> 的值为 <code>1</code>，<code>Down</code> 为 <code>2</code>, <code>Left</code> 为 <code>3</code>，<code>Right</code> 为 <code>4</code>。</p>
+<p>我们还可以完全不使用初始化器：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Direction <span class="token punctuation">{</span>
+  Up<span class="token punctuation">,</span>
+  Down<span class="token punctuation">,</span>
+  Left<span class="token punctuation">,</span>
+  Right
+<span class="token punctuation">}</span>
 </code></pre>
-<p>3、第三步：这时候会弹出 <code>.bash_profile</code> 文本编辑框，在文本编辑框里面编辑：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">export</span> PATH<span class="token operator">=</span>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+<p>现在， <code>Up</code> 的值为 <code>0</code>，<code>Down</code> 的值为 <code>1</code> 等等。当我们不在乎成员的值的时候，这种自增长的行为是很有用处的，但是要注意每个枚举成员的值都是不同的。</p>
+<p>使用枚举很简单：</p>
+<ul>
+<li>通过枚举的属性来访问枚举成员</li>
+<li>通过枚举的名字来访问枚举类型</li>
+</ul>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Response <span class="token punctuation">{</span>
+  No <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  Yes <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">respond</span><span class="token punctuation">(</span>recipient<span class="token punctuation">:</span> <span class="token keyword">string</span><span class="token punctuation">,</span> message<span class="token punctuation">:</span> Response<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token function">respond</span><span class="token punctuation">(</span><span class="token string">'Princess Caroline'</span><span class="token punctuation">,</span> Response<span class="token punctuation">.</span>Yes<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>4、第四步：<code>command+s</code> 保存 <code>.bash_profile</code> 文件，为使 <code>.bash_profile</code> 文件生效，输入命令：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">source</span> .bash_profile
+<p>数字枚举可以被混入到 <code>计算过的和常量成员</code>。简短地说，不带初始化的枚举或者被放在第一的位置，或者被放在使用了数字常量或其他常量初始化了的枚举后面。换句话说，下面的情况是不被允许的：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> E <span class="token operator">=</span> <span class="token punctuation">{</span>
+    A <span class="token operator">=</span> <span class="token function">getSomeValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    B <span class="token comment" spellcheck="true">// 错误!'A'不是常量初始化的，所以'B'需要一个初始化器</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<p>5、第五步：再输入 <code>npm -v</code> 或者 <code>node -v</code> 就能看到版本号啦~。</p>
-<pre class=" language-bash"><code class="language-bash">node -v
+<hr>
+<h3 id="字符串枚举"><a href="#字符串枚举" class="headerlink" title="字符串枚举"></a>字符串枚举</h3><p>字符串枚举的概念很简单，但是有细微的运行时的差别。在一个字符串枚举里，每个成员都必须用字符串字面量，或另一个字符串枚举成员进行初始化。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Direction <span class="token punctuation">{</span>
+  Up <span class="token operator">=</span> <span class="token string">'Up'</span><span class="token punctuation">,</span>
+  Down <span class="token operator">=</span> <span class="token string">'Down'</span><span class="token punctuation">,</span>
+  Left <span class="token operator">=</span> <span class="token string">'Left'</span><span class="token punctuation">,</span>
+  Right <span class="token operator">=</span> <span class="token string">'Right'</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> -v
+<p>由于字符串枚举没有自增长的行为，字符串枚举可以很好的序列化。换句话说，如果你正在调试且必须要读一个数字枚举的运行时的值，这个值通常是很难读的 - 它并不能表达有用的信息（尽管 <code>反向映射</code> 会有所帮助），字符串枚举允许提供一个运行时有意义并且可读的值，独立于枚举成员的名字。</p>
+<hr>
+<h3 id="异构枚举-Heterogeneous-enums"><a href="#异构枚举-Heterogeneous-enums" class="headerlink" title="异构枚举 Heterogeneous enums"></a>异构枚举 <code>Heterogeneous enums</code></h3><p>从技术的角度来说，枚举可以混合数字和字符串成员，但是似乎你并不会这么做：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> BooleanLikeHeterogeneousEnum <span class="token punctuation">{</span>
+  No <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  Yes <span class="token operator">=</span> <span class="token string">'Yes'</span>
+<span class="token punctuation">}</span>
 </code></pre>
+<p>除非你真的想要利用 <code>JavaScript</code> 运行时的行为，否则我们不建议这样做。</p>
+<hr>
+<h3 id="计算的和常量成员"><a href="#计算的和常量成员" class="headerlink" title="计算的和常量成员"></a>计算的和常量成员</h3><p>每个枚举成员都带有一个值，它可以是 <strong>_常量_</strong> 或 <strong><em>计算出来</em></strong>的。当满足如下条件时，枚举成员被当作是常量：</p>
+<ul>
+<li>它是枚举的第一个成员且没有初始化器，这种情况下它被赋值 <code>0</code>：</li>
+</ul>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// E.X is constant</span>
+<span class="token keyword">enum</span> E <span class="token punctuation">{</span>
+  X
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>它不带有初始化器且它之前的枚举成员是一个 <strong>_数字_</strong>常量。这种情况下，当前枚举成员的值为它上一个枚举成员的值加 <code>1</code>。</li>
+</ul>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// All enum members in 'E1' and 'E2' are constant.</span>
+
+<span class="token keyword">enum</span> E1 <span class="token punctuation">{</span>
+  X<span class="token punctuation">,</span>
+  Y<span class="token punctuation">,</span>
+  Z
+<span class="token punctuation">}</span>
+
+<span class="token keyword">enum</span> E2 <span class="token punctuation">{</span>
+  A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  B<span class="token punctuation">,</span>
+  C
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>枚举成员使用 <strong><em>常量枚举表达式</em></strong> 初始化。常量枚举表达式是 <code>TypeScript</code> 的子集，它可以在编译阶段求值。当一个表达式满足下面条件之一时，它就是一个常量枚举表达式：<ul>
+<li>一个枚举表达式字面量(主要是字符串字面量或数字字面量)</li>
+<li>一个对之前定义的常量枚举成员的引用(可以是在不同的枚举类型中定义的)</li>
+<li>带括号的常量枚举表达式</li>
+<li>一元运算符 <code>+</code>，<code>-</code>，<code>~</code> 其中之一应用在了常量枚举表达式</li>
+<li>常量枚举表达式作为二元运算符 <code>+</code>，<code>-</code>，<code>*</code> ，<code>/</code>，<code>%</code>，<code>&lt;&lt;</code>， <code>&gt;&gt;</code>，<code>&gt;&gt;&gt;</code>，<code>&amp;</code>，<code>|</code>，<code>^</code> 的操作对象。若常量枚举表达式求值后为 <code>NaN</code> 或 <code>Infinity</code>，则会在编译阶段报错。</li>
+</ul>
+</li>
+</ul>
+<p>所有其它情况的枚举成员被当作是需要计算得出的值。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> FileAccess <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// constant members</span>
+  None<span class="token punctuation">,</span>
+  Read <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  Write <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">2</span><span class="token punctuation">,</span>
+  ReadWrite <span class="token operator">=</span> Read <span class="token operator">|</span> Write<span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// computed member</span>
+  G <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">.</span>length
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
+<h3 id="联合枚举与枚举成员的类型"><a href="#联合枚举与枚举成员的类型" class="headerlink" title="联合枚举与枚举成员的类型"></a>联合枚举与枚举成员的类型</h3><p>存在一种特殊的非计算的常量枚举成员的子集：字面量枚举成员。字面量枚举成员是指不带有初始值的常量枚举成员，或者是值被初始化为：</p>
+<ul>
+<li>任何字符串字面量（例如：<code>foo</code>， <code>bar</code>， <code>baz</code>）</li>
+<li>任何数字字面量（例如： <code>1</code>， <code>100</code>）</li>
+<li>应用了一元 <code>-</code> 符号的数字字面量（例如： <code>-1</code>， <code>-100</code>）</li>
+</ul>
+<p>当所有枚举成员都拥有字面量枚举值时，它就带有了一种特殊的语义。</p>
+<p>首先，枚举成员成为了类型！ 例如，我们可以说某些成员 只能是枚举成员的值：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> ShapeKind <span class="token punctuation">{</span>
+  Circle<span class="token punctuation">,</span>
+  Square
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Circle</span> <span class="token punctuation">{</span>
+  kind<span class="token punctuation">:</span> ShapeKind<span class="token punctuation">.</span>Circle<span class="token punctuation">;</span>
+  radius<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">interface</span> <span class="token class-name">Square</span> <span class="token punctuation">{</span>
+  kind<span class="token punctuation">:</span> ShapeKind<span class="token punctuation">.</span>Square<span class="token punctuation">;</span>
+  sideLength<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> c<span class="token punctuation">:</span> Circle <span class="token operator">=</span> <span class="token punctuation">{</span>
+  kind<span class="token punctuation">:</span> ShapeKind<span class="token punctuation">.</span>Square<span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// Error !</span>
+  rasius<span class="token punctuation">:</span> <span class="token number">100</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
+<p>另一个变化是枚举类型本身变成了每个枚举成员的 _联合_。虽然我们还没有讨论<strong>联合类型</strong>，但你只要知道通过联合枚举，类型系统能够利用这样一个事实，它可以知道枚举里的值的集合。因此，<code>TypeScript</code> 能够捕获在比较值的时候犯的愚蠢的错误。例如：</p>
+<pre class=" language-typescript"><code class="language-typescript">enmu E <span class="token punctuation">{</span>
+  Foo<span class="token punctuation">,</span>
+  Bar
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">:</span> E<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">!==</span> E<span class="token punctuation">.</span>Foo <span class="token operator">||</span> x <span class="token operator">!==</span> E<span class="token punctuation">.</span>Bar<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Error! Operator '!==' cannot be applied to types 'E.Foo' and 'E.Bar'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>在这个例子里，我们先检查 <code>x</code> 是否不是 <code>E.Foo</code>。如果通过了这个检查，然后 <code>||</code> 会发生短路效果，<code>if</code> 语句体里的内容会被执行。然而，这个检查没有通过，那么<code>x</code> 只能为 <code>E.Foo</code>，因此没理由再去检查它是否为 <code>E.Bar</code>。</p>
+<hr>
+<h3 id="运行时的枚举"><a href="#运行时的枚举" class="headerlink" title="运行时的枚举"></a>运行时的枚举</h3><p>枚举是在运行时真正存在的对象。例如下面的枚举：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> E <span class="token punctuation">{</span>
+  X<span class="token punctuation">,</span>
+  Y<span class="token punctuation">,</span>
+  Z
+<span class="token punctuation">}</span>
+</code></pre>
+<p>实际上可以传递给函数：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span>obj<span class="token punctuation">:</span> <span class="token punctuation">{</span> X<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> obj<span class="token punctuation">.</span>X<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Works, since 'E' has a property named 'X' which is a number.</span>
+<span class="token function">f</span><span class="token punctuation">(</span>E<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h3 id="反向映射"><a href="#反向映射" class="headerlink" title="反向映射"></a>反向映射</h3><p>除了创建一个以属性名作为对象成员的对象之外，数字枚举成员还具有了 <strong>反向映射</strong>，从枚举值到枚举名字。例如，在下面的例子中：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">enum</span> Enum <span class="token punctuation">{</span>
+  A
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> a <span class="token operator">=</span> Enum<span class="token punctuation">.</span>A<span class="token punctuation">;</span>
+<span class="token keyword">let</span> nameOfA <span class="token operator">=</span> Enum<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// A</span>
+</code></pre>
+<p><code>TypeScript</code> 可能会将这段代码编译为下面的 <code>JavaScript</code>：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> Enum<span class="token punctuation">;</span>
+<span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>Enum<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  Enum<span class="token punctuation">[</span><span class="token punctuation">(</span>Enum<span class="token punctuation">[</span><span class="token string">'A'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">'A'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span>Enum <span class="token operator">||</span> <span class="token punctuation">(</span>Enum <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">var</span> a <span class="token operator">=</span> Enum<span class="token punctuation">.</span>A<span class="token punctuation">;</span>
+<span class="token keyword">var</span> nameOfA <span class="token operator">=</span> Enum<span class="token punctuation">[</span>a<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>生成的代码中，枚举类型被编译成一个对象，它包含了正向映射（<code>name</code> -&gt; <code>value</code>）和 反向映射（<code>value</code> -&gt; <code>name</code>）。引用枚举成员总会生成为对象属性访问并且永远也不会内联代码。</p>
+<p>要注意的是，不会为 字符串枚举成员生成反向映射。</p>
+<hr>
+<h3 id="const-枚举"><a href="#const-枚举" class="headerlink" title="const 枚举"></a><code>const</code> 枚举</h3><p>大多数情况下，枚举是十分有效的方案。然而在某些情况下需求很严格。为了避免在额外生成的代码上的开销和额外的非直接的对枚举成员的访问。我们可以使用 <code>const</code> 枚举。常量枚举通过在枚举上使用 <code>const</code> 修饰符来定义。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> <span class="token keyword">enum</span> Enum <span class="token punctuation">{</span>
+  A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  B <span class="token operator">=</span> A <span class="token operator">*</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>常量枚举只能使用常量枚举白噢大事，并且不同于常规的枚举，它们在编译阶段会被删除。常量枚举成员字在使用的地方会被内联起来。之所以可以这么做是因为，常量枚举不允许包含计算成员。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> <span class="token keyword">enum</span> Directions <span class="token punctuation">{</span>
+  Up<span class="token punctuation">,</span>
+  Down<span class="token punctuation">,</span>
+  Left<span class="token punctuation">,</span>
+  Right
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> directions <span class="token operator">=</span> <span class="token punctuation">[</span>
+  Directions<span class="token punctuation">.</span>Up<span class="token punctuation">,</span>
+  Directions<span class="token punctuation">.</span>Down<span class="token punctuation">,</span>
+  Directions<span class="token punctuation">.</span>Left<span class="token punctuation">,</span>
+  Directions<span class="token punctuation">.</span>Right
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>生成后的代码为：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">var</span> directions <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span> <span class="token comment" spellcheck="true">/*Up*/</span><span class="token punctuation">,</span> <span class="token number">1</span> <span class="token comment" spellcheck="true">/*Down*/</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token comment" spellcheck="true">/*Left*/</span><span class="token punctuation">,</span> <span class="token number">3</span> <span class="token comment" spellcheck="true">/*Right*/</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<h3 id="外部枚举"><a href="#外部枚举" class="headerlink" title="外部枚举"></a>外部枚举</h3><p>外部枚举用来描述已经存在的枚举类型的形状。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">declare</span> <span class="token keyword">enum</span> Enum <span class="token punctuation">{</span>
+  A <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">,</span>
+  B<span class="token punctuation">,</span>
+  C <span class="token operator">=</span> <span class="token number">2</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>外部枚举和非外部枚举之间有一个重要的区别，在正常的枚举里，没有初始化方法的成员被当成常数成员。对于非常数的外部枚举而言，没有初始化方法时被当做需要经过计算的。</p>
 
             </div>
             <hr/>
@@ -602,7 +813,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">24K博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/19/mac-xia-node-an-zhuang-cheng-gong-dan-ti-shi-npm-command-not-found/" class="b-link-green">npm command not found</a>
+                    <a href="/2019/11/12/typescript-mei-ju/" class="b-link-green">TypeScript 之枚举</a>
                 </p>
             </div>
         </div>
@@ -645,63 +856,59 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/28/vue-tuo-zhuai-pai-xu/">
+                <a href="/2019/11/12/typescript-mei-ju/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/51.jpg" class="responsive-img" alt="Vue拖拽排序">
+                        <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="TypeScript 之枚举">
                         
-                        <span class="card-title">Vue拖拽排序</span>
+                        <span class="card-title">TypeScript 之枚举</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Awe-dndAwe-dnd：一个轻量的 Vue 拖动排序插件，可使您的元素在 Vue 中可拖动。
-demo 示例图Awe-dnd 特点
-支持桌面和移动设备
-Vue 数据驱动理念
-支持 multi drag
-支持 Vue 1.0 and V
+                            枚举
+使用枚举我们可以定义一些带名字的常量
+使用枚举可以清晰地表达意图或者创建一组有区别的用例。
+TypeScript 支持基于数字的和基于字符串的枚举。
+
+
+数字枚举首先让我能看看数字枚举，如果你使用过其他编程语言应该会很熟悉。
+enum
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-28
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/拖拽排序/" class="post-category" target="_blank">
-                                    拖拽排序
+                            <a href="/categories/TypeScript/" class="post-category" target="_blank">
+                                    TypeScript
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/TypeScript/" target="_blank">
+                        <span class="chip bg-color">TypeScript</span>
                     </a>
                     
-                    <a href="/tags/拖拽排序/" target="_blank">
-                        <span class="chip bg-color">拖拽排序</span>
+                    <a href="/tags/枚举/" target="_blank">
+                        <span class="chip bg-color">枚举</span>
                     </a>
                     
                 </div>
@@ -715,42 +922,32 @@ Vue 数据驱动理念
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/10/vue-wen-jian-yu-lan/">
+                <a href="/2019/11/01/typescript-zhi-fan-xing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Vue文件预览">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="TypeScript 之泛型">
                         
-                        <span class="card-title">Vue文件预览</span>
+                        <span class="card-title">TypeScript 之泛型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            pdf文件预览1、embed 标签&lt;template>
-  &lt;div style="height:100vh">
-    &lt;embed src="https://fscdn.xxx.com/pdf文件地址.pdf" 
-  
+                            介绍软件工程中，我们不仅要创建一致的定义良好的 API，同时也要考虑可重用性。组件不仅能够支持当前的数据类型，同样也能支持未来的数据类型，这在创建大型系统时为你提供例了十分灵活的功能。
+在像 C# 和 Java 这样的语言中，可以使用泛型来
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-10
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-01
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/前端/" class="post-category" target="_blank">
-                                    前端
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/文件预览/" class="post-category" target="_blank">
-                                    文件预览
+                            <a href="/categories/TypeScript/" class="post-category" target="_blank">
+                                    TypeScript
                                 </a>
                             
                             
@@ -760,12 +957,12 @@ Vue 数据驱动理念
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/TypeScript/" target="_blank">
+                        <span class="chip bg-color">TypeScript</span>
                     </a>
                     
-                    <a href="/tags/Vue文件预览/" target="_blank">
-                        <span class="chip bg-color">Vue文件预览</span>
+                    <a href="/tags/泛型/" target="_blank">
+                        <span class="chip bg-color">泛型</span>
                     </a>
                     
                 </div>

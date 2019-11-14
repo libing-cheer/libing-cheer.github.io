@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-08T02:34:16.400Z</updated>
+  <updated>2019-11-14T09:22:43.603Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TypeScript 之枚举</title>
+    <link href="http://yoursite.com/2019/11/12/typescript-mei-ju/"/>
+    <id>http://yoursite.com/2019/11/12/typescript-mei-ju/</id>
+    <published>2019-11-12T10:00:00.000Z</published>
+    <updated>2019-11-14T09:22:43.603Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;枚举&quot;&gt;&lt;a href=&quot;#枚举&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="TypeScript" scheme="http://yoursite.com/categories/TypeScript/"/>
+    
+    
+      <category term="TypeScript" scheme="http://yoursite.com/tags/TypeScript/"/>
+    
+      <category term="枚举" scheme="http://yoursite.com/tags/%E6%9E%9A%E4%B8%BE/"/>
+    
+  </entry>
   
   <entry>
     <title>TypeScript 之泛型</title>
@@ -339,9 +367,9 @@
       <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
     
     
-      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
     
       <category term="vue-i18n" scheme="http://yoursite.com/tags/vue-i18n/"/>
     
