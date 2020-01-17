@@ -47,9 +47,9 @@
       
         <tags>
             
-            <tag> TypeScript </tag>
-            
             <tag> 类型推论 </tag>
+            
+            <tag> TypeScript </tag>
             
         </tags>
       
@@ -387,9 +387,9 @@
       
         <tags>
             
-            <tag> Vue </tag>
-            
             <tag> 国际化 </tag>
+            
+            <tag> Vue </tag>
             
             <tag> vue-i18n </tag>
             
