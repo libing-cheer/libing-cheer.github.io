@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/09/16/qian-duan-fen-ye/</loc>
+    
+    <lastmod>2020-04-17T02:23:30.063Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/01/17/javascript-zhi-pai-xu-ji-jin/</loc>
     
     <lastmod>2020-01-17T13:17:44.367Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>http://yoursite.com/2019/05/04/hello-world/</loc>
     
     <lastmod>2019-09-30T01:49:27.530Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/09/16/qian-duan-fen-ye/</loc>
-    
-    <lastmod>2019-09-30T01:49:08.286Z</lastmod>
     
   </url>
   
