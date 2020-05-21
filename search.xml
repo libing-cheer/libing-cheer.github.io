@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Javascript数组方法集锦</title>
+      <link href="/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/"/>
+      <url>/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1、Array-from"><a href="#1、Array-from" class="headerlink" title="1、Array.from()"></a>1、Array.from()</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><code>Array.from()</code>方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。</p><h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>Array.form(arrayLike[, mapFn[, thisArg]])</code></p><h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul><li><code>arrayLike</code> -&gt; 想要转换成数组的伪数组或可迭代对象</li><li><code>mapFn</code> -&gt; <code>[可选参数]</code> 如果指定了该参数，新数组中的每个元素会执行该回调函数。</li><li><code>thisArg</code> -&gt; [可选参数] 执行回调函数 <code>mapFn</code> 时<code>this</code>对象。</li></ul><h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个新的 <code>Array</code> 实例。</p><h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>1、<code>Array.from()</code>可以通过以下方式来创建数组对象</p><ul><li>伪数组对象：拥有一个<code>length</code>属性和若干索引属性的任意对象。</li><li>可迭代对象：可以获取对象中的元素，如<code>Map</code>和<code>Set</code>等。</li></ul><p>2、<code>Array.from()</code>方法有一个可选参数 <code>mapFn</code>，可以让你在最后生成的数组上在执行一次 <code>map</code> 方法后在返回。</p><p>3、<code>from()</code>的 <code>length</code> 属性为 1，即 <code>Array.from.length === 1</code>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Javascript </category>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数组方法 </tag>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript之排序集锦</title>
       <link href="/2020/01/17/javascript-zhi-pai-xu-ji-jin/"/>
       <url>/2020/01/17/javascript-zhi-pai-xu-ji-jin/</url>
@@ -269,9 +298,9 @@
       
         <tags>
             
-            <tag> 表格合并 </tag>
-            
             <tag> Javascript </tag>
+            
+            <tag> 表格合并 </tag>
             
         </tags>
       

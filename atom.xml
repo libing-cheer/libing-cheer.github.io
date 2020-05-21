@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-17T13:17:44.367Z</updated>
+  <updated>2020-04-20T01:14:48.520Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Javascript数组方法集锦</title>
+    <link href="http://yoursite.com/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/"/>
+    <id>http://yoursite.com/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/</id>
+    <published>2020-04-17T02:28:00.000Z</published>
+    <updated>2020-04-20T01:14:48.520Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、Array-from&quot;&gt;&lt;a href=&quot;#1、Array-from&quot; class=&quot;headerlink&quot; title=&quot;1、Array.from()&quot;&gt;&lt;/a&gt;1、Array.from()&lt;/h3&gt;&lt;h4 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Javascript" scheme="http://yoursite.com/categories/Javascript/"/>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/Javascript/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="数组方法" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript之排序集锦</title>
@@ -302,9 +332,9 @@
       <category term="Javascript" scheme="http://yoursite.com/categories/%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/Javascript/"/>
     
     
-      <category term="表格合并" scheme="http://yoursite.com/tags/%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="表格合并" scheme="http://yoursite.com/tags/%E8%A1%A8%E6%A0%BC%E5%90%88%E5%B9%B6/"/>
     
   </entry>
   
@@ -584,38 +614,6 @@
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
     
       <category term="node" scheme="http://yoursite.com/tags/node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue文件预览</title>
-    <link href="http://yoursite.com/2019/05/10/vue-wen-jian-yu-lan/"/>
-    <id>http://yoursite.com/2019/05/10/vue-wen-jian-yu-lan/</id>
-    <published>2019-05-10T08:29:55.000Z</published>
-    <updated>2019-07-11T07:47:33.004Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;pdf文件预览&quot;&gt;&lt;a href=&quot;#pdf文件预览&quot; class=&quot;headerlink&quot; title=&quot;pdf文件预览&quot;&gt;&lt;/a&gt;pdf文件预览&lt;/h3&gt;&lt;h4 id=&quot;1、embed-标签&quot;&gt;&lt;a href=&quot;#1、embed-标签&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
-    
-      <category term="文件预览" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/%E6%96%87%E4%BB%B6%E9%A2%84%E8%A7%88/"/>
-    
-    
-      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
-    
-      <category term="Vue文件预览" scheme="http://yoursite.com/tags/Vue%E6%96%87%E4%BB%B6%E9%A2%84%E8%A7%88/"/>
     
   </entry>
   
