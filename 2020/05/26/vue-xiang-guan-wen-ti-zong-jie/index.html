@@ -1,0 +1,1219 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Vue常见面试问题及解析(持续更新中····), 24K博客">
+    <meta name="description" content="1、如何理解 MVVM 原理
+
+M：Model，数据层对数据的处理；
+V：View，视图层，是 HMTL 显示页面；
+VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表单按钮提交，自定义事件的注册和处理逻辑都在View">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Vue常见面试问题及解析(持续更新中····) | 24K博客</title>
+    <link rel="icon" type="image/png" href="/medias/海星.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/海星.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">24K博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/海星.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">24K博客</div>
+        <div class="logo-desc">
+            
+            安安静静的做一个分享技术，分享生活的咸鱼
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/libing-cheer/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/libing-cheer/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Vue常见面试问题及解析(持续更新中····)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 220px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Vue/" target="_blank">
+                                <span class="chip bg-color">Vue</span>
+                            </a>
+                        
+                            <a href="/tags/面试/" target="_blank">
+                                <span class="chip bg-color">面试</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                Vue
+                            </a>
+                        
+                            <a href="/categories/Vue/面试/" class="post-category" target="_blank">
+                                面试
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-05-26
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        2.4k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        9 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h3 id="1、如何理解-MVVM-原理"><a href="#1、如何理解-MVVM-原理" class="headerlink" title="1、如何理解 MVVM 原理"></a>1、如何理解 <code>MVVM</code> 原理</h3><p><img src="https://pic4.zhimg.com/50/v2-674094672da91f0db9ce80c113a2245b_hd.jpg" alt="MVVM"></p>
+<ul>
+<li><code>M</code>：<code>Model</code>，数据层对数据的处理；</li>
+<li><code>V</code>：<code>View</code>，视图层，是 HMTL 显示页面；</li>
+<li><code>VM</code>：<code>ViewModel</code>：业务逻辑层（一切 <code>JS</code> 可视为业务逻辑，比如表单按钮提交，自定义事件的注册和处理逻辑都在<code>ViewModel</code> 里面负责监听两边的数据）。</li>
+</ul>
+<h3 id="2、响应式数据的原理是什么"><a href="#2、响应式数据的原理是什么" class="headerlink" title="2、响应式数据的原理是什么"></a>2、响应式数据的原理是什么</h3><p>响应式的基本机制：</p>
+<ul>
+<li>通过 <code>Object.defineProperty()</code> 替换配置对象属性的 <code>set</code>、<code>get</code> 方法。</li>
+<li><code>watcher</code> 在执行 <code>getter</code> 函数是触发 <code>get</code> 方法，从而建立依赖关系。</li>
+<li>写入数据时触发 <code>set</code> 方法，从而借助 <code>dep</code> 发布通知，进而 <code>getter</code> 进行更新。</li>
+</ul>
+<p><img src="https://pic1.zhimg.com/80/v2-c2f361d5e2c79e8aa98126d3f1c65d28_720w.jpg" alt="Vue响应式"></p>
+<h3 id="3、Vue中是如何检测数组和对象变化"><a href="#3、Vue中是如何检测数组和对象变化" class="headerlink" title="3、Vue中是如何检测数组和对象变化"></a>3、<code>Vue</code>中是如何检测数组和对象变化</h3><p>由于 <code>JavaScript</code> 的限制，<code>Vue</code> 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性。</p>
+<h4 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a>对于对象</h4><ul>
+<li>使用 <code>Vue.set(object, propertyName, value)</code> 方法向潜逃对象添加响应式 <code>property</code>。</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>someObject<span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>使用 <code>Vue.$set(this.someObject, propeytyName, value)</code> 实例方法，这也是全局 <code>Vue.set()</code> 的别名。</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span>$<span class="token keyword">set</span><span class="token punctuation">(</span>someObject<span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>为已有对象赋值多个新的 <code>property</code>：</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>someObject <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>someObject<span class="token punctuation">,</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="关于数组"><a href="#关于数组" class="headerlink" title="关于数组"></a>关于数组</h4><p><code>Vue</code> 不能检测以下数组的变动：</p>
+<ul>
+<li>当你利用索引值直接设置一个数组项时： <code>vm.items[indexOfItem] = newValue</code></li>
+<li>当你修改数组的长度时：<code>vm.item.length = newLength</code></li>
+</ul>
+<p>解决第一类问题：</p>
+<pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span>items<span class="token punctuation">,</span> indexOfItems<span class="token punctuation">,</span> newValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript">vm<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>indexOfItems<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> newValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>解决第二类问题：</p>
+<pre class=" language-javascript"><code class="language-javascript">vm<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>newLength<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="4、为何Vue采用异步渲染"><a href="#4、为何Vue采用异步渲染" class="headerlink" title="4、为何Vue采用异步渲染"></a>4、为何<code>Vue</code>采用异步渲染</h3><p>如果不采用异步渲染，那么每次数据更新都会对当前组件进行重写渲染，所以为了性能考虑，会在本轮数据更新后，再去异步更新视图。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-d5a37288b198bc49387f5c11a523b178_720w.jpg" alt="Vue异步更新"></p>
+<h3 id="5、nextTick实现原理"><a href="#5、nextTick实现原理" class="headerlink" title="5、nextTick实现原理"></a>5、<code>nextTick</code>实现原理</h3><p><a href="https://juejin.im/post/5ea4ffcdf265da48062c9b61#heading-4" target="_blank" rel="noopener">源码解析</a><br><code>nextTick</code> 方法主要是使用了宏任务和微任务,定义了一个异步方法.多次调用 <code>nextTick</code> 会将方法存入队列中，通过这个异步方法清空当前队列。所以这个 <code>nextTick</code> 方法是异步方法。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-3c58bebe0a959bbf7f6abe3f0ad53dff_720w.jpg" alt="nextTick的实现"></p>
+<h3 id="6、Vue组件的生命周期"><a href="#6、Vue组件的生命周期" class="headerlink" title="6、Vue组件的生命周期"></a>6、<code>Vue</code>组件的生命周期</h3><p><img src="https://pic2.zhimg.com/80/v2-a0f8836c35d149bb3a044a9fca1cda4d_720w.jpg" alt="Vue生命周期"></p>
+<h3 id="7、Ajax-请求放在那个生命周期中"><a href="#7、Ajax-请求放在那个生命周期中" class="headerlink" title="7、Ajax 请求放在那个生命周期中"></a>7、<code>Ajax</code> 请求放在那个生命周期中</h3><p>在 <code>mounted</code> 生命周期中请求 <code>Ajax</code>，此时 <code>html</code> 已经渲染出来了，可以直接操作 <code>dom</code> 节点。</p>
+<h3 id="8、何时需要使用beforeDestroy"><a href="#8、何时需要使用beforeDestroy" class="headerlink" title="8、何时需要使用beforeDestroy"></a>8、何时需要使用<code>beforeDestroy</code></h3><p>实例销毁之前调用。在这一步，实例仍然完全可用。<strong>该钩子在啊服务器渲染期间不被调用</strong>。</p>
+<h3 id="9、Vue父子组件生命周期调用顺序"><a href="#9、Vue父子组件生命周期调用顺序" class="headerlink" title="9、Vue父子组件生命周期调用顺序"></a>9、<code>Vue</code>父子组件生命周期调用顺序</h3><ul>
+<li>加载渲染过程</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">父beforeCreate <span class="token operator">-</span><span class="token operator">></span> 父create <span class="token operator">-</span><span class="token operator">></span> 父beforeMounted <span class="token operator">-</span><span class="token operator">></span> 子beforeCreate <span class="token operator">-</span><span class="token operator">></span> 子create <span class="token operator">-</span><span class="token operator">></span> 子mounted <span class="token operator">-</span><span class="token operator">></span> 父mounted
+</code></pre>
+<ul>
+<li>子组件更新过程</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">父beforeUpdate <span class="token operator">-</span><span class="token operator">></span> 子beforeUpdate <span class="token operator">-</span><span class="token operator">></span> 子updated <span class="token operator">-</span><span class="token operator">></span> 父updated
+</code></pre>
+<ul>
+<li>父组件更新过程</li>
+</ul>
+<pre class=" language-javascript"><code class="language-javascript">父beforeUpdate <span class="token operator">-</span><span class="token operator">></span> 父updated
+</code></pre>
+<p>销毁过程</p>
+<pre class=" language-javascript"><code class="language-javascript">父beforeDestory <span class="token operator">-</span><span class="token operator">></span> 子beforeDestory <span class="token operator">-</span><span class="token operator">></span> 子destoryed <span class="token operator">-</span><span class="token operator">></span> 父destoryed
+</code></pre>
+<h3 id="10、Vue中computed中的特点"><a href="#10、Vue中computed中的特点" class="headerlink" title="10、Vue中computed中的特点"></a>10、<code>Vue</code>中<code>computed</code>中的特点</h3><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">-</span> 监控自己定义的变量，不用再 <span class="token template-string"><span class="token string">`data`</span></span> 里面声明，函数名就是变量名。
+<span class="token operator">-</span> 适合多个变量会对象处理后返回一个值。若这个多个变量只要有一个发生变化，结果都回变化。
+<span class="token operator">-</span> 计算的结果具有缓存、依赖响应式属性变化，响应式属性没有变化，直接从缓存中读取结果。
+<span class="token operator">-</span> 在函数内部调用的时候不用加 <span class="token template-string"><span class="token string">`()`</span></span>。
+<span class="token operator">-</span> 必须用 <span class="token template-string"><span class="token string">`return`</span></span> 返回。
+<span class="token operator">-</span> 不要在 <span class="token template-string"><span class="token string">`computed`</span></span> 中对 <span class="token template-string"><span class="token string">`data`</span></span> 中的数据进行赋值操作，这回形成一个死循环。
+</code></pre>
+<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><pre class=" language-javascript"><code class="language-javascript"><span class="token operator">-</span> 一个需要的结果受多个数据影响的时候，比如购物车结算的金额。
+<span class="token operator">-</span> 操作某个属性，执行一些复杂的逻辑，并在多处使用这个结果。
+<span class="token operator">-</span> 内部函数中多处要使用到这个结果的。
+</code></pre>
+<h3 id="11、watch的用法及deep-true是如何实现的"><a href="#11、watch的用法及deep-true是如何实现的" class="headerlink" title="11、watch的用法及deep: true是如何实现的"></a>11、<code>watch</code>的用法及<code>deep: true</code>是如何实现的</h3><p><code>watch</code> 是一个侦听的动作，用来观察和响应 <code>Vue</code> 实例上的数据变动。</p>
+<h4 id="handler-方法和-immediate-属性"><a href="#handler-方法和-immediate-属性" class="headerlink" title="handler 方法和 immediate 属性"></a><code>handler</code> 方法和 <code>immediate</code> 属性</h4><pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>demo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{ fullName }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">"#demo"</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    firstName<span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">,</span>
+    lastName<span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">,</span>
+    fullName<span class="token punctuation">:</span> <span class="token string">"Foo Bar"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    firstName<span class="token punctuation">:</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"第一次没有执行"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>fullName <span class="token operator">=</span> val <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>初始化的时候，<code>watch</code> 是不会执行的。只要当 <code>firstName</code> 的值改变的时候才会执行监听计算。如果想再第一次被绑定的时候就执行，则需要这样修改：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">"#demo"</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    firstName<span class="token punctuation">:</span> <span class="token string">"Foo"</span><span class="token punctuation">,</span>
+    lastName<span class="token punctuation">:</span> <span class="token string">"Bar"</span><span class="token punctuation">,</span>
+    fullName<span class="token punctuation">:</span> <span class="token string">"Foo Bar"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    firstName<span class="token punctuation">:</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"第一次执行了"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>fullName <span class="token operator">=</span> val <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastName<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// 代表在 watch 里声明了 firstName 这个方法后，先去立即执行 handler 方法</span>
+    immediate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="deep-属性"><a href="#deep-属性" class="headerlink" title="deep 属性"></a>deep 属性</h4><p><code>deep</code> 属性的意思是深度监听，会在对象一层层往下遍历，在每一层上都加上监听器。默认为 <code>false</code>。</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>app<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>obj.a: {{ obj.a }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>obj.a<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+</code></pre>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">var</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+  data<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token function">handler</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"obj,a changed"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      immediate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>当我们在 <code>input</code> 输入框中输入数据改变 <code>obj.a</code> 的值时，我们发现在控制台没有打印出 <code>obj.a changed</code>。受现代 <code>Javascript</code> 的限制（以及废弃 <code>Object.observe</code> ）， <code>Vue</code> 不能检测到对象属性的添加或删除。 由于 <code>Vue</code> 会在初始化实例时对属性执行 <code>getter/setter</code> 转化过程，所以属性必须在 <code>data</code> 对象上存在才能让 Vue 转换它，才能让它是响应式的。<br>默认情况下， 在 <code>handler</code> 方法中 只监听 <code>obj</code> 这个属性它的引用的变化，我们只有给 <code>obj</code> 赋值的时候它才会监听到，比如我们在 mounted 事件钩子函数中对 <code>obj</code> 进行重新赋值：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>obj <span class="token operator">=</span> <span class="token punctuation">{</span>
+    a<span class="token punctuation">:</span> '<span class="token number">123</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这样 <code>handler</code> 就会执行了，且打印出了 <code>obj.a changed</code>。</p>
+<p>但是如果需要监听 <code>obj</code> 里的属性的值呢？这时候， <code>deep</code> 属性就派上用场了。我们只需要加上 <code>deep: true</code>，就能深度监听 <code>obj</code> 里属性的值。</p>
+<pre class=" language-javascript"><code class="language-javascript">watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  obj<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">handler</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"obj.a changded"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    immediate<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    deep<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>使用 <code>deep</code> 属性会给每一层都加上监听器，性能开销可能就会非常大了。可以使用字符串的形式来优化：</p>
+<pre class=" language-javascript"><code class="language-javascript">watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token string">'obj.a'</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">handler</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"obj.a changde"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    immediate<span class="token punctuation">:</span> <span class="token boolean">true</span>
+    <span class="token comment" spellcheck="true">// deep: true</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>直到遇到 <code>obj.a</code> 属性，才会给该属性设置监听d函数，提高性能。</p>
+<h3 id="12、Vue中事件绑定的原理"><a href="#12、Vue中事件绑定的原理" class="headerlink" title="12、Vue中事件绑定的原理"></a>12、<code>Vue</code>中事件绑定的原理</h3><h3 id="13、Vue中v-html回导致哪些问题"><a href="#13、Vue中v-html回导致哪些问题" class="headerlink" title="13、Vue中v-html回导致哪些问题"></a>13、<code>Vue</code>中<code>v-html</code>回导致哪些问题</h3><ul>
+<li><code>v-html</code> 更新的元素是 <code>innerHTML</code>，内容按普通<code>HTML</code>插入，不会作为<code>Vue</code>模版进行编译。在网站上动态渲染 <code>HTML</code> 是非常危险的，因为容易导致<code>XSS</code>攻击。只在可信的内容上使用<code>v-html</code>，不用在用户提交的的内容上。</li>
+</ul>
+<ul>
+<li>在单文件组件里，<code>scoped</code> 的样式不会应用在 <code>v-html</code> 内部，因为那部分 <code>HTML</code> 没有被 <code>Vue</code> 的模板编译器处理。如果你希望针对 <code>v-html</code> 的内容设置带作用域的 <code>CSS</code>，你可以替换为 <code>CSS Modules</code> 或用一个额外的全局。</li>
+</ul>
+<p>第二个问题的解决方案：<br>第一种解决方案，照样使用 <code>scoped</code>，但是我们可以使用深度选择器 (<code>&gt;&gt;&gt;</code>)，示例如下：</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+  <span class="token selector"><span class="token class">.a</span> >>> <span class="token class">.b</span> </span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*
+  ...
+  */</span>
+  <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>以上代码最终会被编译为：</p>
+<pre class=" language-html"><code class="language-html">.a[data-v-f3f3eg9] .b { /* ... */ }
+</code></pre>
+<p>如果你的 <code>vue</code> 项目使用 <code>less</code> 或 <code>sass</code> 的时候，<code>&gt;&gt;&gt;</code> 可能会失效，我们可以用 <code>/deep/</code> 来代替，代码如下：</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token punctuation">.</span>a <span class="token punctuation">{</span>
+  <span class="token regex">/deep/</span> <span class="token punctuation">.</span>b <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/*
+    ...
+    */</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>第二种解决方案，单文件组件 <code>style</code> 标签可以使用多次，可以一个 <code>style</code> 标签带 <code>scoped</code> 属性针对当前组件，另外一个 <code>style</code> 标签针对全局生效，但是内部我们采用特殊的命名规则即可，例如 <code>BEM</code> 规则。</p>
+<h3 id="14、Vue中v-if和v-show的区别"><a href="#14、Vue中v-if和v-show的区别" class="headerlink" title="14、Vue中v-if和v-show的区别"></a>14、<code>Vue</code>中<code>v-if</code>和<code>v-show</code>的区别</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token template-string"><span class="token string">`v-if`</span></span> 是真正的条件渲染，因为它会确保在切换的过程中，条件块中的事件监听器和子组件适当的被销毁和重建。
+<span class="token template-string"><span class="token string">`v-if`</span></span> 也是惰性的：如果在初始渲染条件为假，则直到第一次变为真时，才会开始渲染条件块。
+
+<span class="token template-string"><span class="token string">`v-show`</span></span> 不管初始条件是什么，元素总是回被渲染，并且只是简单基于 <span class="token template-string"><span class="token string">`CSS`</span></span> 进行切换。
+
+如果需要非常频繁的切换，用<span class="token template-string"><span class="token string">`v-show`</span></span> 较好；如果在运行时条件不太可能改变，则使用<span class="token template-string"><span class="token string">`v-if`</span></span>较好。
+</code></pre>
+<h3 id="15、为什么v-for和v-if不能连用"><a href="#15、为什么v-for和v-if不能连用" class="headerlink" title="15、为什么v-for和v-if不能连用"></a>15、为什么<code>v-for</code>和<code>v-if</code>不能连用</h3><p><code>v-for</code> 和 <code>v-if</code> 不应该一起使用，必要情况下应该替换成 <code>computed</code> 属性。<br>原因：<code>v-for</code> 比 <code>v-if</code> 优先，如果每一次都要遍历整个数组，将会影响速度。尤其是当之需要渲染一小部分的时候。</p>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user in users<span class="token punctuation">"</span></span> <span class="token attr-name">v-if</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user.isActive<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user.id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    {{ user.name }}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>如上情况，即使 100 个<code>user</code>中只需要使用一个数据，也会循环整个数组。</p>
+<p>正确的做法：</p>
+<pre class=" language-javascript"><code class="language-javascript">computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  activeUsers<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>users<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> user<span class="token punctuation">.</span>isActive<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user in activeUsers<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>user.id<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    {{ user.name }}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+</code></pre>
+<h3 id="16、v-model中的实现原理及如何自定义v-model"><a href="#16、v-model中的实现原理及如何自定义v-model" class="headerlink" title="16、v-model中的实现原理及如何自定义v-model"></a>16、<code>v-model</code>中的实现原理及如何自定义<code>v-model</code></h3><h3 id="17、组件中的data为什么是一个函数"><a href="#17、组件中的data为什么是一个函数" class="headerlink" title="17、组件中的data为什么是一个函数"></a>17、组件中的<code>data</code>为什么是一个函数</h3><h3 id="18、Vue组件如何让通信"><a href="#18、Vue组件如何让通信" class="headerlink" title="18、Vue组件如何让通信"></a>18、<code>Vue</code>组件如何让通信</h3><h3 id="19、什么是作用域插槽"><a href="#19、什么是作用域插槽" class="headerlink" title="19、什么是作用域插槽"></a>19、什么是作用域插槽</h3><h3 id="20、用vnode来描述一个数据结构"><a href="#20、用vnode来描述一个数据结构" class="headerlink" title="20、用vnode来描述一个数据结构"></a>20、用<code>vnode</code>来描述一个数据结构</h3><h3 id="21、diff算法的时间复杂度"><a href="#21、diff算法的时间复杂度" class="headerlink" title="21、diff算法的时间复杂度"></a>21、<code>diff</code>算法的时间复杂度</h3><h3 id="22、简述Vue中diff算法原理"><a href="#22、简述Vue中diff算法原理" class="headerlink" title="22、简述Vue中diff算法原理"></a>22、简述<code>Vue</code>中<code>diff</code>算法原理</h3><h3 id="23、v-for中为什么要用key"><a href="#23、v-for中为什么要用key" class="headerlink" title="23、v-for中为什么要用key"></a>23、<code>v-for</code>中为什么要用<code>key</code></h3><h3 id="24、描述组件渲染和更新过程"><a href="#24、描述组件渲染和更新过程" class="headerlink" title="24、描述组件渲染和更新过程"></a>24、描述组件渲染和更新过程</h3><h3 id="25、Vue中模版编译原理"><a href="#25、Vue中模版编译原理" class="headerlink" title="25、Vue中模版编译原理"></a>25、<code>Vue</code>中模版编译原理</h3><h3 id="26、Vue中常见性能优化"><a href="#26、Vue中常见性能优化" class="headerlink" title="26、Vue中常见性能优化"></a>26、<code>Vue</code>中常见性能优化</h3><h3 id="27、Vue中相同逻辑如何抽离"><a href="#27、Vue中相同逻辑如何抽离" class="headerlink" title="27、Vue中相同逻辑如何抽离"></a>27、<code>Vue</code>中相同逻辑如何抽离</h3><h3 id="28、问什么要使用异步组件"><a href="#28、问什么要使用异步组件" class="headerlink" title="28、问什么要使用异步组件"></a>28、问什么要使用异步组件</h3><h3 id="29、谈谈你对keep-alive的了解"><a href="#29、谈谈你对keep-alive的了解" class="headerlink" title="29、谈谈你对keep-alive的了解"></a>29、谈谈你对<code>keep-alive</code>的了解</h3><h3 id="30、实现hash路由和history路由"><a href="#30、实现hash路由和history路由" class="headerlink" title="30、实现hash路由和history路由"></a>30、实现<code>hash</code>路由和<code>history</code>路由</h3><h3 id="31、Vue-Router中导航守卫有哪些"><a href="#31、Vue-Router中导航守卫有哪些" class="headerlink" title="31、Vue-Router中导航守卫有哪些"></a>31、<code>Vue-Router</code>中导航守卫有哪些</h3><h3 id="32、action和mutation的区别"><a href="#32、action和mutation的区别" class="headerlink" title="32、action和mutation的区别"></a>32、<code>action</code>和<code>mutation</code>的区别</h3><h3 id="33、简述Vuex工作原理"><a href="#33、简述Vuex工作原理" class="headerlink" title="33、简述Vuex工作原理"></a>33、简述<code>Vuex</code>工作原理</h3><h3 id="34、Vue3-0有哪些改进"><a href="#34、Vue3-0有哪些改进" class="headerlink" title="34、Vue3.0有哪些改进"></a>34、<code>Vue3.0</code>有哪些改进</h3>
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">24K博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/" class="b-link-green">Vue常见面试问题及解析(持续更新中····)</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80NDA5NC8yMDYyOQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="Vue常见面试问题及解析(持续更新中····)">
+                        
+                        <span class="card-title">Vue常见面试问题及解析(持续更新中····)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、如何理解 MVVM 原理
+
+M：Model，数据层对数据的处理；
+V：View，视图层，是 HMTL 显示页面；
+VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表单按钮提交，自定义事件的注册和处理逻辑都在View
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                    Vue
+                                </a>
+                            
+                            <a href="/categories/Vue/面试/" class="post-category" target="_blank">
+                                    面试
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/" target="_blank">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/面试/" target="_blank">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Javascript数组方法集锦">
+                        
+                        <span class="card-title">Javascript数组方法集锦</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、Array.from()介绍Array.from()方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
+语法Array.form(arrayLike[, mapFn[, thisArg]])
+参数
+arrayLike -&g
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-04-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category" target="_blank">
+                                    Javascript
+                                </a>
+                            
+                            <a href="/categories/Javascript/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/数组方法/" target="_blank">
+                        <span class="chip bg-color">数组方法</span>
+                    </a>
+                    
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 24K博客<br />'
+            + '作者: libing<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">24K</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">38.8k</span>
+            
+
+            <!--  -->
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:libing_cheer@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

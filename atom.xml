@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-20T01:14:48.520Z</updated>
+  <updated>2020-06-03T09:17:08.764Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Vue常见面试问题及解析(持续更新中····)</title>
+    <link href="http://yoursite.com/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/"/>
+    <id>http://yoursite.com/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/</id>
+    <published>2020-05-26T02:28:00.000Z</published>
+    <updated>2020-06-03T09:17:08.764Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;1、如何理解-MVVM-原理&quot;&gt;&lt;a href=&quot;#1、如何理解-MVVM-原理&quot; class=&quot;headerlink&quot; title=&quot;1、如何理解 MVVM 原理&quot;&gt;&lt;/a&gt;1、如何理解 &lt;code&gt;MVVM&lt;/code&gt; 原理&lt;/h3&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="面试" scheme="http://yoursite.com/categories/Vue/%E9%9D%A2%E8%AF%95/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="面试" scheme="http://yoursite.com/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Javascript数组方法集锦</title>
@@ -105,11 +135,11 @@
   </entry>
   
   <entry>
-    <title>TypeScript 之枚举</title>
+    <title>TypeScript之枚举</title>
     <link href="http://yoursite.com/2019/11/12/typescript-mei-ju/"/>
     <id>http://yoursite.com/2019/11/12/typescript-mei-ju/</id>
     <published>2019-11-12T10:00:00.000Z</published>
-    <updated>2019-11-14T09:22:43.603Z</updated>
+    <updated>2020-06-03T08:54:16.979Z</updated>
     
     <summary type="html">
     
@@ -455,9 +485,9 @@
       <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
     
     
-      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
     
       <category term="vue-i18n" scheme="http://yoursite.com/tags/vue-i18n/"/>
     
@@ -586,34 +616,6 @@
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
     
       <category term="拖拽排序" scheme="http://yoursite.com/tags/%E6%8B%96%E6%8B%BD%E6%8E%92%E5%BA%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>npm command not found</title>
-    <link href="http://yoursite.com/2019/05/19/mac-xia-node-an-zhuang-cheng-gong-dan-ti-shi-npm-command-not-found/"/>
-    <id>http://yoursite.com/2019/05/19/mac-xia-node-an-zhuang-cheng-gong-dan-ti-shi-npm-command-not-found/</id>
-    <published>2019-05-19T06:29:55.000Z</published>
-    <updated>2019-09-30T01:43:29.280Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;出现的问题&quot;&gt;&lt;a href=&quot;#出现的问题&quot; class=&quot;headerlink&quot; title=&quot;出现的问题&quot;&gt;&lt;/a&gt;出现的问题&lt;/h3&gt;&lt;p&gt;从官网下载了 &lt;code&gt;node&lt;/code&gt; 的 &lt;code&gt;.pkg&lt;/code&gt; 文件安装
-        
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
-    
-      <category term="node" scheme="http://yoursite.com/tags/node/"/>
     
   </entry>
   

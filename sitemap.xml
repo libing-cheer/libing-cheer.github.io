@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/</loc>
+    
+    <lastmod>2020-06-03T09:17:08.764Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/12/typescript-mei-ju/</loc>
+    
+    <lastmod>2020-06-03T08:54:16.979Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/</loc>
     
     <lastmod>2020-04-20T01:14:48.520Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/2019/12/17/typescript-lei-xing-tui-lun/</loc>
     
     <lastmod>2019-12-17T07:04:07.146Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/12/typescript-mei-ju/</loc>
-    
-    <lastmod>2019-11-14T09:22:43.603Z</lastmod>
     
   </url>
   
