@@ -459,7 +459,7 @@ VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表�
 <p><img src="https://pic1.zhimg.com/80/v2-c2f361d5e2c79e8aa98126d3f1c65d28_720w.jpg" alt="Vue响应式"></p>
 <h3 id="3、Vue中是如何检测数组和对象变化"><a href="#3、Vue中是如何检测数组和对象变化" class="headerlink" title="3、Vue中是如何检测数组和对象变化"></a>3、<code>Vue</code>中是如何检测数组和对象变化</h3><p>由于 <code>JavaScript</code> 的限制，<code>Vue</code> 不能检测数组和对象的变化。尽管如此我们还是有一些办法来回避这些限制并保证它们的响应性。</p>
 <h4 id="对于对象"><a href="#对于对象" class="headerlink" title="对于对象"></a>对于对象</h4><ul>
-<li>使用 <code>Vue.set(object, propertyName, value)</code> 方法向潜逃对象添加响应式 <code>property</code>。</li>
+<li>使用 <code>Vue.set(object, propertyName, value)</code> 方法向嵌套对象添加响应式 <code>property</code>。</li>
 </ul>
 <pre class=" language-javascript"><code class="language-javascript">Vue<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span>someObject<span class="token punctuation">,</span> <span class="token string">"b"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
@@ -473,7 +473,7 @@ VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表�
 </ul>
 <pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">this</span><span class="token punctuation">.</span>someObject <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>someObject<span class="token punctuation">,</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h4 id="关于数组"><a href="#关于数组" class="headerlink" title="关于数组"></a>关于数组</h4><p><code>Vue</code> 不能检测以下数组的变动：</p>
+<h4 id="对于数组"><a href="#对于数组" class="headerlink" title="对于数组"></a>对于数组</h4><p><code>Vue</code> 不能检测以下数组的变动：</p>
 <ul>
 <li>当你利用索引值直接设置一个数组项时： <code>vm.items[indexOfItem] = newValue</code></li>
 <li>当你修改数组的长度时：<code>vm.item.length = newLength</code></li>
