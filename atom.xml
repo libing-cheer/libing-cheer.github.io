@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-04T06:23:22.098Z</updated>
+  <updated>2020-06-08T11:14:52.054Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/"/>
     <id>http://yoursite.com/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/</id>
     <published>2020-05-26T02:28:00.000Z</published>
-    <updated>2020-06-04T06:23:22.098Z</updated>
+    <updated>2020-06-08T11:14:52.054Z</updated>
     
     <summary type="html">
     
@@ -485,9 +485,9 @@
       <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
     
     
-      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
     
       <category term="vue-i18n" scheme="http://yoursite.com/tags/vue-i18n/"/>
     
