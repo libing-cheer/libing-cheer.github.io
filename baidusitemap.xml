@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2021/05/11/fang-dou-yu-jie-liu/</loc>
+    <lastmod>2021-05-11</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/</loc>
-    <lastmod>2020-06-08</lastmod>
+    <lastmod>2021-03-17</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2019/11/12/typescript-mei-ju/</loc>
     <lastmod>2020-06-03</lastmod>
