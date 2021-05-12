@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2021/05/12/javascript-yi-bu-ji-zhi/</loc>
+    
+    <lastmod>2021-05-12T05:46:41.949Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2021/05/11/fang-dou-yu-jie-liu/</loc>
     
     <lastmod>2021-05-11T05:35:08.538Z</lastmod>
@@ -16,6 +23,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite.com/2019/09/16/qian-duan-fen-ye/</loc>
+    
+    <lastmod>2021-03-17T07:41:49.879Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/12/typescript-mei-ju/</loc>
     
     <lastmod>2020-06-03T08:54:16.979Z</lastmod>
@@ -26,13 +40,6 @@
     <loc>http://yoursite.com/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/</loc>
     
     <lastmod>2020-04-20T01:14:48.520Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/09/16/qian-duan-fen-ye/</loc>
-    
-    <lastmod>2020-04-17T02:23:30.063Z</lastmod>
     
   </url>
   
