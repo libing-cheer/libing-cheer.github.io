@@ -2,7 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://yoursite.com/2021/05/12/javascript-yi-bu-ji-zhi/</loc>
-    <lastmod>2021-05-12</lastmod>
+    <lastmod>2021-05-13</lastmod>
+  </url>  <url>
+    <loc>http://yoursite.com/2021/05/13/async-await/</loc>
+    <lastmod>2021-05-13</lastmod>
   </url>  <url>
     <loc>http://yoursite.com/2021/05/11/fang-dou-yu-jie-liu/</loc>
     <lastmod>2021-05-11</lastmod>

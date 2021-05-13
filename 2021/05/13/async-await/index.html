@@ -4,11 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue导出Excel表格, 24K博客">
-    <meta name="description" content="示例demo 代码示例
-建立项目vue init webpack excel-export       建立excel-export项目
-
-cd excel-export                     进入excel-export">
+    <meta name="keywords" content="async await, 24K博客">
+    <meta name="description" content="async/awaitasync是ES7的与异步操作有关的关键字，其返回一个Promise对象，await操作符用于等待一个Promise对象,它只能在异步函数async function内部使用。async/await的目的是简化使用多个">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +13,7 @@ cd excel-export                     进入excel-export">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue导出Excel表格 | 24K博客</title>
+    <title>async await | 24K博客</title>
     <link rel="icon" type="image/png" href="/medias/海星.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +261,13 @@ cd excel-export                     进入excel-export">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/48.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/46.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue导出Excel表格
+                        async await
                     </div>
                 </div>
             </div>
@@ -381,12 +378,8 @@ cd excel-export                     进入excel-export">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/" target="_blank">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
-                            <a href="/tags/导出Excel表格/" target="_blank">
-                                <span class="chip bg-color">导出Excel表格</span>
+                            <a href="/tags/async-await/" target="_blank">
+                                <span class="chip bg-color">async/await</span>
                             </a>
                         
                     </div>
@@ -401,14 +394,6 @@ cd excel-export                     进入excel-export">
                                 前端
                             </a>
                         
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                Vue
-                            </a>
-                        
-                            <a href="/categories/前端/Vue/导出表格/" class="post-category" target="_blank">
-                                导出表格
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -417,21 +402,21 @@ cd excel-export                     进入excel-export">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-29
+                    2021-05-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        791
+                        382
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        1 分
                     </div>
                     
                 
@@ -447,194 +432,66 @@ cd excel-export                     进入excel-export">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p><a href="https://github.com/libing-cheer/excel-export" target="_blank" rel="noopener">demo 代码示例</a></p>
-<h3 id="建立项目"><a href="#建立项目" class="headerlink" title="建立项目"></a>建立项目</h3><pre class=" language-bash"><code class="language-bash">vue init webpack excel-export       建立excel-export项目
-
-<span class="token function">cd</span> excel-export                     进入excel-export文件夹下
-
-<span class="token function">npm</span> <span class="token function">install</span>                         安装依赖
-
-<span class="token function">npm</span> run dev                         运行
+                <h1 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h1><p><code>async</code>是<code>ES7</code>的与异步操作有关的关键字，其返回一个<code>Promise</code>对象，<code>await</code>操作符用于等待一个<code>Promise</code>对象,它只能在异步函数<code>async function</code>内部使用。<code>async/await</code>的目的是简化使用多个<code>promise</code>时的同步行为，并对一组<code>Promises</code>执行某些操作。正如<code>Promises</code>类似于结构化回调，<code>async/await</code>更像结合了<code>generators</code>和<code>promises</code>。</p>
+<h2 id="async"><a href="#async" class="headerlink" title="async"></a>async</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">name</span><span class="token punctuation">(</span><span class="token punctuation">[</span>param<span class="token punctuation">[</span><span class="token punctuation">,</span> param<span class="token punctuation">[</span><span class="token punctuation">,</span> <span class="token operator">...</span> param<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> statements <span class="token punctuation">}</span>
 </code></pre>
-<h3 id="导出-Excel-关键"><a href="#导出-Excel-关键" class="headerlink" title="导出 Excel 关键"></a>导出 Excel 关键</h3><h4 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -S file-saver           用来生成文件的web应用程序
-</code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -S xlsx                 电子表格格式的解析器
-</code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -D script-loader        将js挂载在全局下
-</code></pre>
-<h4 id="2、添加-Blob-js-及-Export2Excel-js-文件"><a href="#2、添加-Blob-js-及-Export2Excel-js-文件" class="headerlink" title="2、添加 Blob.js 及 Export2Excel.js 文件"></a>2、添加 Blob.js 及 Export2Excel.js 文件</h4><p>在 <code>src</code> 目录下创建一个文件(<code>vendor</code>) 并添加<a href="https://raw.githubusercontent.com/libing-cheer/excel-export/master/src/vendor/Blob.js" target="_blank" rel="noopener">Blob.js</a>和<a href="https://raw.githubusercontent.com/libing-cheer/excel-export/master/src/vendor/Export2Excel.js" target="_blank" rel="noopener">Export2Excel.js</a>，对 <code>Export2Excel.js</code> 添加了一段代码，可以使导出的表格列宽自适应。所改动代码为 147 - 155 行，具体如下：</p>
-<pre class=" language-bash"><code class="language-bash">/*设置worksheet每列的最大宽度*/
-  const colWidth <span class="token operator">=</span> data.map<span class="token punctuation">(</span>row <span class="token operator">=</span><span class="token operator">></span> row.map<span class="token punctuation">(</span>val <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    /*先判断是否为null/undefined*/
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token string">'wch'</span><span class="token keyword">:</span> 10 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    /*再判断是否为中文*/
-    <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>val.toString<span class="token punctuation">(</span><span class="token punctuation">)</span>.charCodeAt<span class="token punctuation">(</span>0<span class="token punctuation">)</span> <span class="token operator">></span> 255<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token string">'wch'</span><span class="token keyword">:</span> val.toString<span class="token punctuation">(</span><span class="token punctuation">)</span>.length * 2 + 5 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token string">'wch'</span><span class="token keyword">:</span> val.toString<span class="token punctuation">(</span><span class="token punctuation">)</span>.length + 5 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span><span class="token punctuation">))</span>
-/*以第一行为初始值*/   
-<span class="token keyword">let</span> result <span class="token operator">=</span> colWidth<span class="token punctuation">[</span>0<span class="token punctuation">]</span><span class="token punctuation">;</span>
-  <span class="token keyword">for</span> <span class="token punctuation">(</span>let i <span class="token operator">=</span> 1<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> colWidth.length<span class="token punctuation">;</span> i++<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span>let j <span class="token operator">=</span> 0<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> colWidth<span class="token punctuation">[</span>i<span class="token punctuation">]</span>.length<span class="token punctuation">;</span> j++<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'wch'</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> colWidth<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'wch'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        result<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'wch'</span><span class="token punctuation">]</span> <span class="token operator">=</span> colWidth<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'wch'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-  ws<span class="token punctuation">[</span><span class="token string">'!cols'</span><span class="token punctuation">]</span> <span class="token operator">=</span> result<span class="token punctuation">;</span>
-</code></pre>
-<h4 id="3、配置加载时的路径"><a href="#3、配置加载时的路径" class="headerlink" title="3、配置加载时的路径"></a>3、配置加载时的路径</h4><p>在 <code>build</code> 文件夹下的 <code>webpack.base.conf.js</code> 文件下修改，配置要加载时的路径</p>
-<pre class=" language-bash"><code class="language-bash">alias: <span class="token punctuation">{</span>
-      <span class="token string">'vue$'</span><span class="token keyword">:</span> <span class="token string">'vue/dist/vue.esm.js'</span>,
-      <span class="token string">'@'</span><span class="token keyword">:</span> resolve<span class="token punctuation">(</span><span class="token string">'src'</span><span class="token punctuation">)</span>,
-      <span class="token string">'vendor'</span><span class="token keyword">:</span> resolve<span class="token punctuation">(</span><span class="token string">'src/vendor'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-</code></pre>
-<h4 id="4、Export2Excel-js-引用依赖"><a href="#4、Export2Excel-js-引用依赖" class="headerlink" title="4、Export2Excel.js 引用依赖"></a>4、Export2Excel.js 引用依赖</h4><p>在 <code>Export2Excel.js</code> 引用依赖如下：</p>
-<pre class=" language-bash"><code class="language-bash">require<span class="token punctuation">(</span><span class="token string">'./Blob'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-require<span class="token punctuation">(</span><span class="token string">'script-loader!file-saver'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-require<span class="token punctuation">(</span><span class="token string">'script-loader!xlsx/dist/xlsx.core.min'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h3 id="element-ui-使用"><a href="#element-ui-使用" class="headerlink" title="element-ui 使用"></a>element-ui 使用</h3><p>用了 <code>element-ui</code> 中的 <code>table</code> 和 <code>button</code> 组件，安装依赖：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -S element-ui
-</code></pre>
-<p>在 main.js 中引用 element 及其样式：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> Element from <span class="token string">'element-ui'</span>                    // 引入element ui
-<span class="token function">import</span> <span class="token string">'element-ui/lib/theme-chalk/index.css'</span>       // 引入 element ui 样式
-
-Vue.use<span class="token punctuation">(</span>Element, <span class="token punctuation">{</span>
-  size: <span class="token string">'mini'</span>                                      // <span class="token keyword">set</span> element-ui default size
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-
-</code></pre>
-<h3 id="Vue-文件使用"><a href="#Vue-文件使用" class="headerlink" title="Vue 文件使用"></a>Vue 文件使用</h3><pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"hello"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div<span class="token operator">></span>
-      <span class="token operator">&lt;</span>el-button
-        type<span class="token operator">=</span><span class="token string">"primary"</span>
-        size<span class="token operator">=</span><span class="token string">"mini"</span>
-        style<span class="token operator">=</span><span class="token string">"margin:30px auto;"</span>
-        @click<span class="token operator">=</span><span class="token string">"handleDownloadData"</span>
-      <span class="token operator">></span>导出<span class="token operator">&lt;</span>/el-button<span class="token operator">></span>
-      <span class="token operator">&lt;</span>el-table
-        :data<span class="token operator">=</span><span class="token string">"tableData"</span>
-        stripe
-        style<span class="token operator">=</span><span class="token string">"width: 600px;margin:30px auto;"</span>
-      <span class="token operator">></span>
-        <span class="token operator">&lt;</span>el-table-column
-          prop<span class="token operator">=</span><span class="token string">"date"</span>
-          label<span class="token operator">=</span><span class="token string">"日期"</span>
-          width<span class="token operator">=</span><span class="token string">"180"</span>
-        <span class="token operator">></span>
-        <span class="token operator">&lt;</span>/el-table-column<span class="token operator">></span>
-        <span class="token operator">&lt;</span>el-table-column
-          prop<span class="token operator">=</span><span class="token string">"name"</span>
-          label<span class="token operator">=</span><span class="token string">"姓名"</span>
-          width<span class="token operator">=</span><span class="token string">"180"</span>
-        <span class="token operator">></span>
-        <span class="token operator">&lt;</span>/el-table-column<span class="token operator">></span>
-        <span class="token operator">&lt;</span>el-table-column
-          prop<span class="token operator">=</span><span class="token string">"address"</span>
-          label<span class="token operator">=</span><span class="token string">"地址"</span>
-        <span class="token operator">></span>
-        <span class="token operator">&lt;</span>/el-table-column<span class="token operator">></span>
-      <span class="token operator">&lt;</span>/el-table<span class="token operator">></span>
-    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-  <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-<span class="token operator">&lt;</span>/template<span class="token operator">></span>
-
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token function">export</span> default <span class="token punctuation">{</span>
-  name: <span class="token string">'excelExport'</span>,
-  data<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>
-      msg: <span class="token string">'Welcome to Your Excel Export'</span>,
-      tableData: <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-02'</span>,
-          name: <span class="token string">'王小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1510 弄'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-04'</span>,
-          name: <span class="token string">'李小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1511 弄'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-01'</span>,
-          name: <span class="token string">'孙小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1512 弄'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-02'</span>,
-          name: <span class="token string">'朱小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1513 弄'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-04'</span>,
-          name: <span class="token string">'钱小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1514 弄'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-01'</span>,
-          name: <span class="token string">'杜小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1515 弄'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          date: <span class="token string">'2016-05-03'</span>,
-          name: <span class="token string">'赵小虎'</span>,
-          address: <span class="token string">'上海市普陀区金沙江路 1516 弄'</span>
-        <span class="token punctuation">}</span><span class="token punctuation">]</span>,
-      tableTitleData: <span class="token punctuation">[</span>
-        <span class="token punctuation">{</span>
-          label: <span class="token string">'日期'</span>,
-          prop: <span class="token string">'date'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          label: <span class="token string">'姓名'</span>,
-          prop: <span class="token string">'name'</span>
-        <span class="token punctuation">}</span>,
-        <span class="token punctuation">{</span>
-          label: <span class="token string">'地址'</span>,
-          prop: <span class="token string">'address'</span>
-        <span class="token punctuation">}</span>
-      <span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>,
-  methods: <span class="token punctuation">{</span>
-    // 导出的方法
-    handleDownloadData<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      // 导出表格的表头设置
-      <span class="token keyword">let</span> allColumns <span class="token operator">=</span> this.tableTitleData
-      var columnNames <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-      var columnValues <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-      <span class="token keyword">for</span> <span class="token punctuation">(</span>var i <span class="token operator">=</span> 0<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> allColumns.length<span class="token punctuation">;</span> i++<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        columnNames<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> allColumns<span class="token punctuation">[</span>i<span class="token punctuation">]</span>.label
-        columnValues<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> allColumns<span class="token punctuation">[</span>i<span class="token punctuation">]</span>.prop
-      <span class="token punctuation">}</span>
-      require.ensure<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span>, <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-        const <span class="token punctuation">{</span> export_json_to_excel <span class="token punctuation">}</span> <span class="token operator">=</span> require<span class="token punctuation">(</span><span class="token string">'vendor/Export2Excel'</span><span class="token punctuation">)</span>
-        const tHeader <span class="token operator">=</span> columnNames
-        const filterVal <span class="token operator">=</span> columnValues
-
-        const list <span class="token operator">=</span> this.tableData
-        const data <span class="token operator">=</span> this.formatJson<span class="token punctuation">(</span>filterVal, list<span class="token punctuation">)</span>
-        export_json_to_excel<span class="token punctuation">(</span>tHeader, data, <span class="token string">'导出excel列表demo'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>,
-    formatJson<span class="token punctuation">(</span>filterVal, jsonData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      <span class="token keyword">return</span> jsonData.map<span class="token punctuation">(</span>v <span class="token operator">=</span><span class="token operator">></span> filterVal.map<span class="token punctuation">(</span>j <span class="token operator">=</span><span class="token operator">></span> v<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">))</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
+<ul>
+<li><code>name</code>: 函数名称。</li>
+<li><code>param</code>: 要传递给函数的参数的名称。</li>
+<li><code>statements</code>: 函数体语句。</li>
+</ul>
+<p><code>async</code>函数返回一个<code>Promise</code>对象，可以使用<code>then</code>方法添加回调函数，返回的<code>Promise</code>对象会运行执行<code>resolve</code>异步函数的返回结果，如果抛出异常则运行拒绝<code>reject</code>。</p>
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">asyncPromise</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> v<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span>/script<span class="token operator">></span>
+
+<span class="token function">asyncPromise</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<h3 id="运行效果图"><a href="#运行效果图" class="headerlink" title="运行效果图"></a>运行效果图</h3><p><img src="https://raw.githubusercontent.com/libing-cheer/excel-export/master/src/assets/%E6%95%88%E6%9E%9C%E5%9B%BE.png" alt="运行效果图"></p>
-<h3 id="导出效果图"><a href="#导出效果图" class="headerlink" title="导出效果图"></a>导出效果图</h3><p><img src="https://raw.githubusercontent.com/libing-cheer/excel-export/master/src/assets/%E5%AF%BC%E5%87%BA%E7%A4%BA%E4%BE%8B%E5%9B%BE.png" alt="导出效果图"></p>
+<h2 id="await"><a href="#await" class="headerlink" title="await"></a>await</h2><p><code>async</code>一般是配合<code>await</code>指令使用的，该指令会暂停异步函数的执行，并等待<code>Promise</code>执行，然后继续执行异步函数，并返回结果。若<code>Promise</code>处理异常<code>rejected</code>，<code>await</code>表达式会把<code>Promise</code>的异常原因抛出。另外，如果<code>await</code>操作符后的表达式的值不是一个<code>Promise</code>，则返回该值本身。</p>
+<h3 id="实例-1"><a href="#实例-1" class="headerlink" title="实例"></a>实例</h3><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> rand <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`solve </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>rand<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">asyncPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 捕捉异常</span>
+<span class="token keyword">function</span> <span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">Error</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`reject`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">asyncPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">promise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// 非promise对象直接返回该值本身</span>
+<span class="token keyword">function</span> <span class="token function">notPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">asyncPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">notPromise</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -782,7 +639,7 @@ Vue.use<span class="token punctuation">(</span>Element, <span class="token punct
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">24K博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/29/vue-dao-chu-excel-biao-ge/" class="b-link-green">Vue导出Excel表格</a>
+                    <a href="/2021/05/13/async-await/" class="b-link-green">async await</a>
                 </p>
             </div>
         </div>
@@ -825,31 +682,30 @@ Vue.use<span class="token punctuation">(</span>Element, <span class="token punct
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/06/12/vue-shi-pin-bo-fang-qi/">
+                <a href="/2021/05/13/async-await/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Vue视频播放器">
+                        <img src="/medias/featureimages/46.jpg" class="responsive-img" alt="async await">
                         
-                        <span class="card-title">Vue视频播放器</span>
+                        <span class="card-title">async await</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Vue-Video-Player适用于 Vue 的 video.js 播放器组件。
-示例demo 代码示例
-安装CDN&lt;link rel="stylesheet" href="path/to/video.js/dist/video-j
+                            async/awaitasync是ES7的与异步操作有关的关键字，其返回一个Promise对象，await操作符用于等待一个Promise对象,它只能在异步函数async function内部使用。async/await的目的是简化使用多个
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -858,23 +714,16 @@ Vue.use<span class="token punctuation">(</span>Element, <span class="token punct
                                     前端
                                 </a>
                             
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
-                    
-                    <a href="/tags/Vue视频播放器/" target="_blank">
-                        <span class="chip bg-color">Vue视频播放器</span>
+                    <a href="/tags/async-await/" target="_blank">
+                        <span class="chip bg-color">async/await</span>
                     </a>
                     
                 </div>
@@ -888,29 +737,24 @@ Vue.use<span class="token punctuation">(</span>Element, <span class="token punct
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/28/vue-tuo-zhuai-pai-xu/">
+                <a href="/2021/05/12/javascript-yi-bu-ji-zhi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/51.jpg" class="responsive-img" alt="Vue拖拽排序">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Javascript  异步机制">
                         
-                        <span class="card-title">Vue拖拽排序</span>
+                        <span class="card-title">Javascript  异步机制</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Awe-dndAwe-dnd：一个轻量的 Vue 拖动排序插件，可使您的元素在 Vue 中可拖动。
-demo 示例图Awe-dnd 特点
-支持桌面和移动设备
-Vue 数据驱动理念
-支持 multi drag
-支持 Vue 1.0 and V
+                            Js 异步机制JavaScript是一门单线程语言，所谓单线程，就是指一次只能完成一件任务，如果有多个任务，就必须排队，前面一个任务完成，再执行后面一个任务，以此类推。这种模式的好处是实现起来比较简单，执行环境相对单纯，坏处是只要有一个任务
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-12
                             </span>
                         <span class="publish-author">
                             
@@ -920,14 +764,6 @@ Vue 数据驱动理念
                                     前端
                                 </a>
                             
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/拖拽排序/" class="post-category" target="_blank">
-                                    拖拽排序
-                                </a>
-                            
                             
                         </span>
                     </div>
@@ -935,12 +771,8 @@ Vue 数据驱动理念
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
-                    
-                    <a href="/tags/拖拽排序/" target="_blank">
-                        <span class="chip bg-color">拖拽排序</span>
+                    <a href="/tags/Javascript异步机制/" target="_blank">
+                        <span class="chip bg-color">Javascript异步机制</span>
                     </a>
                     
                 </div>
