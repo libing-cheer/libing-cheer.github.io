@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-05-13T08:18:11.253Z</updated>
+  <updated>2021-05-17T12:49:34.633Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手动实现AJAX</title>
+    <link href="http://yoursite.com/2021/05/18/shou-dong-shi-xian-ajax/"/>
+    <id>http://yoursite.com/2021/05/18/shou-dong-shi-xian-ajax/</id>
+    <published>2021-05-18T13:00:00.000Z</published>
+    <updated>2021-05-17T12:49:34.633Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Ajax&quot;&gt;&lt;a href=&quot;#Ajax&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="手动实现AJAX" scheme="http://yoursite.com/tags/%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0AJAX/"/>
+    
+  </entry>
   
   <entry>
     <title>async await</title>
@@ -563,43 +591,11 @@
       <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
     
     
-      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
-    
       <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
     
+      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
+    
       <category term="vue-i18n" scheme="http://yoursite.com/tags/vue-i18n/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ElementUI中table表格自定义表头Tooltip文字提示</title>
-    <link href="http://yoursite.com/2019/07/03/elementui-zhong-table-biao-ge-zi-ding-yi-biao-tou-tooltip-wen-zi-ti-shi/"/>
-    <id>http://yoursite.com/2019/07/03/elementui-zhong-table-biao-ge-zi-ding-yi-biao-tou-tooltip-wen-zi-ti-shi/</id>
-    <published>2019-07-03T14:00:55.000Z</published>
-    <updated>2019-09-30T01:36:33.637Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;table-header-tips&quot;&gt;&lt;a href=&quot;#table-header-tips&quot; class=&quot;headerlink&quot; title=&quot;table-header-tips&quot;&gt;&lt;/a&gt;table-header-tips&lt;/h2&gt;&lt;p&gt;应用
-        
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Element" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Element/"/>
-    
-    
-      <category term="ElementUI" scheme="http://yoursite.com/tags/ElementUI/"/>
-    
-      <category term="自定义表头" scheme="http://yoursite.com/tags/%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A1%A8%E5%A4%B4/"/>
-    
-      <category term="Tooltip文字提示" scheme="http://yoursite.com/tags/Tooltip%E6%96%87%E5%AD%97%E6%8F%90%E7%A4%BA/"/>
     
   </entry>
   

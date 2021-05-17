@@ -4,11 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Javascript数组方法集锦, 24K博客">
-    <meta name="description" content="1、Array.from()介绍Array.from()方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。
-语法Array.form(arrayLike[, mapFn[, thisArg]])
-参数
-arrayLike -&amp;g">
+    <meta name="keywords" content="手动实现AJAX, 24K博客">
+    <meta name="description" content="AjaxAjax在浏览器是通过XMLHttpRequest对象来实现数据传输的。
+XMLHttpRequest对象进行 HTTP 请求前必须通过 open 初始化，open 接受五个参数，分别为请求方法、请求链接、异步标识、账号和密码用以服">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@ arrayLike -&amp;g">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Javascript数组方法集锦 | 24K博客</title>
+    <title>手动实现AJAX | 24K博客</title>
     <link rel="icon" type="image/png" href="/medias/海星.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +262,13 @@ arrayLike -&amp;g">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Javascript数组方法集锦
+                        手动实现AJAX
                     </div>
                 </div>
             </div>
@@ -381,12 +379,12 @@ arrayLike -&amp;g">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/数组方法/" target="_blank">
-                                <span class="chip bg-color">数组方法</span>
-                            </a>
-                        
                             <a href="/tags/Javascript/" target="_blank">
                                 <span class="chip bg-color">Javascript</span>
+                            </a>
+                        
+                            <a href="/tags/手动实现AJAX/" target="_blank">
+                                <span class="chip bg-color">手动实现AJAX</span>
                             </a>
                         
                     </div>
@@ -397,11 +395,7 @@ arrayLike -&amp;g">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Javascript/" class="post-category" target="_blank">
-                                Javascript
-                            </a>
-                        
-                            <a href="/categories/Javascript/前端/" class="post-category" target="_blank">
+                            <a href="/categories/前端/" class="post-category" target="_blank">
                                 前端
                             </a>
                         
@@ -413,14 +407,14 @@ arrayLike -&amp;g">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-17
+                    2021-05-18
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        236
+                        454
                     </div>
                     
 
@@ -443,21 +437,50 @@ arrayLike -&amp;g">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="1、Array-from"><a href="#1、Array-from" class="headerlink" title="1、Array.from()"></a>1、Array.from()</h3><h4 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h4><p><code>Array.from()</code>方法从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例。</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>Array.form(arrayLike[, mapFn[, thisArg]])</code></p>
-<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
-<li><code>arrayLike</code> -&gt; 想要转换成数组的伪数组或可迭代对象</li>
-<li><code>mapFn</code> -&gt; <code>[可选参数]</code> 如果指定了该参数，新数组中的每个元素会执行该回调函数。</li>
-<li><code>thisArg</code> -&gt; [可选参数] 执行回调函数 <code>mapFn</code> 时<code>this</code>对象。</li>
-</ul>
-<h4 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h4><p>一个新的 <code>Array</code> 实例。</p>
-<h4 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h4><p>1、<code>Array.from()</code>可以通过以下方式来创建数组对象</p>
-<ul>
-<li>伪数组对象：拥有一个<code>length</code>属性和若干索引属性的任意对象。</li>
-<li>可迭代对象：可以获取对象中的元素，如<code>Map</code>和<code>Set</code>等。</li>
-</ul>
-<p>2、<code>Array.from()</code>方法有一个可选参数 <code>mapFn</code>，可以让你在最后生成的数组上在执行一次 <code>map</code> 方法后在返回。</p>
-<p>3、<code>from()</code>的 <code>length</code> 属性为 1，即 <code>Array.from.length === 1</code>。</p>
+                <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><p><code>Ajax</code>在浏览器是通过<code>XMLHttpRequest</code>对象来实现数据传输的。</p>
+<p><code>XMLHttpRequest</code>对象进行 HTTP 请求前必须通过 open 初始化，open 接受五个参数，分别为请求方法、请求链接、异步标识、账号和密码用以服务端验证。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">open</span><span class="token punctuation">(</span>Method<span class="token punctuation">,</span> URL<span class="token punctuation">,</span> Asynchronous<span class="token punctuation">,</span> UserName<span class="token punctuation">,</span> Password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>在成功初始化请求之后，<code>XMLHttpRequest</code>对象的<code>setRequestHeader</code>方法可以用来设置请求头。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">setRequestHeader</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>调用<code>open()</code>方法后，就可以通过调用<code>send()</code>方法按照 open 方法设定的参数将请求进行发送。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">send</span><span class="token punctuation">(</span>Data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>当<code>open</code>方法设定发送的方式为异步请求时，<code>onreadystatechange</code>事件监听器将自动在<code>XMLHttpRequest</code>对象的<code>readyState</code>属性改变时被触发。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">switch</span> <span class="token punctuation">(</span>readyState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//当open方法被成功调用,readyState为1</span>
+  <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//当send方法被调用，readyState属性被置为2</span>
+  <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//HTTP响应内容开始加载，readyState属性被置为3</span>
+  <span class="token keyword">case</span> <span class="token number">4</span><span class="token punctuation">:</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//HTTP响应内容结束加载，readyState属性被置为4</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>如果 XMLHttpRequest 对象的 readyState 属性还没有变成 4，<code>abort</code>可以终止请求。这个方法可以确保异步请求中的回调不被执行。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h5 id="ajax-的简单实现"><a href="#ajax-的简单实现" class="headerlink" title="ajax 的简单实现"></a>ajax 的简单实现</h5><p>由于浏览器的同源策略(协议 url 端口号 任一不同都算为跨域请求)，于是此代码需要打开百度的首页，在开发者工具的<code>Console</code>直接执行，在<code>Network</code>查看效果。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ajax</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"GET"</span><span class="token punctuation">,</span> data <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 声明XMLHttpRequest //在IE5和IE6中需要使用ActiveX对象</span>
+  <span class="token keyword">var</span> XHR <span class="token operator">=</span> XMLHttpRequest<span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 创建XMLHttqRequest</span>
+  XHR <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 设置请求状态改变时执行的函数</span>
+  XHR<span class="token punctuation">.</span>onreadystatechange <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>XHR<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`响应状态:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>XHR<span class="token punctuation">.</span>status<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span> <span class="token string">"FINISH"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//XHR.responseText为响应体</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 初始化请求参数</span>
+  XHR<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token keyword">async</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 发起请求</span>
+  XHR<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token string">"https://www.baidu.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">ajax</span><span class="token punctuation">(</span><span class="token string">"https://www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">,</span> <span class="token string">"A=1&amp;B=2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 
             </div>
             <hr/>
@@ -605,7 +628,7 @@ arrayLike -&amp;g">
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">24K博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2020/04/17/javascript-shu-zu-fang-fa-ji-jin/" class="b-link-green">Javascript数组方法集锦</a>
+                    <a href="/2021/05/18/shou-dong-shi-xian-ajax/" class="b-link-green">手动实现AJAX</a>
                 </p>
             </div>
         </div>
@@ -648,58 +671,53 @@ arrayLike -&amp;g">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/">
+                <a href="/2021/05/18/shou-dong-shi-xian-ajax/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="Vue常见面试问题及解析(持续更新中····)">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="手动实现AJAX">
                         
-                        <span class="card-title">Vue常见面试问题及解析(持续更新中····)</span>
+                        <span class="card-title">手动实现AJAX</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、如何理解 MVVM 原理
-
-M：Model，数据层对数据的处理；
-V：View，视图层，是 HMTL 显示页面；
-VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表单按钮提交，自定义事件的注册和处理逻辑都在View
+                            AjaxAjax在浏览器是通过XMLHttpRequest对象来实现数据传输的。
+XMLHttpRequest对象进行 HTTP 请求前必须通过 open 初始化，open 接受五个参数，分别为请求方法、请求链接、异步标识、账号和密码用以服
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
-                            <a href="/categories/Vue/面试/" class="post-category" target="_blank">
-                                    面试
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
-                    <a href="/tags/面试/" target="_blank">
-                        <span class="chip bg-color">面试</span>
+                    <a href="/tags/手动实现AJAX/" target="_blank">
+                        <span class="chip bg-color">手动实现AJAX</span>
                     </a>
                     
                 </div>
@@ -713,33 +731,31 @@ VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/17/javascript-zhi-pai-xu-ji-jin/">
+                <a href="/2021/05/13/async-await/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="JavaScript之排序集锦">
+                        <img src="/medias/featureimages/46.jpg" class="responsive-img" alt="async await">
                         
-                        <span class="card-title">JavaScript之排序集锦</span>
+                        <span class="card-title">async await</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            JavaScript 之排序集锦
-1、快速排序
-单独开辟两个存储空间 left 和 right 来存储每次递归比 target 小和大的序列,每次递归直接返回 left 、 target 、 right 拼接后的数组.浪费大量存储空间,写法
+                            async/awaitasync是ES7的与异步操作有关的关键字，其返回一个Promise对象，await操作符用于等待一个Promise对象,它只能在异步函数async function内部使用。async/await的目的是简化使用多个
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-17
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                    JavaScript
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
                                 </a>
                             
                             
@@ -749,12 +765,8 @@ VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JavaScript/" target="_blank">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                    <a href="/tags/排序/" target="_blank">
-                        <span class="chip bg-color">排序</span>
+                    <a href="/tags/async-await/" target="_blank">
+                        <span class="chip bg-color">async/await</span>
                     </a>
                     
                 </div>

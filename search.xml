@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>手动实现AJAX</title>
+      <link href="/2021/05/18/shou-dong-shi-xian-ajax/"/>
+      <url>/2021/05/18/shou-dong-shi-xian-ajax/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><p><code>Ajax</code>在浏览器是通过<code>XMLHttpRequest</code>对象来实现数据传输的。</p><p><code>XMLHttpRequest</code>对象进行 HTTP 请求前必须通过 open 初始化，open 接受五个参数，分别为请求方法、请求链接、异步标识、账号和密码用以服务端验证。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token function">open</span><span class="token punctuation">(</span>Method<span class="token punctuation">,</span> URL<span class="token punctuation">,</span> Asynchronous<span class="token punctuation">,</span> UserName<span class="token punctuation">,</span> Password<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>在成功初始化请求之后，<code>XMLHttpRequest</code>对象的<code>setRequestHeader</code>方法可以用来设置请求头。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token function">setRequestHeader</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>调用<code>open()</code>方法后，就可以通过调用<code>send()</code>方法按照 open 方法设定的参数将请求进行发送。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token function">send</span><span class="token punctuation">(</span>Data<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>当<code>open</code>方法设定发送的方式为异步请求时，<code>onreadystatechange</code>事件监听器将自动在<code>XMLHttpRequest</code>对象的<code>readyState</code>属性改变时被触发。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">switch</span> <span class="token punctuation">(</span>readyState<span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">case</span> <span class="token number">1</span><span class="token punctuation">:</span>    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//当open方法被成功调用,readyState为1</span>  <span class="token keyword">case</span> <span class="token number">2</span><span class="token punctuation">:</span>    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//当send方法被调用，readyState属性被置为2</span>  <span class="token keyword">case</span> <span class="token number">3</span><span class="token punctuation">:</span>    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//HTTP响应内容开始加载，readyState属性被置为3</span>  <span class="token keyword">case</span> <span class="token number">4</span><span class="token punctuation">:</span>    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//HTTP响应内容结束加载，readyState属性被置为4</span><span class="token punctuation">}</span></code></pre><p>如果 XMLHttpRequest 对象的 readyState 属性还没有变成 4，<code>abort</code>可以终止请求。这个方法可以确保异步请求中的回调不被执行。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h5 id="ajax-的简单实现"><a href="#ajax-的简单实现" class="headerlink" title="ajax 的简单实现"></a>ajax 的简单实现</h5><p>由于浏览器的同源策略(协议 url 端口号 任一不同都算为跨域请求)，于是此代码需要打开百度的首页，在开发者工具的<code>Console</code>直接执行，在<code>Network</code>查看效果。</p><pre class=" language-javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">ajax</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> method <span class="token operator">=</span> <span class="token string">"GET"</span><span class="token punctuation">,</span> data <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// 声明XMLHttpRequest //在IE5和IE6中需要使用ActiveX对象</span>  <span class="token keyword">var</span> XHR <span class="token operator">=</span> XMLHttpRequest<span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 创建XMLHttqRequest</span>  XHR <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 设置请求状态改变时执行的函数</span>  XHR<span class="token punctuation">.</span>onreadystatechange <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>XHR<span class="token punctuation">.</span>readyState <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`响应状态:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>XHR<span class="token punctuation">.</span>status<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span> <span class="token string">"FINISH"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//XHR.responseText为响应体</span>  <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 初始化请求参数</span>  XHR<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> <span class="token keyword">async</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">// 发起请求</span>  XHR<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token string">"https://www.baidu.com"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token function">ajax</span><span class="token punctuation">(</span><span class="token string">"https://www.baidu.com"</span><span class="token punctuation">,</span> <span class="token string">"POST"</span><span class="token punctuation">,</span> <span class="token string">"A=1&amp;B=2"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+            <tag> 手动实现AJAX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>async await</title>
       <link href="/2021/05/13/async-await/"/>
       <url>/2021/05/13/async-await/</url>
@@ -520,9 +547,9 @@
       
         <tags>
             
-            <tag> 国际化 </tag>
-            
             <tag> Vue </tag>
+            
+            <tag> 国际化 </tag>
             
             <tag> vue-i18n </tag>
             
