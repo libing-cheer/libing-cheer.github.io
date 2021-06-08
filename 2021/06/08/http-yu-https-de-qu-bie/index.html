@@ -4,11 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue图片预览, 24K博客">
-    <meta name="description" content="v-viewer用于图片浏览的 Vue 组件，支持旋转、缩放、翻转等操作，基于 viewer.js。
-演示示例安装npm install v-viewer
-
-手动引入样式文件import &#39;viewerjs/dist/viewer.css&#39;">
+    <meta name="keywords" content="HTTP 与 HTTPS 的介绍及区别, 24K博客">
+    <meta name="description" content="
+基本概念HTTP（HyperText Transfer Protocol：超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。 简单来说就是一种发布和接收 HTML 页面的方法，被用于在 Web 浏览器和网站服务器之间传">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue图片预览 | 24K博客</title>
+    <title>HTTP 与 HTTPS 的介绍及区别 | 24K博客</title>
     <link rel="icon" type="image/png" href="/medias/海星.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -264,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue图片预览
+                        HTTP 与 HTTPS 的介绍及区别
                     </div>
                 </div>
             </div>
@@ -381,12 +379,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/" target="_blank">
-                                <span class="chip bg-color">Vue</span>
+                            <a href="/tags/HTTP-与-HTTPS-的区别/" target="_blank">
+                                <span class="chip bg-color">HTTP 与 HTTPS 的区别</span>
                             </a>
                         
-                            <a href="/tags/Vue图片预览/" target="_blank">
-                                <span class="chip bg-color">Vue图片预览</span>
+                            <a href="/tags/Javascript/" target="_blank">
+                                <span class="chip bg-color">Javascript</span>
                             </a>
                         
                     </div>
@@ -401,14 +399,6 @@
                                 前端
                             </a>
                         
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                Vue
-                            </a>
-                        
-                            <a href="/categories/前端/Vue/图片预览/" class="post-category" target="_blank">
-                                图片预览
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -417,21 +407,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-05-04
+                    2021-06-08
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        775
+                        1.7k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        6 分
                     </div>
                     
                 
@@ -447,163 +437,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="v-viewer"><a href="#v-viewer" class="headerlink" title="v-viewer"></a>v-viewer</h2><p>用于图片浏览的 <code>Vue</code> 组件，支持旋转、缩放、翻转等操作，基于 <code>viewer.js</code>。</p>
-<h5 id="演示示例"><a href="#演示示例" class="headerlink" title="演示示例"></a><a href="https://mirari.cc/v-viewer/" target="_blank" rel="noopener">演示示例</a></h5><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> v-viewer
-</code></pre>
-<h3 id="手动引入样式文件"><a href="#手动引入样式文件" class="headerlink" title="手动引入样式文件"></a>手动引入样式文件</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> <span class="token string">'viewerjs/dist/viewer.css'</span>
-</code></pre>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>引入 <code>v-viewer</code> 及必需的 <code>css</code> 样式，并使用 <code>Vue.use()</code> 注册插件，之后即可使用。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">!</span>-- directive --<span class="token operator">></span>
-    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"images"</span> v-viewer<span class="token operator">></span>
-      <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"1.jpg"</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token string">"2.jpg"</span><span class="token operator">></span>
-      <span class="token punctuation">..</span>.
-    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">!</span>-- component --<span class="token operator">></span>
-    <span class="token operator">&lt;</span>viewer :images<span class="token operator">=</span><span class="token string">"images"</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>img v-for<span class="token operator">=</span><span class="token string">"src in images"</span> :src<span class="token operator">=</span><span class="token string">"src"</span> :key<span class="token operator">=</span><span class="token string">"src"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>/viewer<span class="token operator">></span>
-  <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-<span class="token operator">&lt;</span>/template<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token function">import</span> <span class="token string">'viewerjs/dist/viewer.css'</span>
-  <span class="token function">import</span> Viewer from <span class="token string">'v-viewer'</span>
-  <span class="token function">import</span> Vue from <span class="token string">'vue'</span>
-  Vue.use<span class="token punctuation">(</span>Viewer<span class="token punctuation">)</span>
-  <span class="token function">export</span> default <span class="token punctuation">{</span>
-    data<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      images: <span class="token punctuation">[</span><span class="token string">'1.jpg'</span>, <span class="token string">'2.jpg'</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span>/script<span class="token operator">></span>
-</code></pre>
-<h3 id="以指令形式使用"><a href="#以指令形式使用" class="headerlink" title="以指令形式使用"></a>以指令形式使用</h3><p>只需要将 <code>v-viewer</code> 指令添加到任意元素即可，该元素下的所有 <code>img</code> 元素都会被 <code>viewer</code> 自动处理。</p>
-<p>你可以像这样传入配置项： <code>v-viewer=&quot;{inline: true}&quot;</code></p>
-<p>如果有必要，可以先用选择器查找到目标元素，然后可以用 <code>el.\$viewer</code> 来获取 <code>viewer</code> 实例。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"images"</span> v-viewer<span class="token operator">=</span><span class="token string">"{movable: false}"</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>img v-for<span class="token operator">=</span><span class="token string">"src in images"</span> :src<span class="token operator">=</span><span class="token string">"src"</span> :key<span class="token operator">=</span><span class="token string">"src"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-    <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">"button"</span> @click<span class="token operator">=</span><span class="token string">"show"</span><span class="token operator">></span>Show<span class="token operator">&lt;</span>/button<span class="token operator">></span>
-  <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-<span class="token operator">&lt;</span>/template<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token function">import</span> <span class="token string">'viewerjs/dist/viewer.css'</span>
-  <span class="token function">import</span> Viewer from <span class="token string">'v-viewer'</span>
-  <span class="token function">import</span> Vue from <span class="token string">'vue'</span>
-  Vue.use<span class="token punctuation">(</span>Viewer<span class="token punctuation">)</span>
-  <span class="token function">export</span> default <span class="token punctuation">{</span>
-    data<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      images: <span class="token punctuation">[</span><span class="token string">'1.jpg'</span>, <span class="token string">'2.jpg'</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>,
-    methods: <span class="token punctuation">{</span>
-      show <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        const viewer <span class="token operator">=</span> this.<span class="token variable">$el</span>.querySelector<span class="token punctuation">(</span><span class="token string">'.images'</span><span class="token punctuation">)</span>.<span class="token variable">$viewer</span>
-        viewer.show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span>/script<span class="token operator">></span>
-</code></pre>
-<h3 id="指令修饰器"><a href="#指令修饰器" class="headerlink" title="指令修饰器"></a>指令修饰器</h3><p>添加修饰器后，<code>viewer</code> 的创建只会在元素绑定指令时执行一次。<br>如果你确定元素内的图片不会再发生变化，使用它可以避免不必要的重建动作。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"images"</span> v-viewer.static<span class="token operator">=</span><span class="token string">"{inline: true}"</span><span class="token operator">></span>
-  <span class="token operator">&lt;</span>img v-for<span class="token operator">=</span><span class="token string">"src in images"</span> :src<span class="token operator">=</span><span class="token string">"src"</span> :key<span class="token operator">=</span><span class="token string">"src"</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>/div<span class="token operator">></span>
-</code></pre>
-<h3 id="以组件形式使用"><a href="#以组件形式使用" class="headerlink" title="以组件形式使用"></a>以组件形式使用</h3><p>你也可以单独引入全屏组件并局部注册它。</p>
-<p>使用作用域插槽来定制你的图片展示方式。</p>
-<p>监听 <code>inited</code> 事件来获取 <code>viewer</code> 实例，或者也可以用 <code>this.refs.xxx.\$viewer</code> 这种方法。</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>viewer :options<span class="token operator">=</span><span class="token string">"options"</span> :images<span class="token operator">=</span><span class="token string">"images"</span>
-            @inited<span class="token operator">=</span><span class="token string">"inited"</span>
-            class<span class="token operator">=</span><span class="token string">"viewer"</span> ref<span class="token operator">=</span><span class="token string">"viewer"</span>
-    <span class="token operator">></span>
-      <span class="token operator">&lt;</span>template scope<span class="token operator">=</span><span class="token string">"scope"</span><span class="token operator">></span>
-        <span class="token operator">&lt;</span>img v-for<span class="token operator">=</span><span class="token string">"src in scope.images"</span> :src<span class="token operator">=</span><span class="token string">"src"</span> :key<span class="token operator">=</span><span class="token string">"src"</span><span class="token operator">></span>
-        <span class="token punctuation">{</span><span class="token punctuation">{</span>scope.options<span class="token punctuation">}</span><span class="token punctuation">}</span>
-      <span class="token operator">&lt;</span>/template<span class="token operator">></span>
-    <span class="token operator">&lt;</span>/viewer<span class="token operator">></span>
-    <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">"button"</span> @click<span class="token operator">=</span><span class="token string">"show"</span><span class="token operator">></span>Show<span class="token operator">&lt;</span>/button<span class="token operator">></span>
-  <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-<span class="token operator">&lt;</span>/template<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token function">import</span> <span class="token string">'viewerjs/dist/viewer.css'</span>
-  <span class="token function">import</span> Viewer from <span class="token string">"v-viewer/src/component.vue"</span>
-  <span class="token function">export</span> default <span class="token punctuation">{</span>
-    components: <span class="token punctuation">{</span>
-      Viewer
-    <span class="token punctuation">}</span>,
-    data<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      images: <span class="token punctuation">[</span><span class="token string">'1.jpg'</span>, <span class="token string">'2.jpg'</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>,
-    methods: <span class="token punctuation">{</span>
-      inited <span class="token punctuation">(</span>viewer<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        this.<span class="token variable">$viewer</span> <span class="token operator">=</span> viewer
-      <span class="token punctuation">}</span>,
-      show <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        this.<span class="token variable">$viewer</span>.show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span>/script<span class="token operator">></span>
-</code></pre>
-<h3 id="配置项-amp-方法"><a href="#配置项-amp-方法" class="headerlink" title="配置项 &amp; 方法"></a>配置项 &amp; 方法</h3><p>请参考<a href="https://github.com/fengyuanchen/viewerjs" target="_blank" rel="noopener">viewer.js.</a></p>
-<h3 id="插件配置项"><a href="#插件配置项" class="headerlink" title="插件配置项"></a>插件配置项</h3><p><strong> name</strong></p>
+                <p><img src="https://www.runoob.com/wp-content/uploads/2018/09/HTTP-vs-HTTPS.png" alt="HTTP-vs-HTTPS"></p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>HTTP（HyperText Transfer Protocol：超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。 简单来说就是一种发布和接收 HTML 页面的方法，被用于在 Web 浏览器和网站服务器之间传递信息。</p>
+<p>HTTP 默认工作在 TCP 协议 80 端口，用户访问网站 http:// 打头的都是标准 HTTP 服务。</p>
+<p>HTTP 协议以明文方式发送内容，不提供任何方式的数据加密，如果攻击者截取了 Web 浏览器和网站服务器之间的传输报文，就可以直接读懂其中的信息，因此，HTTP 协议不适合传输一些敏感信息，比如：信用卡号、密码等支付信息。</p>
+<p>HTTPS（Hypertext Transfer Protocol Secure：超文本传输安全协议）是一种透过计算机网络进行安全通信的传输协议。HTTPS 经由 HTTP 进行通信，但利用 SSL/TLS 来加密数据包。HTTPS 开发的主要目的，是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。</p>
+<p>1、TCP 三次同步握手<br>2、客户端验证服务器数字证书<br>3、DH 算法协商对称加密算法的密钥、hash 算法的密钥<br>4、SSL 安全加密隧道协商完成<br>5、网页以加密的方式传输，用协商的对称加密算法和密钥加密，保证数据机密性；用协商的 hash 算法进行数据完整性保护，保证数据不被篡改。</p>
+<blockquote>
+<p>截至 2018 年 6 月，Alexa 排名前 100 万的网站中有 34.6% 使用 HTTPS 作为默认值，互联网 141387 个最受欢迎网站的 43.1% 具有安全实施的 HTTPS，以及 45% 的页面加载（透过 Firefox 纪录）使用 HTTPS。2017 年 3 月，中国注册域名总数的 0.11％使用 HTTPS。根据 Mozilla 统计，自 2017 年 1 月以来，超过一半的网站流量被加密。</p>
+</blockquote>
+<h3 id="HTTP-与-HTTPS-区别"><a href="#HTTP-与-HTTPS-区别" class="headerlink" title="HTTP 与 HTTPS 区别"></a>HTTP 与 HTTPS 区别</h3><ul>
+<li>HTTP 明文传输，数据都是未加密的，安全性较差，HTTPS（SSL+HTTP） 数据传输过程是加密的，安全性较好。</li>
+<li>使用 HTTPS 协议需要到 CA（Certificate Authority，数字证书认证机构） 申请证书，一般免费证书较少，因而需要一定费用。证书颁发机构如：Symantec、Comodo、GoDaddy 和 GlobalSign 等。</li>
+<li>HTTP 页面响应速度比 HTTPS 快，主要是因为 HTTP 使用 TCP 三次握手建立连接，客户端和服务器需要交换 3 个包，而 HTTPS 除了 TCP 的三个包，还- 要加上 ssl 握手需要的 9 个包，所以一共是 12 个包。</li>
+<li>http 和 https 使用的是完全不同的连接方式，用的端口也不一样，前者是 80，后者是 443。</li>
+<li>HTTPS 其实就是建构在 SSL/TLS 之上的 HTTP 协议，所以，要比较 HTTPS 比 HTTP 要更耗费服务器资源。</li>
+</ul>
+<h3 id="TCP-三次握手"><a href="#TCP-三次握手" class="headerlink" title="TCP 三次握手"></a>TCP 三次握手</h3><p>在 TCP/IP 协议中，TCP 协议通过三次握手建立一个可靠的连接</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/09/05234233-eed6ddcba93c42be8847e98d6da62802.jpg" alt="TCP 三次握手"></p>
 <ul>
-<li><code>Type: String</code></li>
-<li><code>Default: viewer</code></li>
+<li>第一次握手：客户端尝试连接服务器，向服务器发送 syn 包（同步序列编号 Synchronize Sequence Numbers），syn=j，客户端进入 SYN_SEND 状态等待服务器确认</li>
+<li>第二次握手：服务器接收客户端 syn 包并确认（ack=j+1），同时向客户端发送一个 SYN 包（syn=k），即 SYN+ACK 包，此时服务器进入 SYN_RECV 状态</li>
+<li>第三次握手：第三次握手：客户端收到服务器的 SYN+ACK 包，向服务器发送确认包 ACK(ack=k+1），此包发送完毕，客户端和服务器进入 ESTABLISHED 状态，完成三次握手</li>
 </ul>
-<p>如果你需要避免重名冲突，可以像这样引入:</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token operator">&lt;</span>template<span class="token operator">></span>
-  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>div class<span class="token operator">=</span><span class="token string">"images"</span> v-vuer<span class="token operator">=</span><span class="token string">"{movable: false}"</span><span class="token operator">></span>
-      <span class="token operator">&lt;</span>img v-for<span class="token operator">=</span><span class="token string">"src in images"</span> :src<span class="token operator">=</span><span class="token string">"src"</span> :key<span class="token operator">=</span><span class="token string">"src"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-    <span class="token operator">&lt;</span>button type<span class="token operator">=</span><span class="token string">"button"</span> @click<span class="token operator">=</span><span class="token string">"show"</span><span class="token operator">></span>Show<span class="token operator">&lt;</span>/button<span class="token operator">></span>
-  <span class="token operator">&lt;</span>/div<span class="token operator">></span>
-<span class="token operator">&lt;</span>/template<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-  <span class="token function">import</span> <span class="token string">'viewerjs/dist/viewer.css'</span>
-  <span class="token function">import</span> Vuer from <span class="token string">'v-viewer'</span>
-  <span class="token function">import</span> Vue from <span class="token string">'vue'</span>
-  Vue.use<span class="token punctuation">(</span>Vuer, <span class="token punctuation">{</span>name: <span class="token string">'vuer'</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token function">export</span> default <span class="token punctuation">{</span>
-    data<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      images: <span class="token punctuation">[</span><span class="token string">'1.jpg'</span>, <span class="token string">'2.jpg'</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span>,
-    methods: <span class="token punctuation">{</span>
-      show <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        const vuer <span class="token operator">=</span> this.<span class="token variable">$el</span>.querySelector<span class="token punctuation">(</span><span class="token string">'.images'</span><span class="token punctuation">)</span>.<span class="token variable">$vuer</span>
-        vuer.show<span class="token punctuation">(</span><span class="token punctuation">)</span>
-      <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token operator">&lt;</span>/script<span class="token operator">></span>
-</code></pre>
-<h3 id="默认配置项"><a href="#默认配置项" class="headerlink" title="默认配置项"></a>默认配置项</h3><ul>
-<li><code>Type: Object</code></li>
-<li><code>Default: undefined</code><br>如果你需要修改 <code>viewer.js</code> 的全局默认配置项，可以像这样引入：</li>
-</ul>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> Viewer from <span class="token string">'v-viewer'</span>
-<span class="token function">import</span> Vue from <span class="token string">'vue'</span>
-Vue.use<span class="token punctuation">(</span>Viewer, <span class="token punctuation">{</span>
-  defaultOptions: <span class="token punctuation">{</span>
-    zIndex: 9999
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
-<p>你还可以在任何时候像这样修改全局默认配置项：</p>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">import</span> Viewer from <span class="token string">'v-viewer'</span>
-<span class="token function">import</span> Vue from <span class="token string">'vue'</span>
-Vue.use<span class="token punctuation">(</span>Viewer<span class="token punctuation">)</span>
-Viewer.setDefaults<span class="token punctuation">(</span><span class="token punctuation">{</span>
-  zIndexInline: 2017
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre>
+<p>简化：</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/09/dffdff.png" alt="简化-TCP三次握手"></p>
+<h3 id="HTTPS-的工作原理"><a href="#HTTPS-的工作原理" class="headerlink" title="HTTPS 的工作原理"></a>HTTPS 的工作原理</h3><p>我们都知道 HTTPS 能够加密信息，以免敏感信息被第三方获取，所以很多银行网站或电子邮箱等等安全级别较高的服务都会采用 HTTPS 协议。</p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2018/09/https-intro.png" alt="HTTPS 的工作原理"></p>
+<h4 id="1、客户端发起-HTTPS-请求"><a href="#1、客户端发起-HTTPS-请求" class="headerlink" title="1、客户端发起 HTTPS 请求"></a>1、客户端发起 HTTPS 请求</h4><p>这个没什么好说的，就是用户在浏览器里输入一个 https 网址，然后连接到 server 的 443 端口。</p>
+<h4 id="2、服务端的配置"><a href="#2、服务端的配置" class="headerlink" title="2、服务端的配置"></a>2、服务端的配置</h4><p>采用 HTTPS 协议的服务器必须要有一套数字证书，可以自己制作，也可以向组织申请，区别就是自己颁发的证书需要客户端验证通过，才可以继续访问，而使用受信任的公司申请的证书则不会弹出提示页面(startssl 就是个不错的选择，有 1 年的免费服务)。</p>
+<p>这套证书其实就是一对公钥和私钥，如果对公钥和私钥不太理解，可以想象成一把钥匙和一个锁头，只是全世界只有你一个人有这把钥匙，你可以把锁头给别人，别人可以用这个锁把重要的东西锁起来，然后发给你，因为只有你一个人有这把钥匙，所以只有你才能看到被这把锁锁起来的东西。</p>
+<h4 id="3、传送证书"><a href="#3、传送证书" class="headerlink" title="3、传送证书"></a>3、传送证书</h4><p>这个证书其实就是公钥，只是包含了很多信息，如证书的颁发机构，过期时间等等。</p>
+<h4 id="4、客户端解析证书"><a href="#4、客户端解析证书" class="headerlink" title="4、客户端解析证书"></a>4、客户端解析证书</h4><p>这部分工作是有客户端的 TLS 来完成的，首先会验证公钥是否有效，比如颁发机构，过期时间等等，如果发现异常，则会弹出一个警告框，提示证书存在问题。</p>
+<p>如果证书没有问题，那么就生成一个随机值，然后用证书对该随机值进行加密，就好像上面说的，把随机值用锁头锁起来，这样除非有钥匙，不然看不到被锁住的内容。</p>
+<h4 id="5、传送加密信息"><a href="#5、传送加密信息" class="headerlink" title="5、传送加密信息"></a>5、传送加密信息</h4><p>这部分传送的是用证书加密后的随机值，目的就是让服务端得到这个随机值，以后客户端和服务端的通信就可以通过这个随机值来进行加密解密了。</p>
+<h4 id="6、服务端解密信息"><a href="#6、服务端解密信息" class="headerlink" title="6、服务端解密信息"></a>6、服务端解密信息</h4><p>服务端用私钥解密后，得到了客户端传过来的随机值(私钥)，然后把内容通过该值进行对称加密，所谓对称加密就是，将信息和私钥通过某种算法混合在一起，这样除非知道私钥，不然无法获取内容，而正好客户端和服务端都知道这个私钥，所以只要加密算法够彪悍，私钥够复杂，数据就够安全。</p>
+<h4 id="7、传输加密后的信息"><a href="#7、传输加密后的信息" class="headerlink" title="7、传输加密后的信息"></a>7、传输加密后的信息</h4><p>这部分信息是服务段用私钥加密后的信息，可以在客户端被还原。</p>
+<h4 id="8、客户端解密信息"><a href="#8、客户端解密信息" class="headerlink" title="8、客户端解密信息"></a>8、客户端解密信息</h4><p>客户端用之前生成的私钥解密服务段传过来的信息，于是获取了解密后的内容，整个过程第三方即使监听到了数据，也束手无策。</p>
 
             </div>
             <hr/>
@@ -751,7 +621,7 @@ Viewer.setDefaults<span class="token punctuation">(</span><span class="token pun
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">24K博客</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/05/04/vue-tu-pian-yu-lan/" class="b-link-green">Vue图片预览</a>
+                    <a href="/2021/06/08/http-yu-https-de-qu-bie/" class="b-link-green">HTTP 与 HTTPS 的介绍及区别</a>
                 </p>
             </div>
         </div>
@@ -794,32 +664,31 @@ Viewer.setDefaults<span class="token punctuation">(</span><span class="token pun
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/05/10/vue-wen-jian-yu-lan/">
+                <a href="/2021/06/08/http-yu-https-de-qu-bie/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Vue文件预览">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="HTTP 与 HTTPS 的介绍及区别">
                         
-                        <span class="card-title">Vue文件预览</span>
+                        <span class="card-title">HTTP 与 HTTPS 的介绍及区别</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            pdf文件预览1、embed 标签&lt;template>
-  &lt;div style="height:100vh">
-    &lt;embed src="https://fscdn.xxx.com/pdf文件地址.pdf" 
-  
+                            
+基本概念HTTP（HyperText Transfer Protocol：超文本传输协议）是一种用于分布式、协作式和超媒体信息系统的应用层协议。 简单来说就是一种发布和接收 HTML 页面的方法，被用于在 Web 浏览器和网站服务器之间传
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-06-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -828,27 +697,20 @@ Viewer.setDefaults<span class="token punctuation">(</span><span class="token pun
                                     前端
                                 </a>
                             
-                            <a href="/categories/前端/Vue/" class="post-category" target="_blank">
-                                    Vue
-                                </a>
-                            
-                            <a href="/categories/前端/Vue/文件预览/" class="post-category" target="_blank">
-                                    文件预览
-                                </a>
-                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/HTTP-与-HTTPS-的区别/" target="_blank">
+                        <span class="chip bg-color">HTTP 与 HTTPS 的区别</span>
                     </a>
                     
-                    <a href="/tags/Vue文件预览/" target="_blank">
-                        <span class="chip bg-color">Vue文件预览</span>
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
                     </a>
                     
                 </div>
@@ -862,29 +724,34 @@ Viewer.setDefaults<span class="token punctuation">(</span><span class="token pun
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/05/04/hello-world/">
+                <a href="/2021/05/18/shou-dong-shi-xian-ajax/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/43.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="手动实现AJAX">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">手动实现AJAX</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            AjaxAjax在浏览器是通过XMLHttpRequest对象来实现数据传输的。
+XMLHttpRequest对象进行 HTTP 请求前必须通过 open 初始化，open 接受五个参数，分别为请求方法、请求链接、异步标识、账号和密码用以服
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-04
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-18
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            libing
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -892,8 +759,12 @@ Viewer.setDefaults<span class="token punctuation">(</span><span class="token pun
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                    <a href="/tags/手动实现AJAX/" target="_blank">
+                        <span class="chip bg-color">手动实现AJAX</span>
                     </a>
                     
                 </div>

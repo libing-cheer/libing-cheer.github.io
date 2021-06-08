@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-05-17T12:49:34.633Z</updated>
+  <updated>2021-06-08T12:01:44.944Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP 与 HTTPS 的介绍及区别</title>
+    <link href="http://yoursite.com/2021/06/08/http-yu-https-de-qu-bie/"/>
+    <id>http://yoursite.com/2021/06/08/http-yu-https-de-qu-bie/</id>
+    <published>2021-06-08T12:00:00.000Z</published>
+    <updated>2021-06-08T12:01:44.944Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://www.runoob.com/wp-content/uploads/2018/09/HTTP-vs-HTTPS.png&quot; alt=&quot;HTTP-vs-HTTPS&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;基本概念&quot;&gt;&lt;a href=&quot;#基本概念&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="HTTP 与 HTTPS 的区别" scheme="http://yoursite.com/tags/HTTP-%E4%B8%8E-HTTPS-%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    
+      <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>手动实现AJAX</title>
@@ -176,9 +205,9 @@
       <category term="前端" scheme="http://yoursite.com/categories/Javascript/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="数组方法" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="数组方法" scheme="http://yoursite.com/tags/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"/>
     
   </entry>
   
@@ -564,38 +593,6 @@
       <category term="let" scheme="http://yoursite.com/tags/let/"/>
     
       <category term="const" scheme="http://yoursite.com/tags/const/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue国际化   vue-i18n</title>
-    <link href="http://yoursite.com/2019/07/11/vue-guo-ji-hua-vue-i18n-de-shi-yong/"/>
-    <id>http://yoursite.com/2019/07/11/vue-guo-ji-hua-vue-i18n-de-shi-yong/</id>
-    <published>2019-07-11T05:00:56.000Z</published>
-    <updated>2019-09-30T01:30:42.853Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;一、示例&quot;&gt;&lt;a href=&quot;#一、示例&quot; class=&quot;headerlink&quot; title=&quot;一、示例&quot;&gt;&lt;/a&gt;一、示例&lt;/h3&gt;&lt;p&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/Vue/"/>
-    
-    
-      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
-    
-      <category term="国际化" scheme="http://yoursite.com/tags/%E5%9B%BD%E9%99%85%E5%8C%96/"/>
-    
-      <category term="vue-i18n" scheme="http://yoursite.com/tags/vue-i18n/"/>
     
   </entry>
   
