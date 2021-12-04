@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-11-04T07:57:10.593Z</updated>
+  <updated>2021-12-04T10:29:17.368Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>西安旅游出行小攻略</title>
+    <link href="http://yoursite.com/2021/12/04/xi-an-lu-you-gong-lue/"/>
+    <id>http://yoursite.com/2021/12/04/xi-an-lu-you-gong-lue/</id>
+    <published>2021-12-04T08:30:00.000Z</published>
+    <updated>2021-12-04T10:29:17.368Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;一、准备建议&quot;&gt;&lt;a href=&quot;#一、准备建议&quot; class=&quot;headerlink&quot; title=&quot;一、准备建议&quot;&gt;&lt;/a&gt;一、准备建议&lt;/h3&gt;&lt;p&gt;❤️
+        
+      
+    
+    </summary>
+    
+      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="旅游" scheme="http://yoursite.com/tags/%E6%97%85%E6%B8%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>Table表格自定义显示列设置展示</title>
@@ -559,36 +585,6 @@
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
     
       <category term="前端分页" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%88%86%E9%A1%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ES6之 async 函数</title>
-    <link href="http://yoursite.com/2019/09/05/es6-zhi-async-han-shu/"/>
-    <id>http://yoursite.com/2019/09/05/es6-zhi-async-han-shu/</id>
-    <published>2019-09-05T10:48:00.000Z</published>
-    <updated>2019-09-30T01:48:54.539Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h3 id=&quot;1、含义&quot;&gt;&lt;a href=&quot;#1、含义&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="ES6" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/ES6/"/>
-    
-    
-      <category term="ES6" scheme="http://yoursite.com/tags/ES6/"/>
-    
-      <category term="async" scheme="http://yoursite.com/tags/async/"/>
     
   </entry>
   
