@@ -1,0 +1,1083 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="总结, 24K博客">
+    <meta name="description" content="1、diff 算法和虚拟 DOMdiff 算法特点:
+
+1、同级比较,不会跨级别比较时间复杂度为 O(n)
+2、在 diff 比较的过程中,循环从两边向中间靠拢
+
+第一步: vue 的虚拟 DOM 首先会对新老 VNode 的开始位置和结束">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>总结 | 24K博客</title>
+    <link rel="icon" type="image/png" href="/medias/海星.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+    <script src="https://v1.hitokoto.cn/?c=d&encode=js&select=%23hitokoto" defer></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/海星.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">24K博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/海星.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">24K博客</div>
+        <div class="logo-desc">
+            
+            安安静静的做一个分享技术，分享生活的咸鱼
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/libing-cheer/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/libing-cheer/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        总结
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 220px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/vue/" target="_blank">
+                                <span class="chip bg-color">vue</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/未来/" class="post-category" target="_blank">
+                                未来
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-04
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.6k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        6 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h4 id="1、diff-算法和虚拟-DOM"><a href="#1、diff-算法和虚拟-DOM" class="headerlink" title="1、diff 算法和虚拟 DOM"></a>1、diff 算法和虚拟 DOM</h4><p>diff 算法特点:</p>
+<ul>
+<li>1、同级比较,不会跨级别比较时间复杂度为 O(n)</li>
+<li>2、在 diff 比较的过程中,循环从两边向中间靠拢</li>
+</ul>
+<h5 id="第一步-vue-的虚拟-DOM-首先会对新老-VNode-的开始位置和结束位置进行标记"><a href="#第一步-vue-的虚拟-DOM-首先会对新老-VNode-的开始位置和结束位置进行标记" class="headerlink" title="第一步: vue 的虚拟 DOM 首先会对新老 VNode 的开始位置和结束位置进行标记"></a>第一步: vue 的虚拟 DOM 首先会对新老 VNode 的开始位置和结束位置进行标记</h5><h5 id="第二步-对新老节点的比较并对应移动-VNode-节点"><a href="#第二步-对新老节点的比较并对应移动-VNode-节点" class="headerlink" title="第二步: 对新老节点的比较并对应移动 VNode 节点"></a>第二步: 对新老节点的比较并对应移动 VNode 节点</h5><ul>
+<li>情形一: 当新老 VNode 节点的 start 等于 sameVNode 时,直接使用 patchVnode 即可,同时新老 VNode 节点对的索引都加 1</li>
+<li>情形二: 当新老 VNode 节点的 end 等于 sameVNode 时,同样直接使用 patchNode 即可,同时新老 VNode 节点的索引值都减 1</li>
+<li>情形三: 当老 VNode 节点的 start 和新 VNode 的 end 满足 sameVnode 时候,数据更新后,oldStartVNode 跑到 oldEndVNode 后面去了,patchVnode 还要将当前真实 dom 节点移动到 oldEndVNode 后面,老 Vnode 节点索引加 1,新 Vnode 节点索引减 1</li>
+<li>情形四: 当老 VNode 的 end 节点和新 VNode 节点的 start 满足 sameVNode 时,说明数据更新后 oldEndVnode 跑到 oldStartVnode 后面去了,patchVNode 后还要将当前真实 dom 移动到 oldStartVnode 后面,老 Vnode 节点索引减 1,新 Vnode 节点所以加 1</li>
+</ul>
+<p>如果都不满足以上四种情形，那说明没有相同的节点可以复用。</p>
+<h5 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h5><p>当 while 循环结束后,根据新老节点的数目不同,分别进行相应的节点添加和删除.如果新节点的数目大于老节点,则需要把多出来的节点创建出来添加到真实 dom 中,如果老节点数目大于新节点数目,则需要把多出来的老节点从真实 dom 中删除</p>
+<h4 id="2、导航路由钩子"><a href="#2、导航路由钩子" class="headerlink" title="2、导航路由钩子"></a>2、导航路由钩子</h4><p>1、全局路由钩子: beforeEach、afterEach、beforeResolve</p>
+<p>2、单个路由钩子: beforeEnter</p>
+<p>3、组件路由钩子: beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave</p>
+<h4 id="3、filter、watch-和-computed-的区别"><a href="#3、filter、watch-和-computed-的区别" class="headerlink" title="3、filter、watch 和 computed 的区别"></a>3、filter、watch 和 computed 的区别</h4><p>watch:监听值,只能是 data 里面的属性,可以使用异步函数<br>computed:定义一个函数,这个函数会返回一个值,然后返回处理的数据,可以包含大量逻辑计算,不支持异步函数<br>filter:过滤器<br>全局过滤器: vue.filter(‘toFixed’, (模型变量, 其他参数))<br>局部过滤器: vm 控制器里面</p>
+<h4 id="4、指令及使用指令的钩子"><a href="#4、指令及使用指令的钩子" class="headerlink" title="4、指令及使用指令的钩子"></a>4、指令及使用指令的钩子</h4><p>全局指令</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token comment" spellcheck="true">// 全局指令</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">'focus'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  inserted<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    el<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 局部指令</span>
+directive<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  focus<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    inserted<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      el<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// 使用指令的钩子函数</span>
+bind 只调用一次<span class="token punctuation">,</span>第一次绑定元素时使用
+inserted 插入节点时使用
+update 节点更新时使用
+componentUpdated 指令所在的节点和其子节点更新时使用
+unbind 只调用一次<span class="token punctuation">,</span>指令与组件解绑时使用
+</code></pre>
+<h4 id="5、上传组件包的方法"><a href="#5、上传组件包的方法" class="headerlink" title="5、上传组件包的方法"></a>5、上传组件包的方法</h4><pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> login 登录
+<span class="token function">npm</span> publish 发布
+</code></pre>
+<h4 id="6、nginx-有哪些配置"><a href="#6、nginx-有哪些配置" class="headerlink" title="6、nginx 有哪些配置"></a>6、nginx 有哪些配置</h4><pre class=" language-javascript"><code class="language-javascript"> http <span class="token punctuation">{</span>
+    include mime<span class="token punctuation">.</span>types
+    default_type application<span class="token operator">/</span>octet<span class="token operator">-</span>stream
+
+    server <span class="token punctuation">{</span>
+        listen <span class="token number">80</span><span class="token punctuation">;</span>
+        server_name<span class="token punctuation">:</span> localhost<span class="token punctuation">;</span>
+
+        location <span class="token punctuation">{</span>
+          root html<span class="token punctuation">;</span>
+          index index<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        error_page <span class="token number">502</span> <span class="token number">503</span> <span class="token number">504</span> <span class="token operator">/</span>50x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>
+
+        location <span class="token operator">=</span> <span class="token operator">/</span>50x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>
+          root html
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span>
+</code></pre>
+<h4 id="7、-async-await-与-Promise-的关联"><a href="#7、-async-await-与-Promise-的关联" class="headerlink" title="7、@async @await 与 @Promise 的关联"></a>7、@async @await 与 @Promise 的关联</h4><ul>
+<li>Promise 对象是一个代理对象 被代理的值在 Promise 对象创建时可能是未知的</li>
+<li>async await 是 promise 的语法糖,只是为了书写代码时更流畅,增强代码可读性,定义了一个异步函数</li>
+<li>await 必须出现在 async 函数内部 不能单独使用</li>
+<li>await 返回的是一个 promise 对象</li>
+<li>async await Reject 捕捉是用 try {} catch {}</li>
+</ul>
+<h4 id="8、-GET-POST-的区别"><a href="#8、-GET-POST-的区别" class="headerlink" title="8、@GET @POST 的区别"></a>8、@GET @POST 的区别</h4><ul>
+<li>GET 请求有长度限制,而 POST 请求没有</li>
+<li>GET 浏览器退回无害,POST 则会重新发起请求</li>
+<li>GET 请求参数通过 URL 传递,POST 放在请求体中</li>
+<li>GET 请求更不安全,因为参数暴露在 URL 上面</li>
+<li>GET 产生一个 TCP 数据包 POST 产生 2 个 TCP 数据包</li>
+<li>GET 请求 浏览器会把 http hdeader 和 data 一并发送出去，服务器响应 200, POST 请求 浏览器先发送 header，服务器响应 100 continue 浏览器在发送 data 服务器响应 200</li>
+</ul>
+<h4 id="9、nextTick-的原理"><a href="#9、nextTick-的原理" class="headerlink" title="9、nextTick 的原理"></a>9、nextTick 的原理</h4><p>在下次循环 DOM 更新后执行延迟回调,在修改数据后立即执行这个方法,获取更新后的 DOM</p>
+<pre class=" language-javascript"><code class="language-javascript">callbacks<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 异步操作队列</span>
+pending<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 标识同一个时间只能执行一次</span>
+timerFunc<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 执行异步延迟函数</span>
+
+<span class="token comment" spellcheck="true">// 把回调函数放入 callbacks中等待执行</span>
+<span class="token comment" spellcheck="true">// 将执行函数放到宏任务或者微任务中</span>
+<span class="token comment" spellcheck="true">// 事件循环到了宏任务或者微任务,执行函数依次执行callbacks中的函数</span>
+</code></pre>
+<h4 id="10、https-缓存策略"><a href="#10、https-缓存策略" class="headerlink" title="10、https 缓存策略"></a>10、https 缓存策略</h4><ul>
+<li><p>强制缓存(cache-control) 放在请求头中<br>max-age<br>no-cache (不用本地缓存)<br>no-store (不用本地和服务器缓存)</p>
+</li>
+<li><p>协商缓存 (对比缓存) 依据服务端和客户端的资源标识符是否一样<br>Last Modified<br>Etag</p>
+</li>
+</ul>
+<h4 id="11、事件循环"><a href="#11、事件循环" class="headerlink" title="11、事件循环"></a>11、事件循环</h4><h4 id="12、ProxyTable-原理"><a href="#12、ProxyTable-原理" class="headerlink" title="12、ProxyTable 原理"></a>12、ProxyTable 原理</h4><p>浏览器禁止跨域,但是服务器可以.npm run dev 运行了一个服务器,ProxyTable 实际上是将请求发送给自身服务器,然后在由服务器转发给后台服务器,做了一层代理,所以不会出现跨域问题</p>
+<h4 id="13、webpack-热重载"><a href="#13、webpack-热重载" class="headerlink" title="13、webpack 热重载"></a>13、webpack 热重载</h4><p>webpack 的 Watch Mode 观察模式 自动编译 需要手动刷新浏览器</p>
+<p>webpack-dev-server web 服务器相当于启用了一个 express+http 服务器+webpack-dev-middleware 自动编译+实时重新加载浏览器</p>
+<p>webpack-dev-middleware</p>
+<h4 id="14、scoped-原理"><a href="#14、scoped-原理" class="headerlink" title="14、scoped 原理"></a>14、scoped 原理</h4><p>vue 通过在 DOM 结构及 css 样式上添加唯一的标记,保证唯一,达到样式私有化,不会污染全局,主要是通过 Postcss 进行转换,Postcss 给左右 dom 元素添加了一个独一无二的动态属性,组件内部 dom</p>
+<h4 id="15、常用的-es6-语法"><a href="#15、常用的-es6-语法" class="headerlink" title="15、常用的 es6 语法"></a>15、常用的 es6 语法</h4><p>Object.assign()<br>Object.entries()<br>Object.keys()<br>Object.values()</p>
+<p>Array.from()<br>Array.of()</p>
+<p>Symbol</p>
+<p>Set()<br>Map()</p>
+<h4 id="16、输入一个-url-请求到页面展示经历了哪些过程"><a href="#16、输入一个-url-请求到页面展示经历了哪些过程" class="headerlink" title="16、输入一个 url 请求到页面展示经历了哪些过程"></a>16、输入一个 url 请求到页面展示经历了哪些过程</h4><p>1、DNS 解析<br>2、TCP 连接<br>3、发送 HTTP 请求<br>4、服务器处理请求并返回 HTTP 报文<br>5、浏览器解析并渲染页面<br>6、连接结束</p>
+<h4 id="17、for-和-forEach-的区别"><a href="#17、for-和-forEach-的区别" class="headerlink" title="17、for 和 forEach 的区别"></a>17、for 和 forEach 的区别</h4><p>for 循环可以中断循环 forEach 不可以中断</p>
+<p>for 循环是一种循环机制,只是能通过它遍历数组</p>
+<p>forEach 是负责遍历可迭代对象</p>
+<p>性能比较 for &gt; forEach</p>
+<h4 id="18-防抖和节流"><a href="#18-防抖和节流" class="headerlink" title="18 防抖和节流"></a>18 防抖和节流</h4><p>节流: n秒后只运行一次,n秒内重复触发,只有一次生效<br>防抖: n秒后执行该事件,n秒内重复触发,则重新计时</p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://yoursite.com" class="b-link-green">24K博客</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2020/12/04/zongjie/" class="b-link-green">总结</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div class="livere-card card" data-aos="fade-up">
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" class="card-content" data-id="city" data-uid="MTAyMC80NDA5NC8yMDYyOQ==">
+        <script type="text/javascript">
+            (function (d, s) {
+                let j, e = d.getElementsByTagName(s)[0];
+                if (typeof LivereTower === 'function') {
+                    return;
+                }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript>为正常使用来必力评论功能请激活JavaScript。</noscript>
+    </div>
+    <!-- City版安装代码已完成 -->
+</div>
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/11/fang-dou-yu-jie-liu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/54.jpg" class="responsive-img" alt="防抖与节流">
+                        
+                        <span class="card-title">防抖与节流</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            防抖与节流防抖debounce与节流throttle都是控制事件处理函数执行频率的方法，当函数会进行DOM操作或者具有请求服务器等行为并且作为高频事件例如onscroll触发的事件处理函数时，就需要进行事件处理函数执行频率的控制，否则会造成
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/防抖与节流/" target="_blank">
+                        <span class="chip bg-color">防抖与节流</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/26/vue-xiang-guan-wen-ti-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="Vue常见面试问题及解析(持续更新中····)">
+                        
+                        <span class="card-title">Vue常见面试问题及解析(持续更新中····)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1、如何理解 MVVM 原理
+
+M：Model，数据层对数据的处理；
+V：View，视图层，是 HMTL 显示页面；
+VM：ViewModel：业务逻辑层（一切 JS 可视为业务逻辑，比如表单按钮提交，自定义事件的注册和处理逻辑都在View
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-05-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category" target="_blank">
+                                    Vue
+                                </a>
+                            
+                            <a href="/categories/Vue/面试/" class="post-category" target="_blank">
+                                    面试
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vue/" target="_blank">
+                        <span class="chip bg-color">Vue</span>
+                    </a>
+                    
+                    <a href="/tags/面试/" target="_blank">
+                        <span class="chip bg-color">面试</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 24K博客<br />'
+            + '作者: libing<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">24K</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">76.5k</span>
+            
+
+            <!--  -->
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:libing_cheer@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
